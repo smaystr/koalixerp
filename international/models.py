@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 """
 This file is part of django-international.
 Copyright (c) 2012 Monwara LLC.
@@ -59,7 +59,8 @@ countries_raw = (
     ("AN", "BV", "BVT", 74, _("Bouvet Island (Bouvetoya)")),
     ("SA", "BR", "BRA", 76, _("Brazil, Federative Republic of")),
     ("NA", "BZ", "BLZ", 84, _("Belize")),
-    ("AS", "IO", "IOT", 86, _("British Indian Ocean Territory (Chagos Archipelago)")),
+    ("AS", "IO", "IOT", 86,
+        _("British Indian Ocean Territory (Chagos Archipelago)")),
     ("OC", "SB", "SLB", 90, _("Solomon Islands")),
     ("NA", "VG", "VGB", 92, _("British Virgin Islands")),
     ("AS", "BN", "BRN", 96, _("Brunei Darussalam")),
@@ -103,7 +104,8 @@ countries_raw = (
     ("EU", "EE", "EST", 233, _("Estonia, Republic of")),
     ("EU", "FO", "FRO", 234, _("Faroe Islands")),
     ("SA", "FK", "FLK", 238, _("Falkland Islands (Malvinas)")),
-    ("AN", "GS", "SGS", 239, _("South Georgia and the South Sandwich Islands")),
+    ("AN", "GS", "SGS", 239,
+        _("South Georgia and the South Sandwich Islands")),
     ("OC", "FJ", "FJI", 242, _("Fiji, Republic of the Fiji Islands")),
     ("EU", "FI", "FIN", 246, _("Finland, Republic of")),
     ("EU", "AX", "ALA", 248, _("Åland Islands")),
@@ -132,7 +134,8 @@ countries_raw = (
     ("AN", "HM", "HMD", 334, _("Heard Island and McDonald Islands")),
     ("EU", "VA", "VAT", 336, _("Holy See (Vatican City State)")),
     ("NA", "HN", "HND", 340, _("Honduras, Republic of")),
-    ("AS", "HK", "HKG", 344, _("Hong Kong, Special Administrative Region of China")),
+    ("AS", "HK", "HKG", 344,
+        _("Hong Kong, Special Administrative Region of China")),
     ("EU", "HU", "HUN", 348, _("Hungary, Republic of")),
     ("EU", "IS", "ISL", 352, _("Iceland, Republic of")),
     ("AS", "IN", "IND", 356, _("India, Republic of")),
@@ -161,7 +164,8 @@ countries_raw = (
     ("EU", "LI", "LIE", 438, _("Liechtenstein, Principality of")),
     ("EU", "LT", "LTU", 440, _("Lithuania, Republic of")),
     ("EU", "LU", "LUX", 442, _("Luxembourg, Grand Duchy of")),
-    ("AS", "MO", "MAC", 446, _("Macao, Special Administrative Region of China")),
+    ("AS", "MO", "MAC", 446,
+        _("Macao, Special Administrative Region of China")),
     ("AF", "MG", "MDG", 450, _("Madagascar, Republic of")),
     ("AF", "MW", "MWI", 454, _("Malawi, Republic of")),
     ("AS", "MY", "MYS", 458, _("Malaysia")),
@@ -198,7 +202,8 @@ countries_raw = (
     ("OC", "NU", "NIU", 570, _("Niue")),
     ("OC", "NF", "NFK", 574, _("Norfolk Island")),
     ("EU", "NO", "NOR", 578, _("Norway, Kingdom of")),
-    ("OC", "MP", "MNP", 580, _("Northern Mariana Islands, Commonwealth of the")),
+    ("OC", "MP", "MNP", 580,
+        _("Northern Mariana Islands, Commonwealth of the")),
     ("NA", "UM", "UMI", 581, _("United States Minor Outlying Islands")),
     ("OC", "FM", "FSM", 583, _("Micronesia, Federated States of")),
     ("OC", "MH", "MHL", 584, _("Marshall Islands, Republic of the")),
@@ -229,7 +234,8 @@ countries_raw = (
     ("NA", "PM", "SPM", 666, _("Saint Pierre and Miquelon")),
     ("NA", "VC", "VCT", 670, _("Saint Vincent and the Grenadines")),
     ("EU", "SM", "SMR", 674, _("San Marino, Republic of")),
-    ("AF", "ST", "STP", 678, _("Sao Tome and Principe, Democratic Republic of")),
+    ("AF", "ST", "STP", 678,
+        _("Sao Tome and Principe, Democratic Republic of")),
     ("AS", "SA", "SAU", 682, _("Saudi Arabia, Kingdom of")),
     ("AF", "SN", "SEN", 686, _("Senegal, Republic of")),
     ("EU", "RS", "SRB", 688, _("Serbia, Republic of")),
@@ -462,7 +468,8 @@ currencies = (
     ('WST', _('WST - Samoa Tala')),
     ('XAF', _('XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC')),
     ('XCD', _('XCD - East Caribbean Dollar')),
-    ('XDR', _('XDR - International Monetary Fund (IMF) Special Drawing Rights')),
+    ('XDR',
+        _('XDR - International Monetary Fund (IMF) Special Drawing Rights')),
     ('XOF', _('XOF - Communauté Financière Africaine (BCEAO) Franc')),
     ('XPF', _('XPF - Comptoirs Français du Pacifique (CFP) Franc')),
     ('YER', _('YER - Yemen Rial')),
@@ -477,9 +484,9 @@ languages_english = []
 
 if babel:
     try:
-        locales = babel.localedata.list() # v0.9.6 and before
+        locales = babel.localedata.list()  # v0.9.6 and before
     except AttributeError:
-        locales = babel.localedata.locale_identifiers() # v1.0 and later
+        locales = babel.localedata.locale_identifiers()  # v1.0 and later
     locales.sort()
     for l_id in locales:
         l = babel.Locale(l_id)

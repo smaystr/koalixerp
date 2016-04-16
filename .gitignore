@@ -1,19 +1,75 @@
-*.pyc
-*.pyo
-*.db
+### OSX ###
 .DS_Store
+.AppleDouble
+.LSOverride
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Basics
+*.py[cod]
+*.pyo
+*.pyc
+__pycache__
+
+# Logs
+*.log
+pip-log.txt
+
+# Unit test / coverage reports
 .coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+*.pot
+
+# Pycharm
+.idea
+
+# Vim
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+
+# Compass
+.sass-cache
+
+# virtual environments
+.env
+
+# ignore vagrant
+.vagrant
+
+# ignore media files
+media/*
+
+*.pyc
+
+# local databases with SQLite
+*.db
+
+#Project specifics
 local_settings.py
-/static/media/galleries/
-/static/media/data/galleries/
-/static/media/data/icons/
-/static/media/data/slider/
-/static/media/data/xfgs/
 .idea
 doc/build/
 /Theme/
-.vagrant
-pip-log.txt
 build
-.env
-media/*
+htmlcov/

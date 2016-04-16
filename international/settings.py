@@ -11,6 +11,7 @@ from __future__ import unicode_literals
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
+
 def getsetting(setting, default):
     return getattr(settings, setting, default)
 
@@ -27,4 +28,3 @@ CURRENCY_FORM_EMPTY_VALUE = getsetting('CURRENCY_FORM_EMPTY_VALUE', '')
 CURRENCY_FORM_EMPTY_LABEL = getsetting('CURRENCY_FORM_EMPTY_LABEL',
                                        _('All currencies'))
 CURRENCY_FORM_INITIAL_VALUE = getsetting('CURRENCY_FORM_INITIAL_VALUE', None)
-

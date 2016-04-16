@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 #
 # Koalix ERP documentation build configuration file, created by
 # sphinx-quickstart on Wed Oct 15 17:36:17 2014.

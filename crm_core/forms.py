@@ -4,16 +4,17 @@ from datetimewidget.widgets import DateWidget
 from django import forms
 from crispy_forms.helper import FormHelper
 from django.forms import inlineformset_factory
-from .models import PurchaseOrder, Quote, Invoice, CustomerCartItem, ProductUnit, ProductTax
+from .models import (PurchaseOrder, Quote, Invoice, CustomerCartItem,
+                     ProductUnit, ProductTax)
 from cartridge.shop.models import Cart, Product
-from ajax_select import make_ajax_field
 
 
 class PurchaseOrderForm(forms.ModelForm):
 
     class Meta:
         model = PurchaseOrder
-        exclude = ('status', '_meta_title', 'gen_description', 'slug', 'short_url', 'in_sitemap', 'content')
+        exclude = ('status', '_meta_title', 'gen_description', 'slug',
+                   'short_url', 'in_sitemap', 'content')
         fields = ['external_reference', 'description']
 
     def __init__(self, *args, **kwargs):
@@ -27,13 +28,15 @@ class QuoteForm(forms.ModelForm):
 
     class Meta:
         model = Quote
-        exclude = ('status', '_meta_title', 'gen_description', 'slug', 'short_url', 'in_sitemap', 'content')
+        exclude = ('status', '_meta_title', 'gen_description', 'slug',
+                   'short_url', 'in_sitemap', 'content')
         fields = ['validuntil', 'external_reference', 'description']
 
     def __init__(self, *args, **kwargs):
         super(QuoteForm, self).__init__(*args, **kwargs)
         self.fields['description'].widget = forms.TextInput()
-        self.fields['validuntil'] = forms.DateField(widget=DateWidget(bootstrap_version=3, usel10n=True))
+        self.fields['validuntil'] = forms.DateField(
+            widget=DateWidget(bootstrap_version=3, usel10n=True))
         self.helper = FormHelper()
         self.helper.form_tag = False
 
@@ -42,13 +45,15 @@ class InvoiceForm(forms.ModelForm):
 
     class Meta:
         model = Invoice
-        exclude = ('status', '_meta_title', 'gen_description', 'slug', 'short_url', 'in_sitemap', 'content')
+        exclude = ('status', '_meta_title', 'gen_description', 'slug',
+                   'short_url', 'in_sitemap', 'content')
         fields = ['payableuntil', 'external_reference', 'description']
 
     def __init__(self, *args, **kwargs):
         super(InvoiceForm, self).__init__(*args, **kwargs)
         self.fields['description'].widget = forms.TextInput()
-        self.fields['payableuntil'] = forms.DateField(widget=DateWidget(bootstrap_version=3, usel10n=True))
+        self.fields['payableuntil'] = forms.DateField(
+            widget=DateWidget(bootstrap_version=3, usel10n=True))
         self.helper = FormHelper()
         self.helper.form_tag = False
 
@@ -57,8 +62,10 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        exclude = ('status', '_meta_title', 'gen_description', 'slug', 'short_url', 'in_sitemap', 'content')
-        fields = ('sku', 'title', 'description', 'unit_price', 'num_in_stock', 'available', 'publish_date',
+        exclude = ('status', '_meta_title', 'gen_description', 'slug',
+                   'short_url', 'in_sitemap', 'content')
+        fields = ('sku', 'title', 'description', 'unit_price', 'num_in_stock',
+                  'available', 'publish_date',
                   'expiry_date')
         widgets = {
             'publish_date': forms.DateTimeInput()

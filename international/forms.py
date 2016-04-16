@@ -9,10 +9,11 @@ Licensed under BSD license. See LICENSE file for more details.
 from __future__ import unicode_literals
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
 
 import settings
 from models import currencies, countries, Country
+
 
 def get_arg(kwarg, arg_name, default):
     arg_val = default
@@ -22,12 +23,10 @@ def get_arg(kwarg, arg_name, default):
     return arg_val, kwarg
 
 
-
 class CountryForm(forms.Form):
     """Country form
 
     Following settings are applicable:
-
 
     COUNTRY_FORM_LABEL
     ------------------
@@ -38,15 +37,15 @@ class CountryForm(forms.Form):
     --------------------------
 
     This settings controls whether country form will include empty value when
-    instantiated. You can also use the ``COUNTRY_FORM_EMPTY_VALUE`` to control the
-    value of the item that will be treted as empty (no country). Default is
+    instantiated. You can also use the ``COUNTRY_FORM_EMPTY_VALUE`` to control
+    the value of the item that will be treted as empty (no country). Default is
     ``False``.
 
     COUNTRY_FORM_EMPTY_VALUE
     ------------------------
 
-    This setting controls the value that is assigned to empty value (no country) if
-    ``COUNTRY_FORM_INCLUDE_EMPTY`` is set to ``True``.
+    This setting controls the value that is assigned to empty value (no
+    country) if``COUNTRY_FORM_INCLUDE_EMPTY`` is set to ``True``.
 
     COUNTRY_FORM_EMPTY_LABEL
     ------------------------
@@ -120,9 +119,8 @@ class CurrencyForm(forms.Form):
     CURRENCY_FORM_EMPTY_LABEL
     -------------------------
 
-    Same as ``COUNTRY_FORM_EMPTY_LABEL`` but for currency form. Defaults to 'All
-    currencies'.
-
+    Same as ``COUNTRY_FORM_EMPTY_LABEL`` but for currency form. Defaults to
+    'All currencies'.
     """
 
     def __init__(self, *arg, **kwarg):

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import date, timedelta, datetime
 from django.conf import settings
 from django.db import models, transaction
@@ -14,11 +12,16 @@ from os import path
 import reversion
 from weasyprint import HTML
 from international.models import countries, currencies, countries_raw
-from .const.postaladdressprefix import POSTAL_ADDRESS_PREFIX_CHOICES, PostalAddressPrefix
-from .const.purpose import POSTAL_ADDRESS_PURPOSE_CHOICES, PHONE_ADDRESS_PURPOSE_CHOICES, \
-    EMAIL_ADDRESS_PURPOSE_CHOICES, EmailAddressPurpose, PhoneAddressPurpose, PostalAddressPurpose
-from .const.states import CONTRACT_STATE_CHOICES, ContractStatesEnum, ContractStatesLabelEnum
-from django_extensions.db.fields import CreationDateTimeField, ModificationDateTimeField
+from .const.postaladdressprefix import (POSTAL_ADDRESS_PREFIX_CHOICES,
+                                        PostalAddressPrefix)
+from .const.purpose import (POSTAL_ADDRESS_PURPOSE_CHOICES,
+                            PHONE_ADDRESS_PURPOSE_CHOICES,
+                            EMAIL_ADDRESS_PURPOSE_CHOICES, EmailAddressPurpose,
+                            PhoneAddressPurpose, PostalAddressPurpose)
+from .const.states import (CONTRACT_STATE_CHOICES, ContractStatesEnum,
+                           ContractStatesLabelEnum)
+from django_extensions.db.fields import (CreationDateTimeField,
+                                         ModificationDateTimeField)
 from solo.models import SingletonModel
 
 
@@ -27,16 +30,21 @@ from solo.models import SingletonModel
 # ######################
 
 class Contact(models.Model):
-    prefix = models.CharField(
-        max_length=1, choices=POSTAL_ADDRESS_PREFIX_CHOICES, verbose_name=_("Title"), blank=True, null=True)
+    prefix = models.CharField(max_length=1,
+                              choices=POSTAL_ADDRESS_PREFIX_CHOICES,
+                              verbose_name=_("Title"), blank=True, null=True)
     name = models.CharField(max_length=300, verbose_name=_("Name"))
     dateofcreation = CreationDateTimeField(verbose_name=_("Created at"))
-    lastmodification = ModificationDateTimeField(verbose_name=_("Last modified"))
-    lastmodifiedby = models.ForeignKey(
-        settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True},
-        blank=True, verbose_name=_("Last modified by"), null=True)
-    default_currency = models.CharField(
-        verbose_name=_('Currency'), max_length=3, choices=currencies, blank=True, null=True)
+    lastmodification = ModificationDateTimeField(
+        verbose_name=_("Last modified"))
+    lastmodifiedby = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                       limit_choices_to={'is_staff': True},
+                                       blank=True,
+                                       verbose_name=_("Last modified by"),
+                                       null=True)
+    default_currency = models.CharField(verbose_name=_('Currency'),
+                                        max_length=3, choices=currencies,
+                                        blank=True, null=True)
 
     class Meta:
         abstract = True
@@ -60,8 +68,10 @@ class Contact(models.Model):
 
 class EmailAddress(models.Model):
     email = models.EmailField(max_length=200, verbose_name=_("Email Address"))
-    purpose = models.CharField(
-        verbose_name=_("Purpose"), max_length=1, choices=EMAIL_ADDRESS_PURPOSE_CHOICES, default='H')
+    purpose = models.CharField(verbose_name=_("Purpose"),
+                               max_length=1,
+                               choices=EMAIL_ADDRESS_PURPOSE_CHOICES,
+                               default='H')
 
     class Meta:
         abstract = True
@@ -80,8 +90,9 @@ class EmailAddress(models.Model):
 
 class PhoneAddress(models.Model):
     phone = models.CharField(max_length=20, verbose_name=_("Phone Number"))
-    purpose = models.CharField(
-        verbose_name=_("Purpose"), max_length=1, choices=PHONE_ADDRESS_PURPOSE_CHOICES, default='H')
+    purpose = models.CharField(verbose_name=_("Purpose"), max_length=1,
+                               choices=PHONE_ADDRESS_PURPOSE_CHOICES,
+                               default='H')
 
     class Meta:
         abstract = True
@@ -99,13 +110,23 @@ class PhoneAddress(models.Model):
 
 
 class PostalAddress(models.Model):
-    addressline1 = models.CharField(max_length=200, verbose_name=_("Addressline 1"), blank=True, null=True)
-    addressline2 = models.CharField(max_length=200, verbose_name=_("Addressline 2"), blank=True, null=True)
-    zipcode = models.IntegerField(verbose_name=_("Zipcode"), blank=True, null=True)
-    city = models.CharField(max_length=100, verbose_name=_("City"), blank=True, null=True)
-    state = models.CharField(max_length=100, verbose_name=_("State"), blank=True, null=True)
-    country = models.CharField(max_length=2, choices=countries, verbose_name=_("Country"), blank=True, null=True)
-    purpose = models.CharField(verbose_name=_("Purpose"), max_length=1, choices=POSTAL_ADDRESS_PURPOSE_CHOICES,
+    addressline1 = models.CharField(max_length=200,
+                                    verbose_name=_("Addressline 1"),
+                                    blank=True, null=True)
+    addressline2 = models.CharField(max_length=200,
+                                    verbose_name=_("Addressline 2"),
+                                    blank=True, null=True)
+    zipcode = models.IntegerField(verbose_name=_("Zipcode"),
+                                  blank=True, null=True)
+    city = models.CharField(max_length=100, verbose_name=_("City"),
+                            blank=True, null=True)
+    state = models.CharField(max_length=100, verbose_name=_("State"),
+                             blank=True, null=True)
+    country = models.CharField(max_length=2, choices=countries,
+                               verbose_name=_("Country"),
+                               blank=True, null=True)
+    purpose = models.CharField(verbose_name=_("Purpose"), max_length=1,
+                               choices=POSTAL_ADDRESS_PURPOSE_CHOICES,
                                default='C')
 
     class Meta:
@@ -135,14 +156,24 @@ class PostalAddress(models.Model):
 
 
 class SalesContract(models.Model):
-    external_reference = models.CharField(verbose_name=_("External Reference"), max_length=100, blank=True)
-    discount = models.DecimalField(max_digits=5, decimal_places=2, verbose_name=_("Discount"), blank=True, null=True)
-    customer = models.ForeignKey('crm_core.Customer', verbose_name=_("Customer"))
-    dateofcreation = CreationDateTimeField(verbose_name=_("Created at"), editable=False)
-    lastmodification = ModificationDateTimeField(verbose_name=_("Last modified"), editable=False)
-    lastmodifiedby = models.ForeignKey(settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True}, blank=True,
-                                       verbose_name=_("Last modified by"), null=True)
-    pdf_path = models.CharField(max_length=200, null=True, blank=True, editable=False)
+    external_reference = models.CharField(verbose_name=_("External Reference"),
+                                          max_length=100, blank=True)
+    discount = models.DecimalField(max_digits=5, decimal_places=2,
+                                   verbose_name=_("Discount"), blank=True,
+                                   null=True)
+    customer = models.ForeignKey('crm_core.Customer',
+                                 verbose_name=_("Customer"))
+    dateofcreation = CreationDateTimeField(verbose_name=_("Created at"),
+                                           editable=False)
+    lastmodification = ModificationDateTimeField(
+        verbose_name=_("Last modified"), editable=False)
+    lastmodifiedby = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                       limit_choices_to={'is_staff': True},
+                                       blank=True,
+                                       verbose_name=_("Last modified by"),
+                                       null=True)
+    pdf_path = models.CharField(max_length=200,
+                                null=True, blank=True, editable=False)
 
     class Meta:
         abstract = True
@@ -158,7 +189,8 @@ class SalesContract(models.Model):
 # #############################
 
 class CustomerCartItem(cartridge_models.CartItem):
-    product = models.ForeignKey(cartridge_models.Product, verbose_name=_('Product'))
+    product = models.ForeignKey(cartridge_models.Product,
+                                verbose_name=_('Product'))
 
     def save(self, *args, **kwargs):
         self.sku = self.product.sku
@@ -174,9 +206,14 @@ CustomerCartItem._meta.get_field('description').blank = True
 # ########################
 
 class Customer(Contact, Displayable):
-    firstname = models.CharField(max_length=300, verbose_name=_("Prename"), blank=True, null=True)
-    billingcycle = models.ForeignKey('crm_core.CustomerBillingCycle', verbose_name=_('Billing Cycle'))
-    ismemberof = models.ManyToManyField('crm_core.CustomerGroup', verbose_name=_('Is member of'), blank=True)
+    firstname = models.CharField(max_length=300,
+                                 verbose_name=_("Prename"),
+                                 blank=True, null=True)
+    billingcycle = models.ForeignKey('crm_core.CustomerBillingCycle',
+                                     verbose_name=_('Billing Cycle'))
+    ismemberof = models.ManyToManyField('crm_core.CustomerGroup',
+                                        verbose_name=_('Is member of'),
+                                        blank=True)
     search_fields = ('firstname', 'name')
 
     class Meta:
@@ -267,8 +304,8 @@ class Customer(Contact, Displayable):
 
 
 class Supplier(Contact, Displayable):
-    direct_shipment_to_customers = models.BooleanField(verbose_name=_("Offers direct Shipment to Customer"),
-                                                       default=False)
+    direct_shipment_to_customers = models.BooleanField(
+        verbose_name=_("Offers direct Shipment to Customer"), default=False)
     search_fields = ('name', )
 
     class Meta:
@@ -317,8 +354,10 @@ class SupplierEmailAddress(EmailAddress):
 
 class CustomerBillingCycle(models.Model):
     name = models.CharField(max_length=300, verbose_name=_("Name"))
-    days_to_payment = models.IntegerField(verbose_name=_("Days to Payment Date"))
-    prefix = models.CharField(max_length=300, verbose_name=_("Prefix"), null=True)
+    days_to_payment = models.IntegerField(
+        verbose_name=_("Days to Payment Date"))
+    prefix = models.CharField(max_length=300,
+                              verbose_name=_("Prefix"), null=True)
 
     class Meta:
         verbose_name = _('Billing Cycle')
@@ -352,16 +391,26 @@ class CustomerGroup(models.Model):
 
 class Contract(Displayable):
     state = FSMIntegerField(default=10, choices=CONTRACT_STATE_CHOICES)
-    staff = models.ForeignKey(settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True}, blank=True,
-                              verbose_name=_("Staff"), related_name="db_relcontractstaff", null=True)
-    default_customer = models.ForeignKey(Customer, verbose_name=_("Default Customer"), null=True, blank=True)
-    default_supplier = models.ForeignKey(Supplier, verbose_name=_("Default Supplier"), null=True, blank=True)
-    default_currency = models.CharField(max_length=3, choices=currencies, verbose_name=_("Currency"),
+    staff = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              limit_choices_to={'is_staff': True}, blank=True,
+                              verbose_name=_("Staff"),
+                              related_name="db_relcontractstaff", null=True)
+    default_customer = models.ForeignKey(Customer,
+                                         verbose_name=_("Default Customer"),
+                                         null=True, blank=True)
+    default_supplier = models.ForeignKey(Supplier,
+                                         verbose_name=_("Default Supplier"),
+                                         null=True, blank=True)
+    default_currency = models.CharField(max_length=3, choices=currencies,
+                                        verbose_name=_("Currency"),
                                         blank=True, null=True)
     dateofcreation = CreationDateTimeField(verbose_name=_("Created at"))
-    lastmodification = ModificationDateTimeField(verbose_name=_("Last modified"))
-    lastmodifiedby = models.ForeignKey(settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True},
-                                       verbose_name=_("Last modified by"), related_name="db_contractlstmodified",
+    lastmodification = ModificationDateTimeField(
+        verbose_name=_("Last modified"))
+    lastmodifiedby = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                       limit_choices_to={'is_staff': True},
+                                       verbose_name=_("Last modified by"),
+                                       related_name="db_contractlstmodified",
                                        null=True)
     search_fields = ('title', 'description', )
 
@@ -388,7 +437,8 @@ class Contract(Displayable):
         invoice = Invoice(
             contract=self,
             customer=self.default_customer,
-            payableuntil=date.today() + timedelta(days=self.default_customer.billingcycle.days_to_payment)
+            payableuntil=date.today() + timedelta(
+                days=self.default_customer.billingcycle.days_to_payment)
         )
         invoice.discount = 0
         invoice.staff = self.staff
@@ -401,12 +451,14 @@ class Contract(Displayable):
         quote.discount = 0
         quote.staff = self.staff
         quote.status = 1
-        quote.validuntil = date.today() + timedelta(days=self.default_customer.billingcycle.days_to_payment)
+        quote.validuntil = date.today() + timedelta(
+            days=self.default_customer.billingcycle.days_to_payment)
         quote.save()
         return quote
 
     def create_purchase_order(self):
-        purchaseorder = PurchaseOrder(contract=self, customer=self.default_customer)
+        purchaseorder = PurchaseOrder(contract=self,
+                                      customer=self.default_customer)
         purchaseorder.description = self.description
         purchaseorder.discount = 0
         purchaseorder.staff = self.staff
@@ -461,11 +513,14 @@ class Contract(Displayable):
 
 
 class PurchaseOrder(SalesContract, Displayable):
-    contract = models.ForeignKey(Contract, verbose_name=_("Contract"), related_name='purchaseorders')
+    contract = models.ForeignKey(Contract,
+                                 verbose_name=_("Contract"),
+                                 related_name='purchaseorders')
     validuntil = models.DateField(verbose_name=_("Valid until"), null=True)
-    staff = models.ForeignKey(
-        settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"), null=True,
-        related_name='purchaseorder_staff')
+    staff = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              limit_choices_to={'is_staff': True},
+                              blank=True, verbose_name=_("Staff"),
+                              null=True, related_name='purchaseorder_staff')
     cart = models.ForeignKey(cartridge_models.Cart, null=True)
     search_fields = ('title', 'description', )
 
@@ -488,7 +543,8 @@ class PurchaseOrder(SalesContract, Displayable):
     def to_html(self):
         crtitems = []
         for itm in self.cart.items.all():
-            crtitems.append(CustomerCartItem.objects.get(cartitem_ptr_id=itm.id))
+            crtitems.append(CustomerCartItem.objects.get(
+                cartitem_ptr_id=itm.id))
         company_data = CompanyContactData.objects.get(pk=1)
         customer = self.customer
         return render_to_string('pdf_templates/purchaseorder.html',
@@ -501,8 +557,9 @@ class PurchaseOrder(SalesContract, Displayable):
 
     def create_pdf(self):
         html = self.to_html()
-        pth = path.normpath('%s/%s/data/pdf/purchaseorders/purchaseorder-%s.pdf' % (
-            settings.PROJECT_ROOT, settings.MEDIA_URL, self.pk))
+        pth = path.normpath(
+            '%s/%s/data/pdf/purchaseorders/purchaseorder-%s.pdf' % (
+                settings.PROJECT_ROOT, settings.MEDIA_URL, self.pk))
         self.pdf_path = pth
         HTML(string=html, encoding="utf8").write_pdf(target=pth)
 
@@ -513,7 +570,8 @@ class PurchaseOrder(SalesContract, Displayable):
         return reverse('purchaseorder_detail', args=[str(self.id)])
 
     def get_price(self):
-        return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
+        return "%s %s" % (self.cart.total_price(),
+                          self.contract.default_currency)
 
     def __str__(self):
         return _("Purchase Order") + " #" + str(self.id)
@@ -530,11 +588,14 @@ class PurchaseOrder(SalesContract, Displayable):
 
 
 class Quote(SalesContract, Displayable):
-    contract = models.ForeignKey(Contract, verbose_name=_('Contract'), related_name='quotes')
+    contract = models.ForeignKey(Contract,
+                                 verbose_name=_('Contract'),
+                                 related_name='quotes')
     validuntil = models.DateField(verbose_name=_("Valid until"), null=True)
-    staff = models.ForeignKey(
-        settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True}, blank=True, verbose_name=_("Staff"),
-        null=True, related_name="quote_staff")
+    staff = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              limit_choices_to={'is_staff': True}, blank=True,
+                              verbose_name=_("Staff"), null=True,
+                              related_name="quote_staff")
     cart = models.ForeignKey(cartridge_models.Cart, null=True)
     search_fields = ('title', 'description', )
 
@@ -578,7 +639,8 @@ class Quote(SalesContract, Displayable):
     def to_html(self):
         crtitems = []
         for itm in self.cart.items.all():
-            crtitems.append(CustomerCartItem.objects.get(cartitem_ptr_id=itm.id))
+            crtitems.append(CustomerCartItem.objects.get(
+                cartitem_ptr_id=itm.id))
         company_data = CompanyContactData.objects.get(pk=1)
         customer = self.customer
         return render_to_string('pdf_templates/quote.html',
@@ -603,7 +665,8 @@ class Quote(SalesContract, Displayable):
         return reverse('quote_detail', args=[str(self.id)])
 
     def get_price(self):
-        return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
+        return "%s %s" % (self.cart.total_price(),
+                          self.contract.default_currency)
 
     def __str__(self):
         return _('Quote') + ' #' + str(self.id)
@@ -620,12 +683,17 @@ class Quote(SalesContract, Displayable):
 
 
 class Invoice(SalesContract, Displayable):
-    contract = models.ForeignKey(Contract, verbose_name=_('Contract'), related_name='invoices')
+    contract = models.ForeignKey(Contract,
+                                 verbose_name=_('Contract'),
+                                 related_name='invoices')
     payableuntil = models.DateField(verbose_name=_("To pay until"))
-    payment_bank_reference = models.CharField(verbose_name=_("Payment Bank Reference"), max_length=100, blank=True,
-                                              null=True)
-    staff = models.ForeignKey(settings.AUTH_USER_MODEL, limit_choices_to={'is_staff': True}, blank=True,
-                              verbose_name=_("Staff"), related_name="db_relscstaff", null=True)
+    payment_bank_reference = models.CharField(
+        verbose_name=_("Payment Bank Reference"),
+        max_length=100, blank=True, null=True)
+    staff = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              limit_choices_to={'is_staff': True}, blank=True,
+                              verbose_name=_("Staff"),
+                              related_name="db_relscstaff", null=True)
     cart = models.ForeignKey(cartridge_models.Cart, null=True)
     search_fields = ('title', 'description', )
 
@@ -648,7 +716,8 @@ class Invoice(SalesContract, Displayable):
     def to_html(self):
         crtitems = []
         for itm in self.cart.items.all():
-            crtitems.append(CustomerCartItem.objects.get(cartitem_ptr_id=itm.id))
+            crtitems.append(CustomerCartItem.objects.get(
+                cartitem_ptr_id=itm.id))
         company_data = CompanyContactData.objects.get(pk=1)
         customer = self.customer
         return render_to_string('pdf_templates/invoice.html',
@@ -673,7 +742,8 @@ class Invoice(SalesContract, Displayable):
         return reverse('invoice_detail', args=[str(self.id)])
 
     def get_price(self):
-        return "%s %s" % (self.cart.total_price(), self.contract.default_currency)
+        return "%s %s" % (self.cart.total_price(),
+                          self.contract.default_currency)
 
     def __str__(self):
         return _("Invoice") + " #" + str(self.id)
@@ -690,11 +760,16 @@ class Invoice(SalesContract, Displayable):
 
 
 class Unit(models.Model):
-    description = models.CharField(verbose_name=_("Description"), max_length=100)
-    shortname = models.CharField(verbose_name=_("Displayed Name After Quantity In The Position"), max_length=3)
-    fractionof = models.ForeignKey('self', blank=True, null=True, verbose_name=_("Is A Fraction Of"))
-    factor = models.IntegerField(verbose_name=_("Factor Between This And Next Higher Unit"),
-                                 blank=True, null=True)
+    description = models.CharField(verbose_name=_("Description"),
+                                   max_length=100)
+    shortname = models.CharField(
+        verbose_name=_("Displayed Name After Quantity In The Position"),
+        max_length=3)
+    fractionof = models.ForeignKey('self', blank=True, null=True,
+                                   verbose_name=_("Is A Fraction Of"))
+    factor = models.IntegerField(
+        verbose_name=_("Factor Between This And Next Higher Unit"),
+        blank=True, null=True)
 
     class Meta:
         verbose_name = _('Unit')
@@ -708,7 +783,9 @@ class Unit(models.Model):
 
 
 class TaxRate(models.Model):
-    taxrate_in_percent = models.DecimalField(max_digits=5, decimal_places=2, verbose_name=_("Taxrate in Percentage"))
+    taxrate_in_percent = models.DecimalField(
+        max_digits=5, decimal_places=2,
+        verbose_name=_("Taxrate in Percentage"))
     name = models.CharField(verbose_name=_("Taxname"), max_length=100)
 
     class Meta:
@@ -723,10 +800,15 @@ class TaxRate(models.Model):
 
 
 class UnitTransform(models.Model):
-    from_unit = models.ForeignKey(Unit, verbose_name=_("From Unit"), related_name="db_reltransformfromunit")
-    to_unit = models.ForeignKey(Unit, verbose_name=_("To Unit"), related_name="db_reltransformtounit")
-    product = models.ForeignKey(cartridge_models.Product, verbose_name=_("Product"))
-    factor = models.IntegerField(verbose_name=_("Factor between From and To Unit"), blank=True, null=True)
+    from_unit = models.ForeignKey(Unit, verbose_name=_("From Unit"),
+                                  related_name="db_reltransformfromunit")
+    to_unit = models.ForeignKey(Unit, verbose_name=_("To Unit"),
+                                related_name="db_reltransformtounit")
+    product = models.ForeignKey(cartridge_models.Product,
+                                verbose_name=_("Product"))
+    factor = models.IntegerField(
+        verbose_name=_("Factor between From and To Unit"),
+        blank=True, null=True)
 
     def transform(self, unit):
         if self.from_unit == unit:
@@ -757,10 +839,17 @@ class HTMLFile(models.Model):
 class TemplateSet(models.Model):
     title = models.CharField(verbose_name=_("Title"), max_length=60)
     invoice_html_file = models.ForeignKey(
-        HTMLFile, verbose_name=_("HTML File for Invoice"), related_name="invoice_template")
-    quote_html_file = models.ForeignKey(HTMLFile, verbose_name=_("HTML File for Quote"), related_name="quote_template")
+        HTMLFile,
+        verbose_name=_("HTML File for Invoice"),
+        related_name="invoice_template")
+    quote_html_file = models.ForeignKey(
+        HTMLFile,
+        verbose_name=_("HTML File for Quote"),
+        related_name="quote_template")
     purchaseorder_html_file = models.ForeignKey(
-        HTMLFile, verbose_name=_("HTML File for Purchaseorder"), related_name="purchaseorder_template")
+        HTMLFile,
+        verbose_name=_("HTML File for Purchaseorder"),
+        related_name="purchaseorder_template")
 
     class Meta:
         verbose_name = _('Templateset')
@@ -772,22 +861,40 @@ class TemplateSet(models.Model):
 
 class CompanyContactData(SingletonModel):
     name = models.CharField(max_length=300, verbose_name=_("Name"))
-    slogan = models.CharField(verbose_name=_("Slogan"), max_length=120, blank=True, null=True)
-    logo = models.ImageField(verbose_name=_("Logo"), blank=True, null=True, max_length=200)
-    addresser = models.CharField(max_length=200, verbose_name=_("Addresser"), blank=True, null=True)
-    addressline1 = models.CharField(max_length=200, verbose_name=_("Addressline 1"), blank=True, null=True)
-    addressline2 = models.CharField(max_length=200, verbose_name=_("Addressline 2"), blank=True, null=True)
-    zipcode = models.IntegerField(verbose_name=_("Zipcode"), blank=True, null=True)
-    city = models.CharField(max_length=100, verbose_name=_("City"), blank=True, null=True)
-    state = models.CharField(max_length=100, verbose_name=_("State"), blank=True, null=True)
-    country = models.CharField(max_length=2, choices=countries, verbose_name=_("Country"), blank=True, null=True)
-    phone = models.CharField(max_length=20, verbose_name=_("Phone Number"), blank=True, null=True)
-    email = models.EmailField(max_length=200, verbose_name=_("Email Address"), blank=True, null=True)
-    header_text_salesorders = models.TextField(verbose_name=_("Header Text On Salesorders"), blank=True, null=True)
+    slogan = models.CharField(verbose_name=_("Slogan"), max_length=120,
+                              blank=True, null=True)
+    logo = models.ImageField(verbose_name=_("Logo"), blank=True,
+                             null=True, max_length=200)
+    addresser = models.CharField(max_length=200, verbose_name=_("Addresser"),
+                                 blank=True, null=True)
+    addressline1 = models.CharField(max_length=200,
+                                    verbose_name=_("Addressline 1"),
+                                    blank=True, null=True)
+    addressline2 = models.CharField(max_length=200,
+                                    verbose_name=_("Addressline 2"),
+                                    blank=True, null=True)
+    zipcode = models.IntegerField(verbose_name=_("Zipcode"),
+                                  blank=True, null=True)
+    city = models.CharField(max_length=100, verbose_name=_("City"),
+                            blank=True, null=True)
+    state = models.CharField(max_length=100, verbose_name=_("State"),
+                             blank=True, null=True)
+    country = models.CharField(max_length=2, choices=countries,
+                               verbose_name=_("Country"),
+                               blank=True, null=True)
+    phone = models.CharField(max_length=20, verbose_name=_("Phone Number"),
+                             blank=True, null=True)
+    email = models.EmailField(max_length=200, verbose_name=_("Email Address"),
+                              blank=True, null=True)
+    header_text_salesorders = models.TextField(
+        verbose_name=_("Header Text On Salesorders"), blank=True, null=True)
     header_text_purchaseorders = models.TextField(
         verbose_name=_("Header Text On Purchaseorders"), blank=True, null=True)
-    page_footer_left = models.CharField(max_length=40, verbose_name=_("Page Footer Left"), blank=True, null=True)
-    footer_text_salesorders = models.TextField(verbose_name=_("Footer Text On Salesorders"), blank=True, null=True)
+    page_footer_left = models.CharField(
+        max_length=40, verbose_name=_("Page Footer Left"),
+        blank=True, null=True)
+    footer_text_salesorders = models.TextField(
+        verbose_name=_("Footer Text On Salesorders"), blank=True, null=True)
     footer_text_purchaseorders = models.TextField(
         verbose_name=_("Footer Text On Purchaseorders"), blank=True, null=True)
 
@@ -800,12 +907,18 @@ class CompanyContactData(SingletonModel):
 
 
 class UserExtension(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='extension', verbose_name=_('Benutzer'))
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                related_name='extension',
+                                verbose_name=_('Benutzer'))
     image = models.ImageField(
-        upload_to='avatars/', default='avatars/avatar.jpg', verbose_name=_('Bild'), null=True, blank=True)
-    default_templateset = models.ForeignKey(TemplateSet, verbose_name=_('Vorlagen'), null=True, blank=True)
-    default_currency = models.CharField(
-        verbose_name=_('Currency'), max_length=3, choices=currencies, null=True, blank=True)
+        upload_to='avatars/', default='avatars/avatar.jpg',
+        verbose_name=_('Bild'), null=True, blank=True)
+    default_templateset = models.ForeignKey(TemplateSet,
+                                            verbose_name=_('Vorlagen'),
+                                            null=True, blank=True)
+    default_currency = models.CharField(verbose_name=_('Currency'),
+                                        max_length=3, choices=currencies,
+                                        null=True, blank=True)
 
     class Meta:
         verbose_name = _('User Extension')
@@ -816,7 +929,9 @@ class UserExtension(models.Model):
 
 
 class ProductUnit(models.Model):
-    product = models.OneToOneField(cartridge_models.Product, verbose_name=_('Product'), related_name='item_unit')
+    product = models.OneToOneField(cartridge_models.Product,
+                                   verbose_name=_('Product'),
+                                   related_name='item_unit')
     unit = models.ForeignKey(Unit, verbose_name=_('Unit'))
 
     class Meta:
@@ -828,7 +943,9 @@ class ProductUnit(models.Model):
 
 
 class ProductTax(models.Model):
-    product = models.OneToOneField(cartridge_models.Product, verbose_name=_('Product'), related_name='item_tax')
+    product = models.OneToOneField(cartridge_models.Product,
+                                   verbose_name=_('Product'),
+                                   related_name='item_tax')
     tax = models.ForeignKey(TaxRate, verbose_name=_('Tax Rate'))
 
     class Meta:

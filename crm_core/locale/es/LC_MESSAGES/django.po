@@ -1120,7 +1120,7 @@ msgstr "Ruso"
 
 #: .\settings.py:184
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: .\settings.py:185
 msgid "French"
@@ -1128,7 +1128,7 @@ msgstr "Frances"
 
 #: .\settings.py:186
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
 msgid "Administration"
 msgstr "Administración"

@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
+
 import reversion
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from cartridge.shop import models as cartridge_models
-from cartridge.shop.admin import admin as cartridge_admin
-from crm_core.models import UserExtension, Customer, Invoice, PurchaseOrder, Quote, Supplier, HTMLFile, TemplateSet, \
-    CustomerBillingCycle, CustomerGroup, Contract, Unit, TaxRate, \
-    UnitTransform, CompanyContactData
+from crm_core.models import (UserExtension, Customer, Invoice, PurchaseOrder,
+                             Quote, Supplier, HTMLFile, TemplateSet,
+                             CustomerBillingCycle, CustomerGroup, Contract,
+                             Unit, TaxRate, UnitTransform, CompanyContactData)
 
 
 # Define an inline admin descriptor

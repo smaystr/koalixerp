@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 
 from braces.views import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -7,14 +7,18 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django_tables2 import SingleTableView, RequestConfig
-from extra_views import UpdateWithInlinesView, InlineFormSet, NamedFormsetsMixin, CreateWithInlinesView
+from extra_views import (UpdateWithInlinesView, InlineFormSet,
+                         NamedFormsetsMixin, CreateWithInlinesView)
 from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
-from crm_core.custom.mixins import UpdateWithModifiedByMixin, CreateWithModifieByMixin, \
-    CreateWithInlinesAndModifiedByMixin, UpdateWithInlinesAndModifiedByMixin
+from crm_core.custom.mixins import (UpdateWithModifiedByMixin,
+                                    CreateWithModifieByMixin,
+                                    CreateWithInlinesAndModifiedByMixin,
+                                    UpdateWithInlinesAndModifiedByMixin)
 from crm_core import forms, models
-from .tables import ContractTable, CustomerTable, SupplierTable, ProductTable, TaxTable, BillingCycleTable, UnitTable, \
-    CustomerGroupTable, ProductCategoryTable
+from .tables import (ContractTable, CustomerTable, SupplierTable, ProductTable,
+                     TaxTable, BillingCycleTable, UnitTable,
+                     CustomerGroupTable, ProductCategoryTable)
 from cartridge.shop import models as cartridge_models
 from django.conf import settings
 
@@ -34,7 +38,8 @@ class PaginatedTableView(SingleTableView):
         config = RequestConfig(request)
         table = self.table_class(self.object_list)
         config.configure(table)
-        table.paginate(page=request.GET.get('page', 1), per_page=self.table_pagination)
+        table.paginate(page=request.GET.get('page', 1),
+                       per_page=self.table_pagination)
         context[self.context_table_name] = table
         return self.render_to_response(context)
 
@@ -55,7 +60,8 @@ def login_user(request):
                 login(request, user)
                 return redirect(reverse_lazy('dashboard'), permanent=True)
 
-    return render_to_response('registration/login.html', context_instance=RequestContext(request))
+    return render_to_response('registration/login.html',
+                              context_instance=RequestContext(request))
 
 
 def show_dashboard(request):
@@ -84,10 +90,13 @@ def show_settings(request):
     config = RequestConfig(request)
     template = loader.get_template('settings.html')
     taxtable = TaxTable(models.TaxRate.objects.all(), prefix="tax-")
-    billingcycleable = BillingCycleTable(models.CustomerBillingCycle.objects.all(), prefix="billingcycle-")
+    billingcycleable = BillingCycleTable(
+        models.CustomerBillingCycle.objects.all(), prefix="billingcycle-")
     unittable = UnitTable(models.Unit.objects.all(), prefix="unit-")
-    customergrouptable = CustomerGroupTable(models.CustomerGroup.objects.all(), prefix="customergroup-")
-    productcategorytable = ProductCategoryTable(cartridge_models.Category.objects.all(), prefix="productcategory-")
+    customergrouptable = CustomerGroupTable(models.CustomerGroup.objects.all(),
+                                            prefix="customergroup-")
+    productcategorytable = ProductCategoryTable(
+        cartridge_models.Category.objects.all(), prefix="productcategory-")
     config.configure(taxtable)
     config.configure(billingcycleable)
     config.configure(unittable)
@@ -171,25 +180,33 @@ def view_invoice_details(request, pk):
 # ##   Class Based Views   ##
 # ###########################
 
-class CustomerPostalAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class CustomerPostalAddressInline(LoginRequiredMixin,
+                                  PermissionRequiredMixin,
+                                  InlineFormSet):
     model = models.CustomerPostalAddress
     permission_required = 'crm_core.view_postaladdress'
     raise_exception = False
     extra = 1
     can_delete = False
-    fields = ['addressline1', 'addressline2', 'zipcode', 'city', 'state', 'country', 'purpose']
+    fields = ['addressline1', 'addressline2', 'zipcode', 'city', 'state',
+              'country', 'purpose']
 
 
-class SupplierPostalAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class SupplierPostalAddressInline(LoginRequiredMixin,
+                                  PermissionRequiredMixin,
+                                  InlineFormSet):
     model = models.SupplierPostalAddress
     permission_required = 'crm_core.view_postaladdress'
     raise_exception = False
     extra = 1
     can_delete = False
-    fields = ['addressline1', 'addressline2', 'zipcode', 'city', 'state', 'country', 'purpose']
+    fields = ['addressline1', 'addressline2', 'zipcode', 'city', 'state',
+              'country', 'purpose']
 
 
-class CustomerPhoneAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class CustomerPhoneAddressInline(LoginRequiredMixin,
+                                 PermissionRequiredMixin,
+                                 InlineFormSet):
     model = models.CustomerPhoneAddress
     permission_required = 'crm_core.view_phoneaddress'
     raise_exception = False
@@ -199,7 +216,9 @@ class CustomerPhoneAddressInline(LoginRequiredMixin, PermissionRequiredMixin, In
     fields = ['phone', 'purpose']
 
 
-class SupplierPhoneAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class SupplierPhoneAddressInline(LoginRequiredMixin,
+                                 PermissionRequiredMixin,
+                                 InlineFormSet):
     model = models.SupplierPhoneAddress
     permission_required = 'crm_core.view_phoneaddress'
     raise_exception = False
@@ -209,7 +228,9 @@ class SupplierPhoneAddressInline(LoginRequiredMixin, PermissionRequiredMixin, In
     fields = ['phone', 'purpose']
 
 
-class CustomerEmailAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class CustomerEmailAddressInline(LoginRequiredMixin,
+                                 PermissionRequiredMixin,
+                                 InlineFormSet):
     model = models.CustomerEmailAddress
     permission_required = 'crm_core.view_emailaddress'
     raise_exception = False
@@ -219,7 +240,9 @@ class CustomerEmailAddressInline(LoginRequiredMixin, PermissionRequiredMixin, In
     fields = ['email', 'purpose']
 
 
-class SupplierEmailAddressInline(LoginRequiredMixin, PermissionRequiredMixin, InlineFormSet):
+class SupplierEmailAddressInline(LoginRequiredMixin,
+                                 PermissionRequiredMixin,
+                                 InlineFormSet):
     model = models.SupplierEmailAddress
     permission_required = 'crm_core.view_emailaddress'
     raise_exception = False
@@ -253,15 +276,20 @@ class ProductTaxInline(InlineFormSet):
     exclude = ()
 
 
-class UpdateUserProfile(LoginRequiredMixin, NamedFormsetsMixin, UpdateWithInlinesView):
+class UpdateUserProfile(LoginRequiredMixin,
+                        NamedFormsetsMixin,
+                        UpdateWithInlinesView):
     model = User
     inlines = [UserExtensionInline, ]
     inlines_names = ['userprofile_formset']
-    fields = ['first_name', 'last_name', 'email', 'is_superuser', 'is_staff', 'is_active', 'groups']
+    fields = ['first_name', 'last_name', 'email', 'is_superuser', 'is_staff',
+              'is_active', 'groups']
     success_url = reverse_lazy('home')
 
 
-class ListCustomers(LoginRequiredMixin, PermissionRequiredMixin, PaginatedTableView):
+class ListCustomers(LoginRequiredMixin,
+                    PermissionRequiredMixin,
+                    PaginatedTableView):
     model = models.Customer
     permission_required = 'crm_core.view_customer'
     login_url = settings.LOGIN_URL
@@ -283,9 +311,12 @@ class CreateCustomer(LoginRequiredMixin, PermissionRequiredMixin,
     model = models.Customer
     permission_required = 'crm_core.add_customer'
     login_url = settings.LOGIN_URL
-    fields = ['prefix', 'name', 'firstname', 'default_currency', 'billingcycle', 'ismemberof']
-    inlines = [CustomerPostalAddressInline, CustomerPhoneAddressInline, CustomerEmailAddressInline]
-    inlines_names = ['postaladdress_formset', 'phoneaddress_formset', 'emailaddress_formset']
+    fields = ['prefix', 'name', 'firstname', 'default_currency',
+              'billingcycle', 'ismemberof']
+    inlines = [CustomerPostalAddressInline,
+               CustomerPhoneAddressInline, CustomerEmailAddressInline]
+    inlines_names = ['postaladdress_formset',
+                     'phoneaddress_formset', 'emailaddress_formset']
     success_url = reverse_lazy('customer_list')
 
 
@@ -294,9 +325,12 @@ class EditCustomer(LoginRequiredMixin, PermissionRequiredMixin,
     model = models.Customer
     permission_required = 'crm_core.change_customer'
     login_url = settings.LOGIN_URL
-    fields = ['prefix', 'name', 'firstname', 'default_currency', 'billingcycle', 'ismemberof']
-    inlines = [CustomerPostalAddressInline, CustomerPhoneAddressInline, CustomerEmailAddressInline]
-    inlines_names = ['postaladdress_formset', 'phoneaddress_formset', 'emailaddress_formset']
+    fields = ['prefix', 'name', 'firstname', 'default_currency',
+              'billingcycle', 'ismemberof']
+    inlines = [CustomerPostalAddressInline,
+               CustomerPhoneAddressInline, CustomerEmailAddressInline]
+    inlines_names = ['postaladdress_formset',
+                     'phoneaddress_formset', 'emailaddress_formset']
     success_url = reverse_lazy('customer_list')
 
 
@@ -307,7 +341,8 @@ class DeleteCustomer(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('customer_list')
 
 
-class ListSuppliers(LoginRequiredMixin, PermissionRequiredMixin, PaginatedTableView):
+class ListSuppliers(LoginRequiredMixin,
+                    PermissionRequiredMixin, PaginatedTableView):
     model = models.Supplier
     permission_required = 'crm_core.view_supplier'
     login_url = settings.LOGIN_URL
@@ -329,9 +364,12 @@ class CreateSupplier(LoginRequiredMixin, PermissionRequiredMixin,
     model = models.Supplier
     permission_required = 'crm_core.add_supplier'
     login_url = settings.LOGIN_URL
-    fields = ['prefix', 'name', 'default_currency', 'direct_shipment_to_customers']
-    inlines = [SupplierPostalAddressInline, SupplierPhoneAddressInline, SupplierEmailAddressInline]
-    inlines_names = ['postaladdress_formset', 'phoneaddress_formset', 'emailaddress_formset']
+    fields = ['prefix', 'name', 'default_currency',
+              'direct_shipment_to_customers']
+    inlines = [SupplierPostalAddressInline,
+               SupplierPhoneAddressInline, SupplierEmailAddressInline]
+    inlines_names = ['postaladdress_formset', 'phoneaddress_formset',
+                     'emailaddress_formset']
     success_url = reverse_lazy('supplier_list')
 
 
@@ -340,9 +378,12 @@ class EditSupplier(LoginRequiredMixin, PermissionRequiredMixin,
     model = models.Supplier
     permission_required = 'crm_core.change_supplier'
     login_url = settings.LOGIN_URL
-    fields = ['prefix', 'name', 'default_currency', 'direct_shipment_to_customers']
-    inlines = [SupplierPostalAddressInline, SupplierPhoneAddressInline, SupplierEmailAddressInline]
-    inlines_names = ['postaladdress_formset', 'phoneaddress_formset', 'emailaddress_formset']
+    fields = ['prefix', 'name', 'default_currency',
+              'direct_shipment_to_customers']
+    inlines = [SupplierPostalAddressInline,
+               SupplierPhoneAddressInline, SupplierEmailAddressInline]
+    inlines_names = ['postaladdress_formset', 'phoneaddress_formset',
+                     'emailaddress_formset']
     success_url = reverse_lazy('supplier_list')
 
 
@@ -399,7 +440,8 @@ class DeleteUnit(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('settings')
 
 
-class CreateProductCategory(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class CreateProductCategory(LoginRequiredMixin,
+                            PermissionRequiredMixin, CreateView):
     model = cartridge_models.Category
     permission_required = 'crm_core.add_productcategory'
     login_url = settings.LOGIN_URL
@@ -407,21 +449,24 @@ class CreateProductCategory(LoginRequiredMixin, PermissionRequiredMixin, CreateV
     success_url = reverse_lazy('settings')
 
 
-class EditProductCategory(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class EditProductCategory(LoginRequiredMixin,
+                          PermissionRequiredMixin, UpdateView):
     model = cartridge_models.Category
     permission_required = 'crm_core.change_productcategory'
     login_url = settings.LOGIN_URL
     success_url = reverse_lazy('settings')
 
 
-class DeleteProductCategory(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteProductCategory(LoginRequiredMixin,
+                            PermissionRequiredMixin, DeleteView):
     model = cartridge_models.Category
     permission_required = 'crm_core.delete_productcategory'
     login_url = settings.LOGIN_URL
     success_url = reverse_lazy('settings')
 
 
-class ListProducts(LoginRequiredMixin, PermissionRequiredMixin, PaginatedTableView):
+class ListProducts(LoginRequiredMixin,
+                   PermissionRequiredMixin, PaginatedTableView):
     model = cartridge_models.Product
     permission_required = 'crm_core.view_product'
     login_url = settings.LOGIN_URL
@@ -431,7 +476,8 @@ class ListProducts(LoginRequiredMixin, PermissionRequiredMixin, PaginatedTableVi
     table_pagination = 10
 
 
-class CreateProduct(LoginRequiredMixin, PermissionRequiredMixin, NamedFormsetsMixin, CreateWithInlinesView):
+class CreateProduct(LoginRequiredMixin, PermissionRequiredMixin,
+                    NamedFormsetsMixin, CreateWithInlinesView):
     model = cartridge_models.Product
     permission_required = 'crm_core.add_product'
     login_url = settings.LOGIN_URL
@@ -441,7 +487,8 @@ class CreateProduct(LoginRequiredMixin, PermissionRequiredMixin, NamedFormsetsMi
     form_class = forms.ProductForm
 
 
-class EditProduct(LoginRequiredMixin, PermissionRequiredMixin, NamedFormsetsMixin, UpdateWithInlinesView):
+class EditProduct(LoginRequiredMixin, PermissionRequiredMixin,
+                  NamedFormsetsMixin, UpdateWithInlinesView):
     model = cartridge_models.Product
     permission_required = 'crm_core.change_product'
     login_url = settings.LOGIN_URL
@@ -464,7 +511,8 @@ class DeleteProduct(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('product_list')
 
 
-class CreateBillingCycle(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class CreateBillingCycle(LoginRequiredMixin,
+                         PermissionRequiredMixin, CreateView):
     model = models.CustomerBillingCycle
     permission_required = 'crm_core.add_customerbillingcycle'
     fields = ['name', 'days_to_payment', 'prefix']
@@ -472,7 +520,8 @@ class CreateBillingCycle(LoginRequiredMixin, PermissionRequiredMixin, CreateView
     success_url = reverse_lazy('settings')
 
 
-class EditBillingCycle(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class EditBillingCycle(LoginRequiredMixin,
+                       PermissionRequiredMixin, UpdateView):
     model = models.CustomerBillingCycle
     permission_required = 'crm_core.change_customerbillingcycle'
     fields = ['name', 'days_to_payment', 'prefix']
@@ -480,14 +529,16 @@ class EditBillingCycle(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     success_url = reverse_lazy('settings')
 
 
-class DeleteBillingCycle(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteBillingCycle(LoginRequiredMixin,
+                         PermissionRequiredMixin, DeleteView):
     model = models.CustomerBillingCycle
     permission_required = 'crm_core.delete_customerbillingcycle'
     login_url = settings.LOGIN_URL
     success_url = reverse_lazy('settings')
 
 
-class EditPurchaseOrder(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifiedByMixin):
+class EditPurchaseOrder(LoginRequiredMixin,
+                        PermissionRequiredMixin, UpdateWithModifiedByMixin):
     model = models.PurchaseOrder
     form_class = forms.PurchaseOrderForm
     permission_required = 'crm_core.change_purchaseorder'
@@ -497,29 +548,34 @@ class EditPurchaseOrder(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithM
     def get_context_data(self, **kwargs):
         context = super(EditPurchaseOrder, self).get_context_data(**kwargs)
         if self.request.POST:
-            context['position_formset'] = forms.PositionFormSet(self.request.POST)
+            context['position_formset'] = forms.PositionFormSet(
+                self.request.POST)
         else:
-            purchaseorder_cart = models.PurchaseOrder.objects.get(pk=context.get('object').pk).cart
+            purchaseorder_cart = models.PurchaseOrder.objects.get(
+                pk=context.get('object').pk).cart
             formset = forms.PositionFormSet(instance=purchaseorder_cart)
             context['position_formset'] = formset
         return context
 
     def post(self, request, *args, **kwargs):
         quote_cart = models.PurchaseOrder.objects.get(pk=kwargs.get('pk')).cart
-        formset = forms.PositionFormSet(request.POST, request.FILES, instance=quote_cart)
+        formset = forms.PositionFormSet(
+            request.POST, request.FILES, instance=quote_cart)
         if formset.is_valid():
             formset.save()
         return super(EditPurchaseOrder, self).post(request, *args, **kwargs)
 
 
-class DeletePurchaseOrder(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeletePurchaseOrder(LoginRequiredMixin,
+                          PermissionRequiredMixin, DeleteView):
     model = models.PurchaseOrder
     permission_required = 'crm_core.delete_purchaseorder'
     login_url = settings.LOGIN_URL
     success_url = reverse_lazy('contract_list')
 
 
-class CreateCustomerGroup(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class CreateCustomerGroup(LoginRequiredMixin,
+                          PermissionRequiredMixin, CreateView):
     model = models.CustomerGroup
     permission_required = 'crm_core.add_customergroup'
     fields = ['name']
@@ -527,7 +583,8 @@ class CreateCustomerGroup(LoginRequiredMixin, PermissionRequiredMixin, CreateVie
     success_url = reverse_lazy('settings')
 
 
-class EditCustomerGroup(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class EditCustomerGroup(LoginRequiredMixin,
+                        PermissionRequiredMixin, UpdateView):
     model = models.CustomerGroup
     permission_required = 'crm_core.change_customergroup'
     fields = ['name']
@@ -535,44 +592,52 @@ class EditCustomerGroup(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     success_url = reverse_lazy('settings')
 
 
-class DeleteCustomerGroup(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteCustomerGroup(LoginRequiredMixin,
+                          PermissionRequiredMixin, DeleteView):
     model = models.CustomerGroup
     permission_required = 'crm_core.delete_customergroup'
     login_url = settings.LOGIN_URL
     success_url = reverse_lazy('settings')
 
 
-class ListContracts(LoginRequiredMixin, PermissionRequiredMixin, PaginatedTableView):
+class ListContracts(LoginRequiredMixin,
+                    PermissionRequiredMixin, PaginatedTableView):
     model = models.Contract
     permission_required = 'crm_core.view_contract'
     login_url = settings.LOGIN_URL
     fields = ['description', 'default_customer', 'default_supplier']
-    object_list = models.Contract.objects.all().reverse().order_by('lastmodification')
+    object_list = models.Contract.objects.all().reverse().order_by(
+        'lastmodification')
     table_class = ContractTable
     table_data = models.Contract.objects.all()
     context_table_name = 'contracttable'
     table_pagination = 10
 
 
-class ViewContract(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+class ViewContract(LoginRequiredMixin,
+                   PermissionRequiredMixin, DetailView):
     model = models.Contract
     permission_required = 'crm_core.view_contract'
     login_url = settings.LOGIN_URL
 
 
-class CreateContract(LoginRequiredMixin, PermissionRequiredMixin, CreateWithModifieByMixin):
+class CreateContract(LoginRequiredMixin,
+                     PermissionRequiredMixin, CreateWithModifieByMixin):
     model = models.Contract
     permission_required = 'crm_core.add_contract'
     login_url = settings.LOGIN_URL
-    fields = ['description', 'default_customer', 'default_supplier', 'default_currency']
+    fields = ['description', 'default_customer',
+              'default_supplier', 'default_currency']
     success_url = reverse_lazy('contract_list')
 
 
-class EditContract(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifiedByMixin):
+class EditContract(LoginRequiredMixin,
+                   PermissionRequiredMixin, UpdateWithModifiedByMixin):
     model = models.Contract
     permission_required = 'crm_core.change_contract'
     login_url = settings.LOGIN_URL
-    fields = ['description', 'default_customer', 'default_supplier', 'default_currency']
+    fields = ['description', 'default_customer',
+              'default_supplier', 'default_currency']
     success_url = reverse_lazy('contract_list')
 
 
@@ -583,7 +648,8 @@ class DeleteContract(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('contract_list')
 
 
-class EditInvoice(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifiedByMixin):
+class EditInvoice(LoginRequiredMixin,
+                  PermissionRequiredMixin, UpdateWithModifiedByMixin):
     model = models.Invoice
     form_class = forms.InvoiceForm
     permission_required = 'crm_core.change_invoice'
@@ -593,16 +659,19 @@ class EditInvoice(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifie
     def get_context_data(self, **kwargs):
         context = super(EditInvoice, self).get_context_data(**kwargs)
         if self.request.POST:
-            context['position_formset'] = forms.PositionFormSet(self.request.POST)
+            context['position_formset'] = forms.PositionFormSet(
+                self.request.POST)
         else:
-            invoice_cart = models.Invoice.objects.get(pk=context.get('object').pk).cart
+            invoice_cart = models.Invoice.objects.get(
+                pk=context.get('object').pk).cart
             formset = forms.PositionFormSet(instance=invoice_cart)
             context['position_formset'] = formset
         return context
 
     def post(self, request, *args, **kwargs):
         invoice_cart = models.Invoice.objects.get(pk=kwargs.get('pk')).cart
-        formset = forms.PositionFormSet(request.POST, request.FILES, instance=invoice_cart)
+        formset = forms.PositionFormSet(
+            request.POST, request.FILES, instance=invoice_cart)
         if formset.is_valid():
             formset.save()
         return super(EditInvoice, self).post(request, *args, **kwargs)
@@ -615,7 +684,8 @@ class DeleteInvoice(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('contract_list')
 
 
-class EditQuote(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifiedByMixin):
+class EditQuote(LoginRequiredMixin,
+                PermissionRequiredMixin, UpdateWithModifiedByMixin):
     model = models.Quote
     form_class = forms.QuoteForm
     permission_required = 'crm_core.change_quote'
@@ -625,16 +695,19 @@ class EditQuote(LoginRequiredMixin, PermissionRequiredMixin, UpdateWithModifiedB
     def get_context_data(self, **kwargs):
         context = super(EditQuote, self).get_context_data(**kwargs)
         if self.request.POST:
-            context['position_formset'] = forms.PositionFormSet(self.request.POST)
+            context['position_formset'] = forms.PositionFormSet(
+                self.request.POST)
         else:
-            quote_cart = models.Quote.objects.get(pk=context.get('object').pk).cart
+            quote_cart = models.Quote.objects.get(
+                pk=context.get('object').pk).cart
             formset = forms.PositionFormSet(instance=quote_cart)
             context['position_formset'] = formset
         return context
 
     def post(self, request, *args, **kwargs):
         quote_cart = models.Quote.objects.get(pk=kwargs.get('pk')).cart
-        formset = forms.PositionFormSet(request.POST, request.FILES, instance=quote_cart)
+        formset = forms.PositionFormSet(
+            request.POST, request.FILES, instance=quote_cart)
         if formset.is_valid():
             formset.save()
         return super(EditQuote, self).post(request, *args, **kwargs)

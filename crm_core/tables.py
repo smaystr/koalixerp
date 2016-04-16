@@ -1,20 +1,25 @@
 from cartridge.shop.models import Product, Category
 import django_tables2 as tables
-from crm_core.custom.custom_columns import LabelColumn, ButtonsColumn, ModelDetailLinkColumn, IncludeColumn, \
-    SafeFieldColumn, CssFieldColumn
-from crm_core.models import Contract, Customer, Supplier, TaxRate, CustomerBillingCycle, Unit, \
-    CustomerGroup
+from crm_core.custom.custom_columns import (LabelColumn, ButtonsColumn,
+                                            ModelDetailLinkColumn,
+                                            IncludeColumn,
+                                            SafeFieldColumn, CssFieldColumn)
+from crm_core.models import (Contract, Customer, Supplier, TaxRate,
+                             CustomerBillingCycle, Unit, CustomerGroup)
 from django.utils.translation import ugettext_lazy as _
 
 
 class ContractTable(tables.Table):
     state = LabelColumn(verbose_name=_('Status'))
     name = ModelDetailLinkColumn(verbose_name=_('Name'))
-    default_customer = tables.TemplateColumn("<a href='{{ record.default_customer.get_absolute_url }}'>"
-                                             "{{ record.default_customer.short_name }}</a>",
-                                             accessor='default_customer.name', verbose_name=_('Customer'))
+    default_customer = tables.TemplateColumn(
+        "<a href='{{ record.default_customer.get_absolute_url }}'>"
+        "{{ record.default_customer.short_name }}</a>",
+        accessor='default_customer.name', verbose_name=_('Customer'))
     description = tables.Column()
-    price = tables.TemplateColumn("{{ record.get_price }}", accessor='get_price', verbose_name=_('Price'))
+    price = tables.TemplateColumn("{{ record.get_price }}",
+                                  accessor='get_price',
+                                  verbose_name=_('Price'))
     lastmodification = tables.DateTimeColumn()
 
     quote = ButtonsColumn(
@@ -89,16 +94,20 @@ class ContractTable(tables.Table):
 
     class Meta:
         model = Contract
-        exclude = ('id', 'staff', 'default_supplier', 'default_currency', 'dateofcreation', 'lastmodifiedby',
-                   'contact_ptr', 'keywords_string', 'gen_description', 'site', 'updated',
-                   'created', 'publish_date', 'expiry_date', 'short_url', 'in_sitemap', '_meta_title',
-                   'title', 'status', 'slug')
-        sequence = ('state', 'name', 'default_customer', 'description', 'price', 'lastmodification')
+        exclude = ('id', 'staff', 'default_supplier', 'default_currency',
+                   'dateofcreation', 'lastmodifiedby', 'contact_ptr',
+                   'keywords_string', 'gen_description', 'site', 'updated',
+                   'created', 'publish_date', 'expiry_date', 'short_url',
+                   'in_sitemap', '_meta_title', 'title', 'status', 'slug')
+        sequence = ('state', 'name', 'default_customer', 'description',
+                    'price', 'lastmodification')
         order_by = ('-lastmodification', 'state')
 
 
 class CustomerTable(tables.Table):
-    name_prefix = tables.TemplateColumn("""{{ record.get_prefix }}""", accessor='-prefix', verbose_name=_('Prefix'))
+    name_prefix = tables.TemplateColumn("""{{ record.get_prefix }}""",
+                                        accessor='-prefix',
+                                        verbose_name=_('Prefix'))
     new_contract = IncludeColumn(
         'crm_core/includes/customer_row_actions_toolbar.html',
         attrs={"th": {"width": "50px"}},
@@ -114,10 +123,12 @@ class CustomerTable(tables.Table):
 
     class Meta:
         model = Customer
-        exclude = ('id', 'billingcycle', 'prefix', 'dateofcreation', 'lastmodification', 'lastmodifiedby',
-                   'contact_ptr', 'keywords_string', 'description', 'gen_description', 'site', 'updated',
-                   'created', 'publish_date', 'expiry_date', 'short_url', 'in_sitemap', '_meta_title',
-                   'title', 'status', 'slug')
+        exclude = ('id', 'billingcycle', 'prefix', 'dateofcreation',
+                   'lastmodification', 'lastmodifiedby', 'contact_ptr',
+                   'keywords_string', 'description', 'gen_description', 'site',
+                   'updated', 'created', 'publish_date', 'expiry_date',
+                   'short_url', 'in_sitemap', '_meta_title', 'title', 'status',
+                   'slug')
         sequence = ('name_prefix', 'firstname', 'name', 'default_currency')
         order_by = ('name', 'firstname')
 
@@ -133,10 +144,12 @@ class SupplierTable(tables.Table):
 
     class Meta:
         model = Supplier
-        exclude = ('id', 'billingcycle', 'prefix', 'dateofcreation', 'lastmodification', 'lastmodifiedby',
-                   'contact_ptr', 'keywords_string', 'description', 'gen_description', 'site', 'updated',
-                   'created', 'publish_date', 'expiry_date', 'short_url', 'in_sitemap', '_meta_title',
-                   'title', 'status', 'slug')
+        exclude = ('id', 'billingcycle', 'prefix', 'dateofcreation',
+                   'lastmodification', 'lastmodifiedby', 'contact_ptr',
+                   'keywords_string', 'description', 'gen_description', 'site',
+                   'updated', 'created', 'publish_date', 'expiry_date',
+                   'short_url', 'in_sitemap', '_meta_title', 'title', 'status',
+                   'slug')
         sequence = ('name', 'default_currency')
         order_by = ('name', )
 
@@ -154,11 +167,15 @@ class ProductTable(tables.Table):
 
     class Meta:
         model = Product
-        exclude = ('id', 'rating_count', 'rating_sum', 'publish_date', 'expiry_date', 'short_url', 'in_sitemap',
-                   'sale_id', 'sale_price', 'sale_from', 'sale_to', 'sku', 'content', 'image', 'date_added',
-                   'related_products', 'upsell_products', 'product_ptr', 'keywords_string', 'site', 'slug',
-                   'gen_description', '_meta_title', 'rating_average', 'created')
-        sequence = ('status', 'title', 'description', 'available', 'unit_price', 'num_in_stock', 'unit', 'tax')
+        exclude = ('id', 'rating_count', 'rating_sum', 'publish_date',
+                   'expiry_date', 'short_url', 'in_sitemap', 'sale_id',
+                   'sale_price', 'sale_from', 'sale_to', 'sku', 'content',
+                   'image', 'date_added', 'related_products',
+                   'upsell_products', 'product_ptr', 'keywords_string', 'site',
+                   'slug', 'gen_description', '_meta_title', 'rating_average',
+                   'created')
+        sequence = ('status', 'title', 'description', 'available',
+                    'unit_price', 'num_in_stock', 'unit', 'tax')
         order_by = ('id', )
 
 
@@ -211,10 +228,13 @@ class ProductCategoryTable(tables.Table):
 
     class Meta:
         model = Category
-        exclude = ('id', 'combined', 'in_menus', 'featured_image', 'expiry_date', 'in_sitemap', 'description',
-                   'short_url', 'publish_date', 'status', 'site', 'slug', 'created', 'updated',
-                   'gen_description', 'keywords_string', 'keywords', '_meta_title', 'titles', 'content_model',
-                   'login_required', 'parent', '_order', 'content', 'sale', 'price_max', 'price_min', 'page_ptr')
+        exclude = ('id', 'combined', 'in_menus', 'featured_image',
+                   'expiry_date', 'in_sitemap', 'description', 'short_url',
+                   'publish_date', 'status', 'site', 'slug', 'created',
+                   'updated', 'gen_description', 'keywords_string', 'keywords',
+                   '_meta_title', 'titles', 'content_model', 'login_required',
+                   'parent', '_order', 'content', 'sale', 'price_max',
+                   'price_min', 'page_ptr')
 
 
 class CustomerGroupTable(tables.Table):

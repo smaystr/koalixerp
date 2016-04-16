@@ -1,0 +1,245 @@
+[
+    {
+         "model": "crm_core.customer",
+         "fields": {
+              "default_currency": "COP",
+              "keywords_string": "",
+              "ismemberof": [
+                   1
+              ],
+              "updated": "2015-12-12T13:27:48.429Z",
+              "expiry_date": null,
+              "slug": "",
+              "dateofcreation": "2015-12-12T13:27:48.111Z",
+              "created": "2015-12-12T13:27:48.111Z",
+              "gen_description": true,
+              "lastmodification": "2015-12-12T13:27:48.429Z",
+              "publish_date": "2015-12-12T13:27:48.047Z",
+              "firstname": "Honesto",
+              "_meta_title": null,
+              "in_sitemap": true,
+              "description": "Sr",
+              "site": 1,
+              "name": "Comerciante",
+              "prefix": "H",
+              "title": "",
+              "short_url": null,
+              "status": 2,
+              "billingcycle": 1,
+              "lastmodifiedby": 1
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.supplier",
+         "fields": {
+              "default_currency": "COP",
+              "keywords_string": "",
+              "_meta_title": null,
+              "in_sitemap": true,
+              "description": "Empresa Mercatodo",
+              "updated": "2015-12-12T13:29:21.519Z",
+              "direct_shipment_to_customers": true,
+              "lastmodification": "2015-12-12T13:29:21.519Z",
+              "prefix": "F",
+              "title": "",
+              "site": 1,
+              "expiry_date": null,
+              "status": 2,
+              "slug": "",
+              "dateofcreation": "2015-12-12T13:29:21.331Z",
+              "short_url": null,
+              "created": "2015-12-12T13:29:21.330Z",
+              "gen_description": true,
+              "name": "Mercatodo",
+              "publish_date": "2015-12-12T13:29:21.317Z",
+              "lastmodifiedby": 1
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.customerpostaladdress",
+         "fields": {
+              "city": "Cali",
+              "zipcode": 234234,
+              "purpose": "C",
+              "country": "CO",
+              "addressline1": "Calle 1",
+              "state": "Valle",
+              "person": 1,
+              "addressline2": "Barrio Local"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.supplierpostaladdress",
+         "fields": {
+              "city": "Bogota",
+              "zipcode": 4356456,
+              "purpose": "C",
+              "country": "CO",
+              "addressline1": "Calle 2",
+              "state": "Cundinamarca",
+              "person": 1,
+              "addressline2": "Barrio Lejano"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.customerphoneaddress",
+         "fields": {
+              "person": 1,
+              "purpose": "H",
+              "phone": "234234234"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.supplierphoneaddress",
+         "fields": {
+              "person": 1,
+              "purpose": "H",
+              "phone": "656785678"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.customeremailaddress",
+         "fields": {
+              "person": 1,
+              "purpose": "H",
+              "email": "contacto@ejemplo.com"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.supplieremailaddress",
+         "fields": {
+              "person": 1,
+              "purpose": "H",
+              "email": "contacto@otro.com"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.customerbillingcycle",
+         "fields": {
+              "prefix": "mth",
+              "days_to_payment": 30,
+              "name": "Mensual"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.customergroup",
+         "fields": {
+              "name": "Supermercados"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.contract",
+         "fields": {
+              "default_currency": "COP",
+              "keywords_string": "",
+              "staff": null,
+              "default_supplier": 1,
+              "updated": "2015-12-12T13:30:26.194Z",
+              "expiry_date": null,
+              "slug": "",
+              "dateofcreation": "2015-12-12T13:30:26.174Z",
+              "created": "2015-12-12T13:30:26.174Z",
+              "gen_description": true,
+              "lastmodification": "2015-12-12T13:30:26.194Z",
+              "publish_date": "2015-12-12T13:30:26.163Z",
+              "_meta_title": null,
+              "in_sitemap": true,
+              "description": "Contrato #1",
+              "site": 1,
+              "default_customer": 1,
+              "title": "",
+              "short_url": null,
+              "status": 2,
+              "state": 10,
+              "lastmodifiedby": 1
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.unit",
+         "fields": {
+              "description": "Longitud en metros",
+              "fractionof": null,
+              "factor": 0,
+              "shortname": "mts"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.unit",
+         "fields": {
+              "description": "Longitud en centimetros",
+              "fractionof": 1,
+              "factor": 1,
+              "shortname": "cms"
+         },
+         "pk": 2
+    },
+    {
+         "model": "crm_core.taxrate",
+         "fields": {
+              "taxrate_in_percent": "16.00",
+              "name": "IVA"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.unittransform",
+         "fields": {
+              "to_unit": 2,
+              "product": 1,
+              "from_unit": 1,
+              "factor": 100
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.companycontactdata",
+         "fields": {
+              "slogan": "Somos una empresa",
+              "page_footer_left": "Una pagina mas",
+              "header_text_salesorders": "Esto es un encabezado de ventas",
+              "state": "Cauca",
+              "footer_text_salesorders": "Esto es un pie de pagina de ventas",
+              "addresser": "Se\u00f1ores Empresa",
+              "zipcode": 345345345,
+              "email": "contacto@unejemplo.com",
+              "city": "Popayan",
+              "country": "CO",
+              "logo": "",
+              "footer_text_purchaseorders": "Esto es un pie de pagina de compras",
+              "addressline1": "Calle 3",
+              "header_text_purchaseorders": "Esto es un encabezado de compras",
+              "phone": "456456456",
+              "name": "Empresa",
+              "addressline2": "Barrio en el medio"
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.productunit",
+         "fields": {
+              "product": 1,
+              "unit": 1
+         },
+         "pk": 1
+    },
+    {
+         "model": "crm_core.producttax",
+         "fields": {
+              "tax": 1,
+              "product": 1
+         },
+         "pk": 1
+    }
+]

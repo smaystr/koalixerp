@@ -3,20 +3,23 @@ import django_tables2 as tables
 
 class ButtonColumn(tables.TemplateColumn):
 
-    def __init__(self, text="", onclick="location.href='#'", title="", gl_icon=None, extra_class="btn-default", **extra):
+    def __init__(self, text="", onclick="location.href='#'", title="",
+                 gl_icon=None, extra_class="btn-default", **extra):
         glyph_icon = ""
         if gl_icon:
             glyph_icon = "<span class='glyphicon glyphicon-%s' aria-hidden='true'></span> " % gl_icon
         extra['template_code'] = """<button type="button" class="btn btn-sm %s pull-right" onclick="%s" title="%s"
                 data-toggle="tooltip" data-placement="top">%s%s</button>""" \
-                                 % (extra_class, onclick, title, glyph_icon, text)
+                                 % (extra_class,
+                                    onclick, title, glyph_icon, text)
         super(ButtonColumn, self).__init__(**extra)
 
 
 class ImageLinkColumn(tables.TemplateColumn):
 
     def __init__(self, link="#", img=None, **extra):
-        extra['template_code'] = """<a href="%s"><img src="%s" /></a>""" % (link, img)
+        extra['template_code'] = """<a href="%s"><img src="%s" /></a>""" \
+            % (link, img)
         super(ImageLinkColumn, self).__init__(**extra)
 
 
@@ -33,7 +36,7 @@ class LabelColumn(tables.TemplateColumn):
 
     def __init__(self, **extra):
         extra['template_code'] = """
-        <span class="label label-{{ record.get_state_class }}">{{ record.get_state }}</span>"""
+            <span class="label label-{{ record.get_state_class }}">{{ record.get_state }}</span>"""
         super(LabelColumn, self).__init__(**extra)
 
 
@@ -41,7 +44,8 @@ class CssFieldColumn(tables.TemplateColumn):
 
     def __init__(self, field, **extra):
         css_class = "class=%s" % extra.get('class', '')
-        extra['template_code'] = "<span %s>{{ %s }}</span>" % (css_class, field)
+        extra['template_code'] = "<span %s>{{ %s }}</span>" \
+            % (css_class, field)
         super(CssFieldColumn, self).__init__(**extra)
 
 

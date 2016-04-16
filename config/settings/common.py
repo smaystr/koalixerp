@@ -1,9 +1,31 @@
 from __future__ import absolute_import, unicode_literals
+import environ
+import os
 
-######################
-# CARTRIDGE SETTINGS #
-######################
+# Commented to be implemented later.
+ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+APPS_DIR = ROOT_DIR.path('crm_core')
 
+# Loading environment variables, and including the file for local environment
+# definition
+env = environ.Env()
+
+if os.path.isfile(ROOT_DIR('.env')):
+    environ.Env.read_env(ROOT_DIR('.env'))
+# MAIN DJANGO SETTINGS
+
+SITE_TITLE = 'Koalix ERP'
+SITE_TAGLINE = 'An ERP for PyMES with a nicer interface.'
+# People who get code error notifications.
+# In the format (('Full Name', 'email@example.com'),
+#                ('Full Name', 'anotheremail@example.com'))
+ADMINS = (
+    (env('ADMIN_NAME', default="name"),
+     env('ADMIN_EMAIL', default="email@mail.com")),
+)
+MANAGERS = ADMINS
+
+# CARTRIDGE SETTINGS
 # The following settings are already defined in cartridge.shop.defaults
 # with default values, but are common enough to be put here, commented
 # out, for convenient overriding.
@@ -66,10 +88,7 @@ from __future__ import absolute_import, unicode_literals
 # eg for "Colour" then "Size" given the above:
 # SHOP_OPTION_ADMIN_ORDER = (2, 1)
 
-######################
-# MEZZANINE SETTINGS #
-######################
-
+# MEZZANINE SETTINGS
 # The following settings are already defined with default values in
 # the ``defaults.py`` module within each of Mezzanine's apps, but are
 # common enough to be put here, commented out, for convenient
@@ -78,17 +97,22 @@ from __future__ import absolute_import, unicode_literals
 # http://mezzanine.jupo.org/docs/configuration.html#default-settings
 
 # Controls the ordering and grouping of the admin menu.
-#
 ADMIN_MENU_ORDER = (
-    ("Content", ("pages.Page", "blog.BlogPost", "generic.ThreadedComment", ("Media Library", "fb_browse"),)),
-    ("Site", ("auth.User", "auth.Group", "sites.Site", "redirects.Redirect", "conf.Setting",
+    ("Content", ("pages.Page",
+                 "blog.BlogPost",
+                 "generic.ThreadedComment",
+                 ("Media Library", "fb_browse"),)),
+    ("Site", ("auth.User",
+              "auth.Group",
+              "sites.Site",
+              "redirects.Redirect",
+              "conf.Setting",
               # "business_theme.SitewideContent"
               )),
 )
 
 # A three item sequence, each containing a sequence of template tags
 # used to render the admin dashboard.
-#
 DASHBOARD_TAGS = (
     ("mezzanine_tags.app_list",),
     ("admin_backup_tags.admin_backup", "mezzanine_tags.recent_actions",),
@@ -127,35 +151,14 @@ DASHBOARD_TAGS = (
 # )
 
 # Setting to turn on featured images for blog posts. Defaults to False.
-#
 # BLOG_USE_FEATURED_IMAGE = True
-
-# If True, the south application will be automatically added to the
-# INSTALLED_APPS setting.
-USE_SOUTH = False
-
-SITE_TITLE = 'Koalix ERP'
-
-
-########################
-# MAIN DJANGO SETTINGS #
-########################
-
-# People who get code error notifications.
-# In the format (('Full Name', 'email@example.com'),
-#                ('Full Name', 'anotheremail@example.com'))
-ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
-)
-MANAGERS = ADMINS
 
 ANONYMOUS_USER_ID = -1
 AUTH_USER_MODEL = "auth.User"
-
 LOGIN_URL = "/login/"
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+# See https://docs.djangoproject.com/en/1.8/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
@@ -173,7 +176,8 @@ USE_TZ = True
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = "en"
-# SHOP_CURRENCY_LOCALE = "en_US.utf8"  # This value must be the same value as represented by 'locale -a' on linux
+# SHOP_CURRENCY_LOCALE = "en_US.utf8"  # This value must be the same value as
+# represented by 'locale -a' on linux
 
 # Supported languages
 _ = lambda s: s
@@ -193,14 +197,8 @@ LOCALE_PATHS = (
     'international/locale'
 )
 
-# A boolean that turns on/off debug mode. When set to ``True``, stack traces
-# are displayed for error pages. Should always be set to ``False`` in
-# production. Best set to ``True`` in local_settings.py
-DEBUG = False
-
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -234,49 +232,14 @@ STATICFILES_FINDERS = (
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-
-#############
-# DATABASES #
-#############
-
-DATABASES = {
-    "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
-        # DB name or path to database file if using sqlite3.
-        "NAME": "",
-        # Not used with sqlite3.
-        "USER": "",
-        # Not used with sqlite3.
-        "PASSWORD": "",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
-    }
-}
-
 MIGRATION_MODULES = {
     "shop": "crm_core.migrations.shop",
 }
 
-
-#########
-# PATHS #
-#########
-
-import os
-
-# Full filesystem path to the project.
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Name of the directory for the project.
-PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
-
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
 # project specific.
-CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
+CACHE_MIDDLEWARE_KEY_PREFIX = APPS_DIR
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -286,35 +249,43 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+STATIC_ROOT = str(ROOT_DIR('static'))
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+MEDIA_ROOT = str(ROOT_DIR('media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = os.path.join(STATIC_URL, "media/")
-
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(STATIC_ROOT, "media")
-
-# Package/module name to import the root urlpatterns from for the project.
-ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
+MEDIA_URL = '/media/'
 
 # Put strings here, like "/home/html/django_templates"
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, "crm_core/templates"),
-    os.path.join(PROJECT_ROOT, "templates"),
+    str(ROOT_DIR("crm_core/templates")),
+    str(ROOT_DIR("templates")),
 )
 
+# Package/module name to import the root urlpatterns from for the project.
+ROOT_URLCONF = 'config.urls'
 
-################
-# APPLICATIONS #
-################
+# DATABASE CONFIGURATION
+# -----------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASES = {
+    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    'default': env.db("DATABASE_URL", default="sqlite:///local.db"),
+}
 
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+# APPLICATIONS
 INSTALLED_APPS = (
+    "grappelli_safe",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -397,53 +368,20 @@ MIDDLEWARE_CLASSES = (
 
 # Store these package names here as they may change in the future since
 # at the moment we are using custom forks of them.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
-
-CRISPY_FAIL_SILENTLY = not DEBUG
 CRISPY_TEMPLATE_PACK = "bootstrap3"
-
-
-#########################
-# OPTIONAL APPLICATIONS #
-#########################
-
-# These will be added to ``INSTALLED_APPS``, only if available.
-OPTIONAL_APPS = (
-    "debug_toolbar",
-    "django_extensions",
-    PACKAGE_NAME_FILEBROWSER,
-    PACKAGE_NAME_GRAPPELLI,
-)
 
 SEARCH_MODEL_CHOICES = None
 SHOP_OPTION_TYPE_CHOICES = ((1, 'Size'), (2, 'Colour'))
 SHOP_ORDER_STATUS_CHOICES = ((1, 'Unprocessed'), (2, 'Processed'))
 SHOP_USE_VARIATIONS = False
-
 AJAX_LOOKUP_CHANNELS = {
-    'unit': {'model': 'crm_core.models.QuotePosition', 'search_field': 'product'},
-    'unit_price': {'model': 'crm_core.models.QuotePosition', 'search_field': 'product'},
+    'unit': {'model': 'crm_core.models.QuotePosition',
+             'search_field': 'product'},
+    'unit_price': {'model': 'crm_core.models.QuotePosition',
+                   'search_field': 'product'},
 }
 
-
-##################
-# LOCAL SETTINGS #
-##################
-
-# Allow any settings to be defined in local_settings.py which should be
-# ignored in your version control system allowing for settings to be
-# defined per machine.
-try:
-    from local_settings import *
-except ImportError:
-    pass
-
-
-####################
-# DYNAMIC SETTINGS #
-####################
-
+# DYNAMIC SETTINGS
 # set_dynamic_settings() will rewrite globals based on what has been
 # defined so far, in order to provide some better defaults where
 # applicable. We also allow this settings module to be imported

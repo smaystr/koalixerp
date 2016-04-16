@@ -27,6 +27,7 @@ CONTRACT_STATE_CHOICES = (
     (100, _('Deleted'))
 )
 
+
 class ContractStatesLabelEnum(choices.Choices):
     Open = choices.Choice(10, 'danger')
     Payed = choices.Choice(20, 'default')

@@ -1,16 +1,34 @@
 language: python
 python:
-  - "2.7"
+ - "3.4"
+
 env:
-  - DJANGO_VERSION=1.8
+  - DATABASE_URL='postgresql://postgres:@localhost:5432/my_db' DJANGO_SECRET_KEY=CambiameDePorDios12345 DJANGO="Django<1.9"
+
+services:
+  - postgresql
+
+addons:
+  postgresql: "9.3"
+
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install python-dev python-pip python-lxml libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+  - sudo apt-get install -y git curl autoconf automake build-essential python-virtualenv
+  - sudo apt-get install -y python3-dev libxslt1-dev libcairo2 shared-mime-info
+  - sudo apt-get install -y libpango1.0-0 libgdk-pixbuf2.0-0 libffi-dev
+  - sudo apt-get install -y libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
+  - sudo apt-get install -y liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev
+  - sudo apt-get install -y libxml2 libxml2-dev libxslt-dev python3-setuptools
+  - sudo easy_install3 pip
+
 install:
-  - pip install -q Django==$DJANGO_VERSION
-  - pip install -r requirements.txt
-  - pip install python-coveralls
-  - pip install coverage
+  - pip3 install -r requirements/local.txt
+  - pip3 install python-coveralls
+  - pip3 install coverage
+
+before_script:
+  - psql -c 'create database my_db;' -U postgres
+
 script:
   - python manage.py check
   - python manage.py migrate --noinput

@@ -9,7 +9,8 @@ from extra_views import UpdateWithInlinesView, CreateWithInlinesView
 class UpdateWithModifiedByMixin(UpdateView):
 
     def post(self, request, *args, **kwargs):
-        res = super(UpdateWithModifiedByMixin, self).post(request, *args, **kwargs)
+        res = super(UpdateWithModifiedByMixin, self).post(
+            request, *args, **kwargs)
         self.object.lastmodifiedby = request.user
         self.object.save()
         return res
@@ -18,7 +19,8 @@ class UpdateWithModifiedByMixin(UpdateView):
 class CreateWithModifieByMixin(CreateView):
 
     def post(self, request, *args, **kwargs):
-        res = super(CreateWithModifieByMixin, self).post(request, *args, **kwargs)
+        res = super(CreateWithModifieByMixin, self).post(
+            request, *args, **kwargs)
         self.object.lastmodifiedby = request.user
         self.object.save()
         return res
@@ -27,7 +29,8 @@ class CreateWithModifieByMixin(CreateView):
 class UpdateWithInlinesAndModifiedByMixin(UpdateWithInlinesView):
 
     def post(self, request, *args, **kwargs):
-        res = super(UpdateWithInlinesAndModifiedByMixin, self).post(request, *args, **kwargs)
+        res = super(UpdateWithInlinesAndModifiedByMixin, self).post(
+            request, *args, **kwargs)
         self.object.lastmodifiedby = request.user
         self.object.save()
         return res
@@ -36,7 +39,8 @@ class UpdateWithInlinesAndModifiedByMixin(UpdateWithInlinesView):
 class CreateWithInlinesAndModifiedByMixin(CreateWithInlinesView):
 
     def post(self, request, *args, **kwargs):
-        res = super(CreateWithInlinesAndModifiedByMixin, self).post(request, *args, **kwargs)
+        res = super(CreateWithInlinesAndModifiedByMixin, self).post(
+            request, *args, **kwargs)
         self.object.lastmodifiedby = request.user
         self.object.save()
         return res
