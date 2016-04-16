@@ -11,7 +11,7 @@ KoalixERP is open source and free to use.
 
 Build | Coverage | Requirements | Documentation
 ------|----------|--------------|--------------
-[![Build Status](https://travis-ci.org/swappsco/koalixerp.svg?branch=develop)](https://travis-ci.org/swappsco/koalixerp) | [![Coverage Status](https://coveralls.io/repos/Swappsco/koalixerp/badge.svg?branch=develop&service=github)](https://coveralls.io/github/Swappsco/koalixerp?branch=develop) | [![Requirements Status](https://requires.io/github/swappsco/koalixerp/requirements.svg?branch=develop)](https://requires.io/github/Swappsco/koalixerp/requirements/?branch=develop) | [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](http://koalix-erp.readthedocs.org/en/latest/?badge=latest)
+[![Build Status](https://travis-ci.org/swappsco/koalixerp.svg?branch=master)](https://travis-ci.org/swappsco/koalixerp) | [![Coverage Status](https://coveralls.io/repos/Swappsco/koalixerp/badge.svg?branch=master&service=github)](https://coveralls.io/github/Swappsco/koalixerp?branch=master) | [![Requirements Status](https://requires.io/github/swappsco/koalixerp/requirements.svg?branch=master)](https://requires.io/github/Swappsco/koalixerp/requirements/?branch=master) | [![Documentation Status](https://readthedocs.org/projects/koalix-erp/badge/?version=latest)](http://koalix-erp.readthedocs.org/en/latest/?badge=latest)
 *****************************************************
 Note:
 At this moment the project is not yet open for
