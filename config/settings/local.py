@@ -1,4 +1,3 @@
-
 '''
 Local settings
 
@@ -13,7 +12,7 @@ from .common import *  # noqa
 # DEBUG
 # -----------------------------------------------------------------------------
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
-# COmmenting this line because the settings file for mezzanine differs from
+# Commenting this line because the settings file for mezzanine differs from
 # Django 1.8 dictionary structure.
 # TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
@@ -43,15 +42,25 @@ CACHES = {
 # -----------------------------------------------------------------------------
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
-INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
+INTERNAL_IPS = ('127.0.0.1',)
+
+
+# This is a last-ditch-effort move,
+# you shouldn't have to do this,
+# but it will clearly show if there's merely some configuration issue
+# or whether there's some larger issue.
+def show_toolbar(request): return True
+
 
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
         'debug_toolbar.panels.redirects.RedirectsPanel',
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
 }
 CRISPY_FAIL_SILENTLY = not DEBUG
+
 # django-extensions
 # -----------------------------------------------------------------------------
 # OPTIONAL APPLICATIONS
@@ -60,6 +69,7 @@ PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 INSTALLED_APPS += (
     "debug_toolbar",
     "django_extensions",
+    'autofixture',
     PACKAGE_NAME_FILEBROWSER,
 )
 # TESTING
@@ -67,3 +77,11 @@ INSTALLED_APPS += (
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Your local stuff: Below this line define 3rd party library settings
+# -----------------------------------------------------------------------------
+ALLOWED_HOSTS = ['*']
+
+DATABASES['default']['NAME'] = ''
+DATABASES['default']['USER'] = ''
+DATABASES['default']['PASSWORD'] = ''
+DATABASES['default']['HOST'] = ''
+DATABASES['default']['PORT'] = ''

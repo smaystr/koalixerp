@@ -6,7 +6,7 @@
 Welcome to Koalix ERP's documentation!
 ======================================
 
-Koalix ERP - Beautiful ERP for small business
+Beautiful ERP for small business
 
 
 

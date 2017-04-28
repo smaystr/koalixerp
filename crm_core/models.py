@@ -1,4 +1,5 @@
 from datetime import date, timedelta, datetime
+
 from django.conf import settings
 from django.db import models, transaction
 from django.template.loader import render_to_string
@@ -24,6 +25,11 @@ from django_extensions.db.fields import (CreationDateTimeField,
                                          ModificationDateTimeField)
 from solo.models import SingletonModel
 
+# import the logging library
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger('koalix')
 
 # ######################
 # ##   Base Classes   ##
@@ -151,7 +157,7 @@ class PostalAddress(models.Model):
         elif self.zipcode and self.city:
             return '%s %s' % (self.zipcode, self.city)
         elif self.city:
-            return unicode(self.city)
+            return self.city
         return self.addressline1
 
 
@@ -557,9 +563,11 @@ class PurchaseOrder(SalesContract, Displayable):
 
     def create_pdf(self):
         html = self.to_html()
+        # logger.debug(settings.ROOT_DIR)
+
         pth = path.normpath(
             '%s/%s/data/pdf/purchaseorders/purchaseorder-%s.pdf' % (
-                settings.PROJECT_ROOT, settings.MEDIA_URL, self.pk))
+                settings.ROOT_DIR, settings.MEDIA_URL, self.pk))
         self.pdf_path = pth
         HTML(string=html, encoding="utf8").write_pdf(target=pth)
 
@@ -654,7 +662,7 @@ class Quote(SalesContract, Displayable):
     def create_pdf(self):
         html = self.to_html()
         pth = path.normpath('%s/%s/data/pdf/quotes/quote-%s.pdf' % (
-            settings.PROJECT_ROOT, settings.MEDIA_URL, self.pk))
+            settings.ROOT_DIR, settings.MEDIA_URL, self.pk))
         self.pdf_path = pth
         HTML(string=html, encoding="utf8").write_pdf(target=pth)
 
@@ -731,7 +739,7 @@ class Invoice(SalesContract, Displayable):
     def create_pdf(self):
         html = self.to_html()
         pth = path.normpath('%s/%s/data/pdf/invoices/invoice-%s.pdf' % (
-            settings.PROJECT_ROOT, settings.MEDIA_URL, self.pk))
+            settings.ROOT_DIR, settings.MEDIA_URL, self.pk))
         self.pdf_path = pth
         HTML(string=html, encoding="utf8").write_pdf(target=pth)
 

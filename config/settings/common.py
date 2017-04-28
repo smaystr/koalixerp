@@ -1,17 +1,43 @@
 from __future__ import absolute_import, unicode_literals
+from django.utils.translation import ugettext_lazy as _
 import environ
 import os
 
-# Commented to be implemented later.
-ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('crm_core')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': "INFO",
+        },
+        'koalix': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+
+    },
+}
+
+# ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.path.dirname(BASE_DIR)
+APPS_DIR = os.path.join(ROOT_DIR, 'crm_core')
+# print("base dir path:", ROOT_DIR)
 
 # Loading environment variables, and including the file for local environment
 # definition
 env = environ.Env()
 
-if os.path.isfile(ROOT_DIR('.env')):
-    environ.Env.read_env(ROOT_DIR('.env'))
+if os.path.isfile(os.path.join(ROOT_DIR, '.env')):
+    environ.Env.read_env(os.path.join(ROOT_DIR, '.env'))
 # MAIN DJANGO SETTINGS
 
 SITE_TITLE = 'Koalix ERP'
@@ -107,7 +133,7 @@ ADMIN_MENU_ORDER = (
               "sites.Site",
               "redirects.Redirect",
               "conf.Setting",
-              # "business_theme.SitewideContent"
+              "business_theme.SitewideContent"
               )),
 )
 
@@ -159,7 +185,7 @@ LOGIN_URL = "/login/"
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.8/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -168,34 +194,39 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'GMT'
+TIME_ZONE = 'Europe/Kiev'
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = 'ru-ua'
 # SHOP_CURRENCY_LOCALE = "en_US.utf8"  # This value must be the same value as
-# represented by 'locale -a' on linux
+# represented by 'locale -a' on LINUX
 
 # Supported languages
-_ = lambda s: s
-LANGUAGES = (
+LANGUAGES = [
+    ('ru', _('Russian')),
+    ('uk', _('Ukrainian')),
     ('en', _('English')),
     ('de', _('German')),
-    ('ru', _('Russian')),
     ('es', _('Spanish')),
     ('fr', _('French')),
     ('it', _('Italian')),
-)
+]
 
-LOCALE_PATHS = (
-    'crm_core/locale',
-    'accounting/locale',
-    'subscriptions/locale',
-    'international/locale'
-)
+# LOCALE_PATHS = (
+#     'crm_core/locale',
+#     'accounting/locale',
+#     'subscriptions/locale',
+#     'international/locale'
+# )
+
+LOCALE_PATHS = [
+    os.path.join(APPS_DIR, "locale"),
+    os.path.join(ROOT_DIR, "international/locale"),
+]
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -212,10 +243,10 @@ USE_L10N = True
 INTERNAL_IPS = ("127.0.0.1",)
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    "django.template.loaders.filesystem.Loader",
-    "django.template.loaders.app_directories.Loader",
-)
+# TEMPLATE_LOADERS = (
+#     "django.template.loaders.filesystem.Loader",
+#     "django.template.loaders.app_directories.Loader",
+# )
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -249,11 +280,12 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = str(ROOT_DIR('static'))
+STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
+# STATIC_ROOT = str(ROOT_DIR('static'))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = str(ROOT_DIR('media'))
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -265,10 +297,10 @@ MEDIA_URL = '/media/'
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 
-TEMPLATE_DIRS = (
-    str(ROOT_DIR("crm_core/templates")),
-    str(ROOT_DIR("templates")),
-)
+# TEMPLATE_DIRS = (
+#     str(ROOT_DIR("crm_core/templates")),
+#     str(ROOT_DIR("templates")),
+# )
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = 'config.urls'
@@ -277,14 +309,21 @@ ROOT_URLCONF = 'config.urls'
 # -----------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL", default="sqlite:///local.db"),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    },
 }
 
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # APPLICATIONS
 INSTALLED_APPS = (
+    # 'django_admin_bootstrapped',
     "grappelli_safe",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -303,6 +342,7 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.galleries",
+    # "mezzanine.accounts",
 
     "django_utils",
     "braces",
@@ -318,50 +358,85 @@ INSTALLED_APPS = (
     "crispy_forms",
     "datetimewidget",
     "django_tables2",
-    "bootstrap3",
 
     "crm_core",
 
+    "bootstrap3",
+
     # Uncomment the following if you want to use mezzanine's twitter plugin
-    # "mezzanine.twitter",
+    "mezzanine.twitter",
 )
 
 # List of processors used by RequestContext to populate the context.
 # Each one should be a callable that takes the request object as its
 # only parameter and returns a dictionary to add to the context.
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.static",
-    "django.core.context_processors.media",
-    "django.core.context_processors.request",
-    "django.core.context_processors.tz",
-    "mezzanine.conf.context_processors.settings",
-    "mezzanine.pages.context_processors.page",
-)
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     "django.contrib.auth.context_processors.auth",
+#     "django.contrib.messages.context_processors.messages",
+#     "django.core.context_processors.debug",
+#     "django.core.context_processors.i18n",
+#     "django.core.context_processors.static",
+#     "django.core.context_processors.media",
+#     "django.core.context_processors.request",
+#     "django.core.context_processors.tz",
+#     "mezzanine.conf.context_processors.settings",
+#     "mezzanine.pages.context_processors.page",
+# )
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            os.path.join(ROOT_DIR, "crm_core/templates"),
+            os.path.join(ROOT_DIR, "templates"),
+        ],
+        "OPTIONS": {
+            "context_processors": [
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.static",
+                "django.template.context_processors.media",
+                "django.template.context_processors.request",
+                "django.template.context_processors.tz",
+                "mezzanine.conf.context_processors.settings",
+                "mezzanine.pages.context_processors.page",  # if 1.9 +
+            ],
+            "loaders": [
+                "django.template.loaders.filesystem.Loader",
+                "django.template.loaders.app_directories.Loader",
+            ],
+            # "builtins": ["mezzanine.template.loader_tags", ], if 1.9 +
+        },
+    },
+]
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
-    "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+
     "cartridge.shop.middleware.ShopMiddleware",
+
+    "mezzanine.core.middleware.UpdateCacheMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
+    "mezzanine.core.middleware.RedirectFallbackMiddleware",
     "mezzanine.core.middleware.TemplateForDeviceMiddleware",
     "mezzanine.core.middleware.TemplateForHostMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SitePermissionMiddleware",
+
     # Uncomment the following if using any of the SSL settings:
-    # "mezzanine.core.middleware.SSLRedirectMiddleware",
+    "mezzanine.core.middleware.SSLRedirectMiddleware",  # 1.9 +
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
 )
@@ -373,7 +448,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 SEARCH_MODEL_CHOICES = None
 SHOP_OPTION_TYPE_CHOICES = ((1, 'Size'), (2, 'Colour'))
 SHOP_ORDER_STATUS_CHOICES = ((1, 'Unprocessed'), (2, 'Processed'))
-SHOP_USE_VARIATIONS = False
+SHOP_USE_VARIATIONS = True
 AJAX_LOOKUP_CHANNELS = {
     'unit': {'model': 'crm_core.models.QuotePosition',
              'search_field': 'product'},

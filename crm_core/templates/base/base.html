@@ -97,24 +97,24 @@
                         <img src="{{ user.extension.image.url }}" class="img-thumbnail" width="60" height="60">
                     {% endif %}
                         <h5 class="centered">
-                            <a href="{% url "profile_update" user.pk %}">
+                            <a href="{% url 'profile_update' user.pk %}">
                                 {{ user }}
                             </a>
                         </h5>
                     </p>
-                    <li><a href="/admin/"><i class="fa fa-gears"></i>Administration</a></li>
-                    <li><a href="/admin/logout/"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    <li><a href="{% url 'admin:index' %}"><i class="fa fa-gears"></i>Administration</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Logout</a></li>
 
                   {% else %}
 
-                      <li><a href="/login/"><i class="fa fa-sign-in"></i>Login</a></li>
+                      <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></li>
 
                   {% endif %}
 
                   {% if user.is_authenticated %}
 
                       <li class="mt">
-                          <a href="/dashboard/">
+                          <a href="{% url 'dashboard' %}">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                           </a>
@@ -122,7 +122,7 @@
 
                       {% if perms.crm_core.view_customer %}
                       <li class="sub-menu">
-                          <a href="/customers/">
+                          <a href="{% url 'customer_list' %}">
                               <i class="fa fa-user"></i>
                               <span>{% trans "Customers" %}</span>
                           </a>
@@ -131,7 +131,7 @@
 
                       {% if perms.crm_core.view_supplier %}
                       <li class="sub-menu">
-                          <a href="/suppliers/">
+                          <a href="{% url 'supplier_list' %}">
                               <i class="fa fa-truck"></i>
                               <span>{% trans "Suppliers" %}</span>
                           </a>
@@ -140,7 +140,7 @@
 
                       {% if perms.crm_core.view_products %}
                       <li class="sub-menu">
-                          <a href="/products/">
+                          <a href="{% url 'product_list' %}">
                               <i class="fa fa-book"></i>
                               <span>{% trans "Products" %}</span>
                           </a>
@@ -149,7 +149,7 @@
 
                       {% if perms.crm_core.view_contract or perms.crm_core.view_quote or perms.crm_core.view_purchaseorder or perms.crm_core.view_invoice %}
                       <li class="sub-menu">
-                          <a href="/contracts/">
+                          <a href="{% url 'contract_list' %}">
                               <i class="fa fa-star"></i>
                               <span>{% trans "Contract Overview" %}</span>
                           </a>
@@ -158,7 +158,7 @@
 
                     {% if perms.crm_core.view_customergroup or perms.crm_core.view_billingcycle or perms.crm_core.view_tax or perms.crm_core.view_unit %}
                       <li class="sub-menu">
-                          <a href="/settings/" >
+                          <a href="{% url 'settings' %}" >
                               <i class="fa fa-wrench"></i>
                               <span>{% trans "Settings" %}</span>
                           </a>
@@ -188,7 +188,7 @@
                         <div style="margin-top: 10px;">
                             <ul class="breadcrumb" style="background-color: white;">
                             {% spaceless %}
-                                <li id="breadcrumb-menu-home"><a href="/">CRM</a></li>
+                                <li id="breadcrumb-menu-home"><a href="{% url 'home' %}">CRM</a></li>
                             {% block breadcrumb_menu %}
                                 {% page_menu "pages/menus/breadcrumb.html" %}
                             {% endblock %}
