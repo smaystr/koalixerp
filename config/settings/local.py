@@ -42,7 +42,7 @@ CACHES = {
 # -----------------------------------------------------------------------------
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', '192.168.56.101',)
 
 
 # This is a last-ditch-effort move,
@@ -65,12 +65,10 @@ CRISPY_FAIL_SILENTLY = not DEBUG
 # -----------------------------------------------------------------------------
 # OPTIONAL APPLICATIONS
 # These will be added to ``INSTALLED_APPS``, only if available.
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 INSTALLED_APPS += (
     "debug_toolbar",
     "django_extensions",
     'autofixture',
-    PACKAGE_NAME_FILEBROWSER,
 )
 # TESTING
 # -----------------------------------------------------------------------------
@@ -80,8 +78,8 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 # -----------------------------------------------------------------------------
 ALLOWED_HOSTS = ['*']
 
-DATABASES['default']['NAME'] = ''
-DATABASES['default']['USER'] = ''
-DATABASES['default']['PASSWORD'] = ''
-DATABASES['default']['HOST'] = ''
-DATABASES['default']['PORT'] = ''
+DATABASES['default']['NAME'] = 'upmix'
+DATABASES['default']['USER'] = 'upmx'
+DATABASES['default']['PASSWORD'] = 'upmx'
+DATABASES['default']['HOST'] = 'localhost'
+DATABASES['default']['PORT'] = '5432'

@@ -1,5 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 from django.utils.translation import ugettext_lazy as _
+from django import VERSION as DJANGO_VERSION
 import environ
 import os
 
@@ -126,6 +127,7 @@ MANAGERS = ADMINS
 ADMIN_MENU_ORDER = (
     ("Content", ("pages.Page",
                  "blog.BlogPost",
+                 "blog.BlogCategory",
                  "generic.ThreadedComment",
                  ("Media Library", "fb_browse"),)),
     ("Site", ("auth.User",
@@ -324,7 +326,6 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 # APPLICATIONS
 INSTALLED_APPS = (
     # 'django_admin_bootstrapped',
-    "grappelli_safe",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -338,11 +339,13 @@ INSTALLED_APPS = (
     "mezzanine.conf",
     "mezzanine.core",
     "mezzanine.generic",
+    "mezzanine.pages",
     "mezzanine.blog",
     "mezzanine.forms",
-    "mezzanine.pages",
     "mezzanine.galleries",
+    "mezzanine.twitter",
     # "mezzanine.accounts",
+    # "mezzanine.mobile",
 
     "django_utils",
     "braces",
@@ -362,9 +365,8 @@ INSTALLED_APPS = (
     "crm_core",
 
     "bootstrap3",
+    # "grappelli_safe",
 
-    # Uncomment the following if you want to use mezzanine's twitter plugin
-    "mezzanine.twitter",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -390,6 +392,7 @@ TEMPLATES = [
             os.path.join(ROOT_DIR, "crm_core/templates"),
             os.path.join(ROOT_DIR, "templates"),
         ],
+        # "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
@@ -401,33 +404,41 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.template.context_processors.tz",
                 "mezzanine.conf.context_processors.settings",
-                "mezzanine.pages.context_processors.page",  # if 1.9 +
+                "mezzanine.pages.context_processors.page",
+            ],
+            "builtins": [
+                "mezzanine.template.loader_tags",
             ],
             "loaders": [
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
             ],
-            # "builtins": ["mezzanine.template.loader_tags", ], if 1.9 +
         },
     },
 ]
+
+if DJANGO_VERSION < (1, 9):
+    del TEMPLATES[0]["OPTIONS"]["builtins"]
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
+    "mezzanine.core.middleware.UpdateCacheMiddleware",
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
 
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     "cartridge.shop.middleware.ShopMiddleware",
 
-    "mezzanine.core.middleware.UpdateCacheMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
     "mezzanine.core.middleware.TemplateForDeviceMiddleware",
@@ -443,8 +454,23 @@ MIDDLEWARE_CLASSES = (
 
 # Store these package names here as they may change in the future since
 # at the moment we are using custom forks of them.
-CRISPY_TEMPLATE_PACK = "bootstrap3"
+PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
+PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 
+#########################
+# OPTIONAL APPLICATIONS #
+#########################
+
+# These will be added to ``INSTALLED_APPS``, only if available.
+OPTIONAL_APPS = (
+    "compressor",
+    PACKAGE_NAME_GRAPPELLI,
+    PACKAGE_NAME_FILEBROWSER,
+)
+
+# Store these package names here as they may change in the future since
+# at the moment we are using custom forks of them.
+CRISPY_TEMPLATE_PACK = "bootstrap3"
 SEARCH_MODEL_CHOICES = None
 SHOP_OPTION_TYPE_CHOICES = ((1, 'Size'), (2, 'Colour'))
 SHOP_ORDER_STATUS_CHOICES = ((1, 'Unprocessed'), (2, 'Processed'))
