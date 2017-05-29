@@ -17,7 +17,7 @@ Note:
 At this moment the project is not yet open for
 production use, we are working to implement new
 features and to upgrade the code to be compatible with
-Python3.
+Python3, Django 1.8+,... etc.
 *****************************************************
 
 Read the documentation for installation instructions at http://koalix-crm.readthedocs.org/en/master/
@@ -62,6 +62,7 @@ KoalixERP provides following benefits:
 
     *   Italian
     *   French
+    *   Ukrainian
     *   Russian
 
 -   **Versioned data models:**
@@ -69,7 +70,7 @@ KoalixERP provides following benefits:
     All important models have a version history and can be reverted any time to any state
 
 ## About this project
-KoalixERP is a fork of [tfroehlich82's koalixcrm](https://github.com/tfroehlich82/koalixcrm) with the goal of a contemporary ERP with a beautiful user interface and a bunch of useful and most needed features in modern business.
+KoalixERP is a fork of [swappsco's koalixerp](https://github.com/swappsco/koalixerp) with the goal of a contemporary ERP with a beautiful user interface and a bunch of useful and most needed features in modern business.
 
 ## License
 This project is released under the [new BSD license](LICENSE).
