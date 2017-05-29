@@ -1,0 +1,1744 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-21 13:00+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: models.py:36
+msgid "Afghanistan, Islamic Republic of"
+msgstr ""
+
+#: models.py:37
+msgid "Albania, Republic of"
+msgstr ""
+
+#: models.py:38
+msgid "Antarctica (the territory South of 60 deg S)"
+msgstr ""
+
+#: models.py:39
+msgid "Algeria, People's Democratic Republic of"
+msgstr ""
+
+#: models.py:40
+msgid "American Samoa"
+msgstr ""
+
+#: models.py:41
+msgid "Andorra, Principality of"
+msgstr ""
+
+#: models.py:42
+msgid "Angola, Republic of"
+msgstr ""
+
+#: models.py:43
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: models.py:44
+msgid "Azerbaijan, Republic of"
+msgstr ""
+
+#: models.py:45
+msgid "Argentina, Argentine Republic"
+msgstr ""
+
+#: models.py:46
+msgid "Australia, Commonwealth of"
+msgstr ""
+
+#: models.py:47
+msgid "Austria, Republic of"
+msgstr ""
+
+#: models.py:48
+msgid "Bahamas, Commonwealth of the"
+msgstr ""
+
+#: models.py:49
+msgid "Bahrain, Kingdom of"
+msgstr ""
+
+#: models.py:50
+msgid "Bangladesh, People's Republic of"
+msgstr ""
+
+#: models.py:51
+msgid "Armenia, Republic of"
+msgstr ""
+
+#: models.py:52
+msgid "Barbados"
+msgstr ""
+
+#: models.py:53
+msgid "Belgium, Kingdom of"
+msgstr ""
+
+#: models.py:54
+msgid "Bermuda"
+msgstr ""
+
+#: models.py:55
+msgid "Bhutan, Kingdom of"
+msgstr ""
+
+#: models.py:56
+msgid "Bolivia, Republic of"
+msgstr ""
+
+#: models.py:57
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: models.py:58
+msgid "Botswana, Republic of"
+msgstr ""
+
+#: models.py:59
+msgid "Bouvet Island (Bouvetoya)"
+msgstr ""
+
+#: models.py:60
+msgid "Brazil, Federative Republic of"
+msgstr ""
+
+#: models.py:61
+msgid "Belize"
+msgstr ""
+
+#: models.py:63
+msgid "British Indian Ocean Territory (Chagos Archipelago)"
+msgstr ""
+
+#: models.py:64
+msgid "Solomon Islands"
+msgstr ""
+
+#: models.py:65
+msgid "British Virgin Islands"
+msgstr ""
+
+#: models.py:66
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: models.py:67
+msgid "Bulgaria, Republic of"
+msgstr ""
+
+#: models.py:68
+msgid "Myanmar, Union of"
+msgstr ""
+
+#: models.py:69
+msgid "Burundi, Republic of"
+msgstr ""
+
+#: models.py:70
+msgid "Belarus, Republic of"
+msgstr ""
+
+#: models.py:71
+msgid "Cambodia, Kingdom of"
+msgstr ""
+
+#: models.py:72
+msgid "Cameroon, Republic of"
+msgstr ""
+
+#: models.py:73
+msgid "Canada"
+msgstr ""
+
+#: models.py:74
+msgid "Cape Verde, Republic of"
+msgstr ""
+
+#: models.py:75
+msgid "Cayman Islands"
+msgstr ""
+
+#: models.py:76
+msgid "Central African Republic"
+msgstr ""
+
+#: models.py:77
+msgid "Sri Lanka, Democratic Socialist Republic of"
+msgstr ""
+
+#: models.py:78
+msgid "Chad, Republic of"
+msgstr ""
+
+#: models.py:79
+msgid "Chile, Republic of"
+msgstr ""
+
+#: models.py:80
+msgid "China, People's Republic of"
+msgstr ""
+
+#: models.py:81
+msgid "Taiwan"
+msgstr ""
+
+#: models.py:82
+msgid "Christmas Island"
+msgstr ""
+
+#: models.py:83
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: models.py:84
+msgid "Colombia, Republic of"
+msgstr ""
+
+#: models.py:85
+msgid "Comoros, Union of the"
+msgstr ""
+
+#: models.py:86
+msgid "Mayotte"
+msgstr ""
+
+#: models.py:87
+msgid "Congo, Republic of the"
+msgstr ""
+
+#: models.py:88
+msgid "Congo, Democratic Republic of the"
+msgstr ""
+
+#: models.py:89
+msgid "Cook Islands"
+msgstr ""
+
+#: models.py:90
+msgid "Costa Rica, Republic of"
+msgstr ""
+
+#: models.py:91
+msgid "Croatia, Republic of"
+msgstr ""
+
+#: models.py:92
+msgid "Cuba, Republic of"
+msgstr ""
+
+#: models.py:93
+msgid "Cyprus, Republic of"
+msgstr ""
+
+#: models.py:94
+msgid "Czech Republic"
+msgstr ""
+
+#: models.py:95
+msgid "Benin, Republic of"
+msgstr ""
+
+#: models.py:96
+msgid "Denmark, Kingdom of"
+msgstr ""
+
+#: models.py:97
+msgid "Dominica, Commonwealth of"
+msgstr ""
+
+#: models.py:98
+msgid "Dominican Republic"
+msgstr ""
+
+#: models.py:99
+msgid "Ecuador, Republic of"
+msgstr ""
+
+#: models.py:100
+msgid "El Salvador, Republic of"
+msgstr ""
+
+#: models.py:101
+msgid "Equatorial Guinea, Republic of"
+msgstr ""
+
+#: models.py:102
+msgid "Ethiopia, Federal Democratic Republic of"
+msgstr ""
+
+#: models.py:103
+msgid "Eritrea, State of"
+msgstr ""
+
+#: models.py:104
+msgid "Estonia, Republic of"
+msgstr ""
+
+#: models.py:105
+msgid "Faroe Islands"
+msgstr ""
+
+#: models.py:106
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: models.py:108
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: models.py:109
+msgid "Fiji, Republic of the Fiji Islands"
+msgstr ""
+
+#: models.py:110
+msgid "Finland, Republic of"
+msgstr ""
+
+#: models.py:111
+msgid "Åland Islands"
+msgstr ""
+
+#: models.py:112
+msgid "France, French Republic"
+msgstr ""
+
+#: models.py:113
+msgid "French Guiana"
+msgstr ""
+
+#: models.py:114
+msgid "French Polynesia"
+msgstr ""
+
+#: models.py:115
+msgid "French Southern Territories"
+msgstr ""
+
+#: models.py:116
+msgid "Djibouti, Republic of"
+msgstr ""
+
+#: models.py:117
+msgid "Gabon, Gabonese Republic"
+msgstr ""
+
+#: models.py:118
+msgid "Georgia"
+msgstr ""
+
+#: models.py:119
+msgid "Gambia, Republic of the"
+msgstr ""
+
+#: models.py:120
+msgid "Palestinian Territory, Occupied"
+msgstr ""
+
+#: models.py:121
+msgid "Germany, Federal Republic of"
+msgstr ""
+
+#: models.py:122
+msgid "Ghana, Republic of"
+msgstr ""
+
+#: models.py:123
+msgid "Gibraltar"
+msgstr ""
+
+#: models.py:124
+msgid "Kiribati, Republic of"
+msgstr ""
+
+#: models.py:125
+msgid "Greece, Hellenic Republic"
+msgstr ""
+
+#: models.py:126
+msgid "Greenland"
+msgstr ""
+
+#: models.py:127
+msgid "Grenada"
+msgstr ""
+
+#: models.py:128
+msgid "Guadeloupe"
+msgstr ""
+
+#: models.py:129
+msgid "Guam"
+msgstr ""
+
+#: models.py:130
+msgid "Guatemala, Republic of"
+msgstr ""
+
+#: models.py:131
+msgid "Guinea, Republic of"
+msgstr ""
+
+#: models.py:132
+msgid "Guyana, Co-operative Republic of"
+msgstr ""
+
+#: models.py:133
+msgid "Haiti, Republic of"
+msgstr ""
+
+#: models.py:134
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: models.py:135
+msgid "Holy See (Vatican City State)"
+msgstr ""
+
+#: models.py:136
+msgid "Honduras, Republic of"
+msgstr ""
+
+#: models.py:138
+msgid "Hong Kong, Special Administrative Region of China"
+msgstr ""
+
+#: models.py:139
+msgid "Hungary, Republic of"
+msgstr ""
+
+#: models.py:140
+msgid "Iceland, Republic of"
+msgstr ""
+
+#: models.py:141
+msgid "India, Republic of"
+msgstr ""
+
+#: models.py:142
+msgid "Indonesia, Republic of"
+msgstr ""
+
+#: models.py:143
+msgid "Iran, Islamic Republic of"
+msgstr ""
+
+#: models.py:144
+msgid "Iraq, Republic of"
+msgstr ""
+
+#: models.py:145
+msgid "Ireland"
+msgstr ""
+
+#: models.py:146
+msgid "Israel, State of"
+msgstr ""
+
+#: models.py:147
+msgid "Italy, Italian Republic"
+msgstr ""
+
+#: models.py:148
+msgid "Cote d'Ivoire, Republic of"
+msgstr ""
+
+#: models.py:149
+msgid "Jamaica"
+msgstr ""
+
+#: models.py:150
+msgid "Japan"
+msgstr ""
+
+#: models.py:151
+msgid "Kazakhstan, Republic of"
+msgstr ""
+
+#: models.py:152
+msgid "Jordan, Hashemite Kingdom of"
+msgstr ""
+
+#: models.py:153
+msgid "Kenya, Republic of"
+msgstr ""
+
+#: models.py:154
+msgid "Korea, Democratic People's Republic of"
+msgstr ""
+
+#: models.py:155
+msgid "Korea, Republic of"
+msgstr ""
+
+#: models.py:156
+msgid "Kuwait, State of"
+msgstr ""
+
+#: models.py:157
+msgid "Kyrgyz Republic"
+msgstr ""
+
+#: models.py:158
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: models.py:159
+msgid "Lebanon, Lebanese Republic"
+msgstr ""
+
+#: models.py:160
+msgid "Lesotho, Kingdom of"
+msgstr ""
+
+#: models.py:161
+msgid "Latvia, Republic of"
+msgstr ""
+
+#: models.py:162
+msgid "Liberia, Republic of"
+msgstr ""
+
+#: models.py:163
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: models.py:164
+msgid "Liechtenstein, Principality of"
+msgstr ""
+
+#: models.py:165
+msgid "Lithuania, Republic of"
+msgstr ""
+
+#: models.py:166
+msgid "Luxembourg, Grand Duchy of"
+msgstr ""
+
+#: models.py:168
+msgid "Macao, Special Administrative Region of China"
+msgstr ""
+
+#: models.py:169
+msgid "Madagascar, Republic of"
+msgstr ""
+
+#: models.py:170
+msgid "Malawi, Republic of"
+msgstr ""
+
+#: models.py:171
+msgid "Malaysia"
+msgstr ""
+
+#: models.py:172
+msgid "Maldives, Republic of"
+msgstr ""
+
+#: models.py:173
+msgid "Mali, Republic of"
+msgstr ""
+
+#: models.py:174
+msgid "Malta, Republic of"
+msgstr ""
+
+#: models.py:175
+msgid "Martinique"
+msgstr ""
+
+#: models.py:176
+msgid "Mauritania, Islamic Republic of"
+msgstr ""
+
+#: models.py:177
+msgid "Mauritius, Republic of"
+msgstr ""
+
+#: models.py:178
+msgid "Mexico, United Mexican States"
+msgstr ""
+
+#: models.py:179
+msgid "Monaco, Principality of"
+msgstr ""
+
+#: models.py:180
+msgid "Mongolia"
+msgstr ""
+
+#: models.py:181
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: models.py:182
+msgid "Montenegro, Republic of"
+msgstr ""
+
+#: models.py:183
+msgid "Montserrat"
+msgstr ""
+
+#: models.py:184
+msgid "Morocco, Kingdom of"
+msgstr ""
+
+#: models.py:185
+msgid "Mozambique, Republic of"
+msgstr ""
+
+#: models.py:186
+msgid "Oman, Sultanate of"
+msgstr ""
+
+#: models.py:187
+msgid "Namibia, Republic of"
+msgstr ""
+
+#: models.py:188
+msgid "Nauru, Republic of"
+msgstr ""
+
+#: models.py:189
+msgid "Nepal, State of"
+msgstr ""
+
+#: models.py:190
+msgid "Netherlands, Kingdom of the"
+msgstr ""
+
+#: models.py:191
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: models.py:192
+msgid "Curaçao"
+msgstr ""
+
+#: models.py:193
+msgid "Aruba"
+msgstr ""
+
+#: models.py:194
+msgid "Sint Maarten (Netherlands)"
+msgstr ""
+
+#: models.py:195
+msgid "Bonaire, Sint Eustatius and Saba"
+msgstr ""
+
+#: models.py:196
+msgid "New Caledonia"
+msgstr ""
+
+#: models.py:197
+msgid "Vanuatu, Republic of"
+msgstr ""
+
+#: models.py:198
+msgid "New Zealand"
+msgstr ""
+
+#: models.py:199
+msgid "Nicaragua, Republic of"
+msgstr ""
+
+#: models.py:200
+msgid "Niger, Republic of"
+msgstr ""
+
+#: models.py:201
+msgid "Nigeria, Federal Republic of"
+msgstr ""
+
+#: models.py:202
+msgid "Niue"
+msgstr ""
+
+#: models.py:203
+msgid "Norfolk Island"
+msgstr ""
+
+#: models.py:204
+msgid "Norway, Kingdom of"
+msgstr ""
+
+#: models.py:206
+msgid "Northern Mariana Islands, Commonwealth of the"
+msgstr ""
+
+#: models.py:207
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: models.py:208
+msgid "Micronesia, Federated States of"
+msgstr ""
+
+#: models.py:209
+msgid "Marshall Islands, Republic of the"
+msgstr ""
+
+#: models.py:210
+msgid "Palau, Republic of"
+msgstr ""
+
+#: models.py:211
+msgid "Pakistan, Islamic Republic of"
+msgstr ""
+
+#: models.py:212
+msgid "Panama, Republic of"
+msgstr ""
+
+#: models.py:213
+msgid "Papua New Guinea, Independent State of"
+msgstr ""
+
+#: models.py:214
+msgid "Paraguay, Republic of"
+msgstr ""
+
+#: models.py:215
+msgid "Peru, Republic of"
+msgstr ""
+
+#: models.py:216
+msgid "Philippines, Republic of the"
+msgstr ""
+
+#: models.py:217
+msgid "Pitcairn Islands"
+msgstr ""
+
+#: models.py:218
+msgid "Poland, Republic of"
+msgstr ""
+
+#: models.py:219
+msgid "Portugal, Portuguese Republic"
+msgstr ""
+
+#: models.py:220
+msgid "Guinea-Bissau, Republic of"
+msgstr ""
+
+#: models.py:221
+msgid "Timor-Leste, Democratic Republic of"
+msgstr ""
+
+#: models.py:222
+msgid "Puerto Rico, Commonwealth of"
+msgstr ""
+
+#: models.py:223
+msgid "Qatar, State of"
+msgstr ""
+
+#: models.py:224
+msgid "Reunion"
+msgstr ""
+
+#: models.py:225
+msgid "Romania"
+msgstr ""
+
+#: models.py:226
+msgid "Russian Federation"
+msgstr ""
+
+#: models.py:227
+msgid "Rwanda, Republic of"
+msgstr ""
+
+#: models.py:228
+msgid "Saint Barthelemy"
+msgstr ""
+
+#: models.py:229
+msgid "Saint Helena"
+msgstr ""
+
+#: models.py:230
+msgid "Saint Kitts and Nevis, Federation of"
+msgstr ""
+
+#: models.py:231
+msgid "Anguilla"
+msgstr ""
+
+#: models.py:232
+msgid "Saint Lucia"
+msgstr ""
+
+#: models.py:233
+msgid "Saint Martin"
+msgstr ""
+
+#: models.py:234
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: models.py:235
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: models.py:236
+msgid "San Marino, Republic of"
+msgstr ""
+
+#: models.py:238
+msgid "Sao Tome and Principe, Democratic Republic of"
+msgstr ""
+
+#: models.py:239
+msgid "Saudi Arabia, Kingdom of"
+msgstr ""
+
+#: models.py:240
+msgid "Senegal, Republic of"
+msgstr ""
+
+#: models.py:241
+msgid "Serbia, Republic of"
+msgstr ""
+
+#: models.py:242
+msgid "Seychelles, Republic of"
+msgstr ""
+
+#: models.py:243
+msgid "Sierra Leone, Republic of"
+msgstr ""
+
+#: models.py:244
+msgid "Singapore, Republic of"
+msgstr ""
+
+#: models.py:245
+msgid "Slovakia (Slovak Republic)"
+msgstr ""
+
+#: models.py:246
+msgid "Vietnam, Socialist Republic of"
+msgstr ""
+
+#: models.py:247
+msgid "Slovenia, Republic of"
+msgstr ""
+
+#: models.py:248
+msgid "Somalia, Somali Republic"
+msgstr ""
+
+#: models.py:249
+msgid "South Africa, Republic of"
+msgstr ""
+
+#: models.py:250
+msgid "Zimbabwe, Republic of"
+msgstr ""
+
+#: models.py:251
+msgid "Spain, Kingdom of"
+msgstr ""
+
+#: models.py:252
+msgid "South Sudan"
+msgstr ""
+
+#: models.py:253
+msgid "Western Sahara"
+msgstr ""
+
+#: models.py:254
+msgid "Sudan, Republic of"
+msgstr ""
+
+#: models.py:255
+msgid "Suriname, Republic of"
+msgstr ""
+
+#: models.py:256
+msgid "Svalbard & Jan Mayen Islands"
+msgstr ""
+
+#: models.py:257
+msgid "Swaziland, Kingdom of"
+msgstr ""
+
+#: models.py:258
+msgid "Sweden, Kingdom of"
+msgstr ""
+
+#: models.py:259
+msgid "Switzerland, Swiss Confederation"
+msgstr ""
+
+#: models.py:260
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: models.py:261
+msgid "Tajikistan, Republic of"
+msgstr ""
+
+#: models.py:262
+msgid "Thailand, Kingdom of"
+msgstr ""
+
+#: models.py:263
+msgid "Togo, Togolese Republic"
+msgstr ""
+
+#: models.py:264
+msgid "Tokelau"
+msgstr ""
+
+#: models.py:265
+msgid "Tonga, Kingdom of"
+msgstr ""
+
+#: models.py:266
+msgid "Trinidad and Tobago, Republic of"
+msgstr ""
+
+#: models.py:267
+msgid "United Arab Emirates"
+msgstr ""
+
+#: models.py:268
+msgid "Tunisia, Tunisian Republic"
+msgstr ""
+
+#: models.py:269
+msgid "Turkey, Republic of"
+msgstr ""
+
+#: models.py:270
+msgid "Turkmenistan"
+msgstr ""
+
+#: models.py:271
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: models.py:272
+msgid "Tuvalu"
+msgstr ""
+
+#: models.py:273
+msgid "Uganda, Republic of"
+msgstr ""
+
+#: models.py:274
+msgid "Ukraine"
+msgstr ""
+
+#: models.py:275
+msgid "Macedonia, The Former Yugoslav Republic of"
+msgstr ""
+
+#: models.py:276
+msgid "Egypt, Arab Republic of"
+msgstr ""
+
+#: models.py:277
+msgid "United Kingdom"
+msgstr ""
+
+#: models.py:278
+msgid "Guernsey, Bailiwick of"
+msgstr ""
+
+#: models.py:279
+msgid "Jersey, Bailiwick of"
+msgstr ""
+
+#: models.py:280
+msgid "Isle of Man"
+msgstr ""
+
+#: models.py:281
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: models.py:282
+msgid "United States"
+msgstr ""
+
+#: models.py:283
+msgid "United States Virgin Islands"
+msgstr ""
+
+#: models.py:284
+msgid "Burkina Faso"
+msgstr ""
+
+#: models.py:285
+msgid "Uruguay, Eastern Republic of"
+msgstr ""
+
+#: models.py:286
+msgid "Uzbekistan, Republic of"
+msgstr ""
+
+#: models.py:287
+msgid "Venezuela, Bolivarian Republic of"
+msgstr ""
+
+#: models.py:288
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: models.py:289
+msgid "Samoa, Independent State of"
+msgstr ""
+
+#: models.py:290
+msgid "Yemen"
+msgstr ""
+
+#: models.py:291
+msgid "Zambia, Republic of"
+msgstr ""
+
+#: models.py:292
+msgid "Disputed Territory"
+msgstr ""
+
+#: models.py:293
+msgid "Iraq-Saudi Arabia Neutral Zone"
+msgstr ""
+
+#: models.py:294
+msgid "United Nations Neutral Zone"
+msgstr ""
+
+#: models.py:295
+msgid "Spratly Islands"
+msgstr ""
+
+#: models.py:304
+msgid "Africa"
+msgstr ""
+
+#: models.py:305
+msgid "Antarctica"
+msgstr ""
+
+#: models.py:306
+msgid "Asia"
+msgstr ""
+
+#: models.py:307
+msgid "Europe"
+msgstr ""
+
+#: models.py:308
+msgid "North America"
+msgstr ""
+
+#: models.py:309
+msgid "Oceania"
+msgstr ""
+
+#: models.py:310
+msgid "South America"
+msgstr ""
+
+#: models.py:314
+msgid "USD - United States Dollar"
+msgstr ""
+
+#: models.py:315
+msgid "EUR - Euro Members"
+msgstr ""
+
+#: models.py:316
+msgid "JPY - Japan Yen"
+msgstr ""
+
+#: models.py:317
+msgid "GBP - United Kingdom Pound"
+msgstr ""
+
+#: models.py:318
+msgid "CHF - Switzerland Franc"
+msgstr ""
+
+#: models.py:319
+msgid "AED - United Arab Emirates Dirham"
+msgstr ""
+
+#: models.py:320
+msgid "AFN - Afghanistan Afghani"
+msgstr ""
+
+#: models.py:321
+msgid "ALL - Albania Lek"
+msgstr ""
+
+#: models.py:322
+msgid "AMD - Armenia Dram"
+msgstr ""
+
+#: models.py:323
+msgid "ANG - Netherlands Antilles Guilder"
+msgstr ""
+
+#: models.py:324
+msgid "AOA - Angola Kwanza"
+msgstr ""
+
+#: models.py:325
+msgid "ARS - Argentina Peso"
+msgstr ""
+
+#: models.py:326
+msgid "AUD - Australia Dollar"
+msgstr ""
+
+#: models.py:327
+msgid "AWG - Aruba Guilder"
+msgstr ""
+
+#: models.py:328
+msgid "AZN - Azerbaijan New Manat"
+msgstr ""
+
+#: models.py:329
+msgid "BAM - Bosnia and Herzegovina Convertible Marka"
+msgstr ""
+
+#: models.py:330
+msgid "BBD - Barbados Dollar"
+msgstr ""
+
+#: models.py:331
+msgid "BDT - Bangladesh Taka"
+msgstr ""
+
+#: models.py:332
+msgid "BGN - Bulgaria Lev"
+msgstr ""
+
+#: models.py:333
+msgid "BHD - Bahrain Dinar"
+msgstr ""
+
+#: models.py:334
+msgid "BIF - Burundi Franc"
+msgstr ""
+
+#: models.py:335
+msgid "BMD - Bermuda Dollar"
+msgstr ""
+
+#: models.py:336
+msgid "BND - Brunei Darussalam Dollar"
+msgstr ""
+
+#: models.py:337
+msgid "BOB - Bolivia Boliviano"
+msgstr ""
+
+#: models.py:338
+msgid "BRL - Brazil Real"
+msgstr ""
+
+#: models.py:339
+msgid "BSD - Bahamas Dollar"
+msgstr ""
+
+#: models.py:340
+msgid "BTN - Bhutan Ngultrum"
+msgstr ""
+
+#: models.py:341
+msgid "BWP - Botswana Pula"
+msgstr ""
+
+#: models.py:342
+msgid "BYR - Belarus Ruble"
+msgstr ""
+
+#: models.py:343
+msgid "BZD - Belize Dollar"
+msgstr ""
+
+#: models.py:344
+msgid "CAD - Canada Dollar"
+msgstr ""
+
+#: models.py:345
+msgid "CDF - Congo/Kinshasa Franc"
+msgstr ""
+
+#: models.py:346
+msgid "CLP - Chile Peso"
+msgstr ""
+
+#: models.py:347
+msgid "CNY - China Yuan Renminbi"
+msgstr ""
+
+#: models.py:348
+msgid "COP - Colombia Peso"
+msgstr ""
+
+#: models.py:349
+msgid "CRC - Costa Rica Colon"
+msgstr ""
+
+#: models.py:350
+msgid "CUC - Cuba Convertible Peso"
+msgstr ""
+
+#: models.py:351
+msgid "CUP - Cuba Peso"
+msgstr ""
+
+#: models.py:352
+msgid "CVE - Cape Verde Escudo"
+msgstr ""
+
+#: models.py:353
+msgid "CZK - Czech Republic Koruna"
+msgstr ""
+
+#: models.py:354
+msgid "DJF - Djibouti Franc"
+msgstr ""
+
+#: models.py:355
+msgid "DKK - Denmark Krone"
+msgstr ""
+
+#: models.py:356
+msgid "DOP - Dominican Republic Peso"
+msgstr ""
+
+#: models.py:357
+msgid "DZD - Algeria Dinar"
+msgstr ""
+
+#: models.py:358
+msgid "EGP - Egypt Pound"
+msgstr ""
+
+#: models.py:359
+msgid "ERN - Eritrea Nakfa"
+msgstr ""
+
+#: models.py:360
+msgid "ETB - Ethiopia Birr"
+msgstr ""
+
+#: models.py:361
+msgid "FJD - Fiji Dollar"
+msgstr ""
+
+#: models.py:362
+msgid "FKP - Falkland Islands (Malvinas) Pound"
+msgstr ""
+
+#: models.py:363
+msgid "GEL - Georgia Lari"
+msgstr ""
+
+#: models.py:364
+msgid "GGP - Guernsey Pound"
+msgstr ""
+
+#: models.py:365
+msgid "GHS - Ghana Cedi"
+msgstr ""
+
+#: models.py:366
+msgid "GIP - Gibraltar Pound"
+msgstr ""
+
+#: models.py:367
+msgid "GMD - Gambia Dalasi"
+msgstr ""
+
+#: models.py:368
+msgid "GNF - Guinea Franc"
+msgstr ""
+
+#: models.py:369
+msgid "GTQ - Guatemala Quetzal"
+msgstr ""
+
+#: models.py:370
+msgid "GYD - Guyana Dollar"
+msgstr ""
+
+#: models.py:371
+msgid "HKD - Hong Kong Dollar"
+msgstr ""
+
+#: models.py:372
+msgid "HNL - Honduras Lempira"
+msgstr ""
+
+#: models.py:373
+msgid "HRK - Croatia Kuna"
+msgstr ""
+
+#: models.py:374
+msgid "HTG - Haiti Gourde"
+msgstr ""
+
+#: models.py:375
+msgid "HUF - Hungary Forint"
+msgstr ""
+
+#: models.py:376
+msgid "IDR - Indonesia Rupiah"
+msgstr ""
+
+#: models.py:377
+msgid "ILS - Israel Shekel"
+msgstr ""
+
+#: models.py:378
+msgid "IMP - Isle of Man Pound"
+msgstr ""
+
+#: models.py:379
+msgid "INR - India Rupee"
+msgstr ""
+
+#: models.py:380
+msgid "IQD - Iraq Dinar"
+msgstr ""
+
+#: models.py:381
+msgid "IRR - Iran Rial"
+msgstr ""
+
+#: models.py:382
+msgid "ISK - Iceland Krona"
+msgstr ""
+
+#: models.py:383
+msgid "JEP - Jersey Pound"
+msgstr ""
+
+#: models.py:384
+msgid "JMD - Jamaica Dollar"
+msgstr ""
+
+#: models.py:385
+msgid "JOD - Jordan Dinar"
+msgstr ""
+
+#: models.py:386
+msgid "KES - Kenya Shilling"
+msgstr ""
+
+#: models.py:387
+msgid "KGS - Kyrgyzstan Som"
+msgstr ""
+
+#: models.py:388
+msgid "KHR - Cambodia Riel"
+msgstr ""
+
+#: models.py:389
+msgid "KMF - Comoros Franc"
+msgstr ""
+
+#: models.py:390
+msgid "KPW - Korea (North) Won"
+msgstr ""
+
+#: models.py:391
+msgid "KRW - Korea (South) Won"
+msgstr ""
+
+#: models.py:392
+msgid "KWD - Kuwait Dinar"
+msgstr ""
+
+#: models.py:393
+msgid "KYD - Cayman Islands Dollar"
+msgstr ""
+
+#: models.py:394
+msgid "KZT - Kazakhstan Tenge"
+msgstr ""
+
+#: models.py:395
+msgid "LAK - Laos Kip"
+msgstr ""
+
+#: models.py:396
+msgid "LBP - Lebanon Pound"
+msgstr ""
+
+#: models.py:397
+msgid "LKR - Sri Lanka Rupee"
+msgstr ""
+
+#: models.py:398
+msgid "LRD - Liberia Dollar"
+msgstr ""
+
+#: models.py:399
+msgid "LSL - Lesotho Loti"
+msgstr ""
+
+#: models.py:400
+msgid "LTL - Lithuania Litas"
+msgstr ""
+
+#: models.py:401
+msgid "LVL - Latvia Lat"
+msgstr ""
+
+#: models.py:402
+msgid "LYD - Libya Dinar"
+msgstr ""
+
+#: models.py:403
+msgid "MAD - Morocco Dirham"
+msgstr ""
+
+#: models.py:404
+msgid "MDL - Moldova Le"
+msgstr ""
+
+#: models.py:405
+msgid "MGA - Madagascar Ariary"
+msgstr ""
+
+#: models.py:406
+msgid "MKD - Macedonia Denar"
+msgstr ""
+
+#: models.py:407
+msgid "MMK - Myanmar (Burma) Kyat"
+msgstr ""
+
+#: models.py:408
+msgid "MNT - Mongolia Tughrik"
+msgstr ""
+
+#: models.py:409
+msgid "MOP - Macau Pataca"
+msgstr ""
+
+#: models.py:410
+msgid "MRO - Mauritania Ouguiya"
+msgstr ""
+
+#: models.py:411
+msgid "MUR - Mauritius Rupee"
+msgstr ""
+
+#: models.py:412
+msgid "MVR - Maldives (Maldive Islands) Rufiyaa"
+msgstr ""
+
+#: models.py:413
+msgid "MWK - Malawi Kwacha"
+msgstr ""
+
+#: models.py:414
+msgid "MXN - Mexico Peso"
+msgstr ""
+
+#: models.py:415
+msgid "MYR - Malaysia Ringgit"
+msgstr ""
+
+#: models.py:416
+msgid "MZN - Mozambique Metical"
+msgstr ""
+
+#: models.py:417
+msgid "NAD - Namibia Dollar"
+msgstr ""
+
+#: models.py:418
+msgid "NGN - Nigeria Naira"
+msgstr ""
+
+#: models.py:419
+msgid "NIO - Nicaragua Cordoba"
+msgstr ""
+
+#: models.py:420
+msgid "NOK - Norway Krone"
+msgstr ""
+
+#: models.py:421
+msgid "NPR - Nepal Rupee"
+msgstr ""
+
+#: models.py:422
+msgid "NZD - New Zealand Dollar"
+msgstr ""
+
+#: models.py:423
+msgid "OMR - Oman Rial"
+msgstr ""
+
+#: models.py:424
+msgid "PAB - Panama Balboa"
+msgstr ""
+
+#: models.py:425
+msgid "PEN - Peru Nuevo Sol"
+msgstr ""
+
+#: models.py:426
+msgid "PGK - Papua New Guinea Kina"
+msgstr ""
+
+#: models.py:427
+msgid "PHP - Philippines Peso"
+msgstr ""
+
+#: models.py:428
+msgid "PKR - Pakistan Rupee"
+msgstr ""
+
+#: models.py:429
+msgid "PLN - Poland Zloty"
+msgstr ""
+
+#: models.py:430
+msgid "PYG - Paraguay Guarani"
+msgstr ""
+
+#: models.py:431
+msgid "QAR - Qatar Riyal"
+msgstr ""
+
+#: models.py:432
+msgid "RON - Romania New Le"
+msgstr ""
+
+#: models.py:433
+msgid "RSD - Serbia Dinar"
+msgstr ""
+
+#: models.py:434
+msgid "RUB - Russia Ruble"
+msgstr ""
+
+#: models.py:435
+msgid "RWF - Rwanda Franc"
+msgstr ""
+
+#: models.py:436
+msgid "SAR - Saudi Arabia Riyal"
+msgstr ""
+
+#: models.py:437
+msgid "SBD - Solomon Islands Dollar"
+msgstr ""
+
+#: models.py:438
+msgid "SCR - Seychelles Rupee"
+msgstr ""
+
+#: models.py:439
+msgid "SDG - Sudan Pound"
+msgstr ""
+
+#: models.py:440
+msgid "SEK - Sweden Krona"
+msgstr ""
+
+#: models.py:441
+msgid "SGD - Singapore Dollar"
+msgstr ""
+
+#: models.py:442
+msgid "SHP - Saint Helena Pound"
+msgstr ""
+
+#: models.py:443
+msgid "SLL - Sierra Leone Leone"
+msgstr ""
+
+#: models.py:444
+msgid "SOS - Somalia Shilling"
+msgstr ""
+
+#: models.py:445
+msgid "SPL - Seborga Luigino"
+msgstr ""
+
+#: models.py:446
+msgid "SRD - Suriname Dollar"
+msgstr ""
+
+#: models.py:447
+msgid "STD - São Tomé and Príncipe Dobra"
+msgstr ""
+
+#: models.py:448
+msgid "SVC - El Salvador Colon"
+msgstr ""
+
+#: models.py:449
+msgid "SYP - Syria Pound"
+msgstr ""
+
+#: models.py:450
+msgid "SZL - Swaziland Lilangeni"
+msgstr ""
+
+#: models.py:451
+msgid "THB - Thailand Baht"
+msgstr ""
+
+#: models.py:452
+msgid "TJS - Tajikistan Somoni"
+msgstr ""
+
+#: models.py:453
+msgid "TMT - Turkmenistan Manat"
+msgstr ""
+
+#: models.py:454
+msgid "TND - Tunisia Dinar"
+msgstr ""
+
+#: models.py:455
+msgid "TOP - Tonga Pa'anga"
+msgstr ""
+
+#: models.py:456
+msgid "TRY - Turkey Lira"
+msgstr ""
+
+#: models.py:457
+msgid "TTD - Trinidad and Tobago Dollar"
+msgstr ""
+
+#: models.py:458
+msgid "TVD - Tuvalu Dollar"
+msgstr ""
+
+#: models.py:459
+msgid "TWD - Taiwan New Dollar"
+msgstr ""
+
+#: models.py:460
+msgid "TZS - Tanzania Shilling"
+msgstr ""
+
+#: models.py:461
+msgid "UAH - Ukraine Hryvna"
+msgstr ""
+
+#: models.py:462
+msgid "UGX - Uganda Shilling"
+msgstr ""
+
+#: models.py:463
+msgid "UYU - Uruguay Peso"
+msgstr ""
+
+#: models.py:464
+msgid "UZS - Uzbekistan Som"
+msgstr ""
+
+#: models.py:465
+msgid "VEF - Venezuela Bolivar"
+msgstr ""
+
+#: models.py:466
+msgid "VND - Viet Nam Dong"
+msgstr ""
+
+#: models.py:467
+msgid "VUV - Vanuatu Vat"
+msgstr ""
+
+#: models.py:468
+msgid "WST - Samoa Tala"
+msgstr ""
+
+#: models.py:469
+msgid "XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC"
+msgstr ""
+
+#: models.py:470
+msgid "XCD - East Caribbean Dollar"
+msgstr ""
+
+#: models.py:472
+msgid "XDR - International Monetary Fund (IMF) Special Drawing Rights"
+msgstr ""
+
+#: models.py:473
+msgid "XOF - Communauté Financière Africaine (BCEAO) Franc"
+msgstr ""
+
+#: models.py:474
+msgid "XPF - Comptoirs Français du Pacifique (CFP) Franc"
+msgstr ""
+
+#: models.py:475
+msgid "YER - Yemen Rial"
+msgstr ""
+
+#: models.py:476
+msgid "ZAR - South Africa Rand"
+msgstr ""
+
+#: models.py:477
+msgid "ZMK - Zambia Kwacha"
+msgstr ""
+
+#: models.py:478
+msgid "ZWD - Zimbabwe Dollar"
+msgstr ""
+
+#: models.py:512 models.py:521 settings.py:18
+msgid "country"
+msgstr ""
+
+#: models.py:514
+msgid "continent"
+msgstr ""
+
+#: models.py:522
+msgid "countries"
+msgstr ""
+
+#: settings.py:22
+msgid "All countries"
+msgstr ""
+
+#: settings.py:25
+msgid "currency"
+msgstr ""
+
+#: settings.py:29
+msgid "All currencies"
+msgstr ""

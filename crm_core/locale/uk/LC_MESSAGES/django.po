@@ -1,0 +1,1753 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-21 13:36+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: admin.py:20
+msgid "User Profile Extensions"
+msgstr ""
+
+#: const/postaladdressprefix.py:8 const/postaladdressprefix.py:14
+msgid "Company"
+msgstr ""
+
+#: const/postaladdressprefix.py:9 const/postaladdressprefix.py:15
+msgid "Mr"
+msgstr ""
+
+#: const/postaladdressprefix.py:10 const/postaladdressprefix.py:16
+msgid "Mrs"
+msgstr ""
+
+#: const/postaladdressprefix.py:11 const/postaladdressprefix.py:17
+msgid "Ms"
+msgstr ""
+
+#: const/purpose.py:8 const/purpose.py:13
+msgid "Delivery Address"
+msgstr ""
+
+#: const/purpose.py:9 const/purpose.py:14
+msgid "Billing Address"
+msgstr ""
+
+#: const/purpose.py:10 const/purpose.py:15
+msgid "Contact Address"
+msgstr ""
+
+#: const/purpose.py:20 const/purpose.py:26 const/purpose.py:34
+#: const/purpose.py:38
+msgid "Private"
+msgstr ""
+
+#: const/purpose.py:21 const/purpose.py:27 const/purpose.py:35
+#: const/purpose.py:39
+msgid "Business"
+msgstr ""
+
+#: const/purpose.py:22 const/purpose.py:28
+msgid "Mobile Private"
+msgstr ""
+
+#: const/purpose.py:23 const/purpose.py:29
+msgid "Mobile Business"
+msgstr ""
+
+#: const/states.py:8 const/states.py:19 templates/dashboard.html:17
+#: templates/dashboard.html.py:25
+msgid "open"
+msgstr ""
+
+#: const/states.py:9 const/states.py:20
+msgid "payed"
+msgstr ""
+
+#: const/states.py:10 const/states.py:21
+msgid "Invoice created"
+msgstr ""
+
+#: const/states.py:11 const/states.py:22
+msgid "Invoice sent"
+msgstr ""
+
+#: const/states.py:12 const/states.py:23
+msgid "Quote created"
+msgstr ""
+
+#: const/states.py:13 const/states.py:24
+msgid "Quote sent"
+msgstr ""
+
+#: const/states.py:14 const/states.py:25
+msgid "Purchaseorder created"
+msgstr ""
+
+#: const/states.py:15 const/states.py:26
+msgid "Unpayed"
+msgstr ""
+
+#: const/states.py:16 const/states.py:27
+msgid "Deleted"
+msgstr ""
+
+#: models.py:41 models.py:836 models.py:848
+msgid "Title"
+msgstr ""
+
+#: models.py:42 models.py:362 models.py:380 models.py:871 tables.py:14
+msgid "Name"
+msgstr ""
+
+#: models.py:43 models.py:172 models.py:413
+msgid "Created at"
+msgstr ""
+
+#: models.py:45 models.py:175 models.py:415
+#: templates/crm_core/contract_detail.html:42
+#: templates/crm_core/customer_detail.html:40
+#: templates/crm_core/supplier_detail.html:37
+msgid "Last modified"
+msgstr ""
+
+#: models.py:49 models.py:179 models.py:418
+msgid "Last modified by"
+msgstr ""
+
+#: models.py:51 models.py:411 models.py:927
+#: templates/crm_core/contract_detail.html:64
+msgid "Currency"
+msgstr ""
+
+#: models.py:76 models.py:84 models.py:85 models.py:895
+#: templates/crm_core/customer_form.html:57
+#: templates/crm_core/supplier_form.html:57
+msgid "Email Address"
+msgstr ""
+
+#: models.py:77 models.py:99 models.py:134
+msgid "Purpose"
+msgstr ""
+
+#: models.py:98 models.py:893
+msgid "Phone Number"
+msgstr ""
+
+#: models.py:105 models.py:106 templates/crm_core/customer_form.html:47
+#: templates/crm_core/supplier_form.html:47
+msgid "Phone Address"
+msgstr ""
+
+#: models.py:120 models.py:879
+msgid "Addressline 1"
+msgstr ""
+
+#: models.py:123 models.py:882
+msgid "Addressline 2"
+msgstr ""
+
+#: models.py:125 models.py:884
+msgid "Zipcode"
+msgstr ""
+
+#: models.py:127 models.py:886
+msgid "City"
+msgstr ""
+
+#: models.py:129 models.py:888
+msgid "State"
+msgstr ""
+
+#: models.py:132 models.py:891
+msgid "Country"
+msgstr ""
+
+#: models.py:140 models.py:141 templates/crm_core/customer_form.html:36
+#: templates/crm_core/supplier_form.html:36
+msgid "Postal Address"
+msgstr ""
+
+#: models.py:165
+msgid "External Reference"
+msgstr ""
+
+#: models.py:168 templates/shop/includes/order_totals.html:12
+#: templates/shop/includes/order_totals.txt:4
+msgid "Discount"
+msgstr ""
+
+#: models.py:171 models.py:226 tables.py:18
+#: templates/crm_core/contract_detail.html:56
+#: templates/crm_core/invoice_form.html:46
+#: templates/crm_core/purchaseorder_form.html:46
+#: templates/crm_core/quote_form.html:46
+msgid "Customer"
+msgstr ""
+
+#: models.py:199 models.py:816 models.py:941 models.py:955
+#: templates/crm_core/invoice_form.html:83
+#: templates/crm_core/purchaseorder_form.html:83
+#: templates/crm_core/quote_form.html:83
+#: templates/pdf_templates/pdf_base.html:177
+#: templates/shop/product_confirm_delete.html:5
+#: templates/shop/product_confirm_delete.html:9
+#: templates/shop/product_confirm_delete.html:13
+msgid "Product"
+msgstr ""
+
+#: models.py:216
+msgid "Prename"
+msgstr ""
+
+#: models.py:219 models.py:369 templates/crm_core/customer_detail.html:70
+#: templates/crm_core/customerbillingcycle_form.html:5
+#: templates/crm_core/customerbillingcycle_form.html:9
+msgid "Billing Cycle"
+msgstr ""
+
+#: models.py:221
+msgid "Is member of"
+msgstr ""
+
+#: models.py:227 templates/base/base.html:127
+#: templates/crm_core/customer_confirm_delete.html:5
+#: templates/crm_core/customer_confirm_delete.html:9
+#: templates/crm_core/customer_confirm_delete.html:13
+#: templates/crm_core/customer_detail.html:5
+#: templates/crm_core/customer_detail.html:9
+#: templates/crm_core/customer_detail.html:13
+#: templates/crm_core/customer_form.html:5
+#: templates/crm_core/customer_form.html:9
+#: templates/crm_core/customer_form.html:13
+#: templates/crm_core/customer_list.html:6
+#: templates/crm_core/customer_list.html:10
+#: templates/crm_core/customer_list.html:14
+#: templates/crm_core/customer_list.html:18
+msgid "Customers"
+msgstr ""
+
+#: models.py:314
+msgid "Offers direct Shipment to Customer"
+msgstr ""
+
+#: models.py:318 templates/crm_core/contract_detail.html:60
+#: templates/crm_core/supplier_confirm_delete.html:5
+#: templates/crm_core/supplier_confirm_delete.html:9
+#: templates/crm_core/supplier_confirm_delete.html:13
+msgid "Supplier"
+msgstr ""
+
+#: models.py:319 templates/base/base.html:136
+#: templates/crm_core/supplier_detail.html:5
+#: templates/crm_core/supplier_detail.html:9
+#: templates/crm_core/supplier_detail.html:13
+#: templates/crm_core/supplier_form.html:5
+#: templates/crm_core/supplier_form.html:9
+#: templates/crm_core/supplier_form.html:13
+#: templates/crm_core/supplier_list.html:6
+#: templates/crm_core/supplier_list.html:10
+#: templates/crm_core/supplier_list.html:14
+#: templates/crm_core/supplier_list.html:18
+msgid "Suppliers"
+msgstr ""
+
+#: models.py:364
+msgid "Days to Payment Date"
+msgstr ""
+
+#: models.py:366 tables.py:110
+msgid "Prefix"
+msgstr ""
+
+#: models.py:370 templates/settings.html:62
+msgid "Billing Cycles"
+msgstr ""
+
+#: models.py:386 templates/crm_core/customergroup_confirm_delete.html:5
+#: templates/crm_core/customergroup_confirm_delete.html:9
+msgid "Customer Group"
+msgstr ""
+
+#: models.py:387 templates/crm_core/customergroup_form.html:5
+#: templates/crm_core/customergroup_form.html:9 templates/settings.html:134
+msgid "Customer Groups"
+msgstr ""
+
+#: models.py:402 models.py:528 models.py:605 models.py:703
+msgid "Staff"
+msgstr ""
+
+#: models.py:405
+msgid "Default Customer"
+msgstr ""
+
+#: models.py:408
+msgid "Default Supplier"
+msgstr ""
+
+#: models.py:424 models.py:479 models.py:523 models.py:600 models.py:695
+#: templates/crm_core/contract_confirm_delete.html:5
+#: templates/crm_core/contract_confirm_delete.html:9
+#: templates/crm_core/contract_confirm_delete.html:13
+#: templates/crm_core/contract_detail.html:9
+#: templates/crm_core/invoice_form.html:39
+#: templates/crm_core/purchaseorder_form.html:39
+#: templates/crm_core/quote_form.html:39
+msgid "Contract"
+msgstr ""
+
+#: models.py:425 templates/crm_core/contract_detail.html:5
+#: templates/crm_core/contract_detail.html:13
+#: templates/crm_core/contract_form.html:5
+#: templates/crm_core/contract_form.html:9
+#: templates/crm_core/contract_form.html:13
+#: templates/crm_core/invoice_form.html:13
+#: templates/crm_core/purchaseorder_form.html:13
+#: templates/crm_core/quote_form.html:13
+msgid "Contracts"
+msgstr ""
+
+#: models.py:525 models.py:602 templates/pdf_templates/quote.html:26
+msgid "Valid until"
+msgstr ""
+
+#: models.py:534 models.py:535 models.py:585 tables.py:61
+#: templates/crm_core/purchaseorder_confirm_delete.html:5
+#: templates/crm_core/purchaseorder_confirm_delete.html:9
+#: templates/crm_core/purchaseorder_confirm_delete.html:13
+msgid "Purchase Order"
+msgstr ""
+
+#: models.py:611 models.py:680 tables.py:42
+#: templates/crm_core/quote_confirm_delete.html:5
+#: templates/crm_core/quote_confirm_delete.html:9
+#: templates/crm_core/quote_confirm_delete.html:13
+msgid "Quote"
+msgstr ""
+
+#: models.py:612 templates/crm_core/contract_detail.html:70
+#: templates/crm_core/quote_form.html:5 templates/crm_core/quote_form.html:9
+msgid "Quotes"
+msgstr ""
+
+#: models.py:697
+msgid "To pay until"
+msgstr ""
+
+#: models.py:699
+msgid "Payment Bank Reference"
+msgstr ""
+
+#: models.py:709 models.py:757 tables.py:80
+#: templates/crm_core/invoice_confirm_delete.html:5
+#: templates/crm_core/invoice_confirm_delete.html:9
+#: templates/crm_core/invoice_confirm_delete.html:13
+msgid "Invoice"
+msgstr ""
+
+#: models.py:710 templates/crm_core/contract_detail.html:80
+#: templates/crm_core/invoice_form.html:5
+#: templates/crm_core/invoice_form.html:9
+msgid "Invoices"
+msgstr ""
+
+#: models.py:771 templates/crm_core/contract_detail.html:52
+msgid "Description"
+msgstr ""
+
+#: models.py:774
+msgid "Displayed Name After Quantity In The Position"
+msgstr ""
+
+#: models.py:777
+msgid "Is A Fraction Of"
+msgstr ""
+
+#: models.py:779
+msgid "Factor Between This And Next Higher Unit"
+msgstr ""
+
+#: models.py:783 models.py:943 tables.py:158
+#: templates/crm_core/unit_confirm_delete.html:5
+#: templates/crm_core/unit_confirm_delete.html:9
+msgid "Unit"
+msgstr ""
+
+#: models.py:784 templates/crm_core/unit_form.html:5
+#: templates/crm_core/unit_form.html:9 templates/settings.html:86
+msgid "Units"
+msgstr ""
+
+#: models.py:796
+msgid "Taxrate in Percentage"
+msgstr ""
+
+#: models.py:797
+msgid "Taxname"
+msgstr ""
+
+#: models.py:800 templates/shop/includes/order_totals.html:34
+#: templates/shop/includes/order_totals.txt:8
+msgid "Tax"
+msgstr ""
+
+#: models.py:801
+msgid "Taxes"
+msgstr ""
+
+#: models.py:811
+msgid "From Unit"
+msgstr ""
+
+#: models.py:813
+msgid "To Unit"
+msgstr ""
+
+#: models.py:818
+msgid "Factor between From and To Unit"
+msgstr ""
+
+#: models.py:828
+msgid "Unit Transform"
+msgstr ""
+
+#: models.py:829
+msgid "Unit Transforms"
+msgstr ""
+
+#: models.py:837 models.py:840
+msgid "HTML File"
+msgstr ""
+
+#: models.py:841
+msgid "HTML Files"
+msgstr ""
+
+#: models.py:851
+msgid "HTML File for Invoice"
+msgstr ""
+
+#: models.py:855
+msgid "HTML File for Quote"
+msgstr ""
+
+#: models.py:859
+msgid "HTML File for Purchaseorder"
+msgstr ""
+
+#: models.py:863
+msgid "Templateset"
+msgstr ""
+
+#: models.py:864
+msgid "Templatesets"
+msgstr ""
+
+#: models.py:872
+msgid "Slogan"
+msgstr ""
+
+#: models.py:874
+msgid "Logo"
+msgstr ""
+
+#: models.py:876
+msgid "Addresser"
+msgstr ""
+
+#: models.py:898
+msgid "Header Text On Salesorders"
+msgstr ""
+
+#: models.py:900
+msgid "Header Text On Purchaseorders"
+msgstr ""
+
+#: models.py:902
+msgid "Page Footer Left"
+msgstr ""
+
+#: models.py:905
+msgid "Footer Text On Salesorders"
+msgstr ""
+
+#: models.py:907
+msgid "Footer Text On Purchaseorders"
+msgstr ""
+
+#: models.py:910 models.py:911
+msgid "Company settings"
+msgstr ""
+
+#: models.py:920
+msgid "Benutzer"
+msgstr ""
+
+#: models.py:923
+msgid "Bild"
+msgstr ""
+
+#: models.py:925
+msgid "Vorlagen"
+msgstr ""
+
+#: models.py:932
+msgid "User Extension"
+msgstr ""
+
+#: models.py:933
+msgid "User Extensions"
+msgstr ""
+
+#: models.py:946
+msgid "Product Unit"
+msgstr ""
+
+#: models.py:947
+msgid "Product Units"
+msgstr ""
+
+#: models.py:957 templates/crm_core/taxrate_confirm_delete.html:5
+#: templates/crm_core/taxrate_confirm_delete.html:9
+msgid "Tax Rate"
+msgstr ""
+
+#: models.py:960
+msgid "Product Taxrate"
+msgstr ""
+
+#: models.py:961
+msgid "Product Taxrates"
+msgstr ""
+
+#: tables.py:13 templates/shop/order_history.html:22
+msgid "Status"
+msgstr ""
+
+#: tables.py:22 templates/pdf_templates/pdf_base.html:179
+#: templates/shop/cart.html:34 templates/shop/includes/order_details.html:42
+#: templates/shop/includes/order_details_rtl.html:42
+msgid "Price"
+msgstr ""
+
+#: tables.py:159
+msgid "Taxrate"
+msgstr ""
+
+#: templates/accounts/account_profile_update.html:6
+msgid "View past orders"
+msgstr ""
+
+#: templates/admin/includes/backup.html:4
+msgid "Backup"
+msgstr ""
+
+#: templates/admin/includes/backup.html:5
+msgid "Restore"
+msgstr ""
+
+#: templates/admin/includes_grappelli/header.html:7 templates/index.html:4
+#: templates/index.html.py:5 templates/index.html:8
+#: templates/pages/menus/breadcrumb.html:4
+#: templates/pages/menus/breadcrumb.html:10
+#: templates/pages/menus/dropdown.html:10
+#: templates/pages/menus/footer_tree.html:11
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/pages/menus/tree.html:9
+msgid "Home"
+msgstr ""
+
+#: templates/admin/includes_grappelli/header.html:18
+msgid "Documentation"
+msgstr ""
+
+#: templates/admin/includes_grappelli/header.html:27
+msgid "Change password"
+msgstr ""
+
+#: templates/admin/includes_grappelli/header.html:35
+#: templates/includes/editable_toolbar.html:9
+msgid "Log out"
+msgstr ""
+
+#: templates/auth/user_form.html:4 templates/auth/user_form.html.py:5
+msgid "Userprofile"
+msgstr ""
+
+#: templates/auth/user_form.html:8 templates/auth/user_form.html.py:16
+msgid "Change userprofile"
+msgstr ""
+
+#: templates/auth/user_form.html:34 templates/crm_core/contract_form.html:23
+#: templates/crm_core/contract_form.html:38
+#: templates/crm_core/customer_form.html:23
+#: templates/crm_core/customer_form.html:69
+#: templates/crm_core/customerbillingcycle_form.html:23
+#: templates/crm_core/customerbillingcycle_form.html:38
+#: templates/crm_core/customergroup_form.html:23
+#: templates/crm_core/customergroup_form.html:38
+#: templates/crm_core/invoice_form.html:23
+#: templates/crm_core/invoice_form.html:119
+#: templates/crm_core/purchaseorder_form.html:23
+#: templates/crm_core/purchaseorder_form.html:119
+#: templates/crm_core/quote_form.html:23
+#: templates/crm_core/quote_form.html:119
+#: templates/crm_core/supplier_form.html:23
+#: templates/crm_core/supplier_form.html:69
+#: templates/crm_core/taxrate_form.html:23
+#: templates/crm_core/taxrate_form.html:38
+#: templates/crm_core/unit_form.html:23 templates/crm_core/unit_form.html:38
+#: templates/includes/editable_form.html:16
+#: templates/shop/category_form.html:23 templates/shop/category_form.html:38
+#: templates/shop/product_form.html:23 templates/shop/product_form.html:40
+msgid "Save"
+msgstr ""
+
+#: templates/auth/user_form.html:39
+#: templates/crm_core/contract_confirm_delete.html:35
+#: templates/crm_core/contract_form.html:28
+#: templates/crm_core/contract_form.html:43
+#: templates/crm_core/customer_confirm_delete.html:35
+#: templates/crm_core/customer_form.html:28
+#: templates/crm_core/customer_form.html:74
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:35
+#: templates/crm_core/customerbillingcycle_form.html:28
+#: templates/crm_core/customerbillingcycle_form.html:43
+#: templates/crm_core/customergroup_confirm_delete.html:35
+#: templates/crm_core/customergroup_form.html:28
+#: templates/crm_core/customergroup_form.html:43
+#: templates/crm_core/invoice_confirm_delete.html:35
+#: templates/crm_core/invoice_form.html:28
+#: templates/crm_core/invoice_form.html:124
+#: templates/crm_core/purchaseorder_confirm_delete.html:35
+#: templates/crm_core/purchaseorder_form.html:28
+#: templates/crm_core/purchaseorder_form.html:124
+#: templates/crm_core/quote_confirm_delete.html:35
+#: templates/crm_core/quote_form.html:28
+#: templates/crm_core/quote_form.html:124
+#: templates/crm_core/supplier_confirm_delete.html:35
+#: templates/crm_core/supplier_form.html:28
+#: templates/crm_core/supplier_form.html:74
+#: templates/crm_core/taxrate_confirm_delete.html:35
+#: templates/crm_core/taxrate_form.html:28
+#: templates/crm_core/taxrate_form.html:43
+#: templates/crm_core/unit_confirm_delete.html:35
+#: templates/crm_core/unit_form.html:28 templates/crm_core/unit_form.html:43
+#: templates/includes/editable_form.html:17
+#: templates/shop/category_confirm_delete.html:35
+#: templates/shop/category_form.html:28 templates/shop/category_form.html:43
+#: templates/shop/product_confirm_delete.html:35
+#: templates/shop/product_form.html:28 templates/shop/product_form.html:45
+msgid "Cancel"
+msgstr ""
+
+#: templates/base.html:55
+msgid "Toggle Navigation"
+msgstr ""
+
+#: templates/base.html:132 templates/base/base.html:247
+msgid "Powered by"
+msgstr ""
+
+#: templates/base.html:135 templates/base/base.html:249
+msgid "and"
+msgstr ""
+
+#: templates/base.html:138
+msgid "Theme by"
+msgstr ""
+
+#: templates/base.html:141
+msgid "View Mobile Site"
+msgstr ""
+
+#: templates/base/base.html:145 templates/shop/product_form.html:5
+#: templates/shop/product_form.html.py:9 templates/shop/product_form.html:13
+#: templates/shop/product_list.html:6 templates/shop/product_list.html:10
+#: templates/shop/product_list.html:14 templates/shop/product_list.html:18
+msgid "Products"
+msgstr ""
+
+#: templates/base/base.html:154 templates/crm_core/contract_list.html:6
+#: templates/crm_core/contract_list.html:10
+#: templates/crm_core/contract_list.html:14
+#: templates/crm_core/contract_list.html:18
+msgid "Contract Overview"
+msgstr ""
+
+#: templates/base/base.html:163
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:13
+#: templates/crm_core/customerbillingcycle_form.html:13
+#: templates/crm_core/customergroup_confirm_delete.html:13
+#: templates/crm_core/customergroup_form.html:13
+#: templates/crm_core/taxrate_confirm_delete.html:13
+#: templates/crm_core/taxrate_form.html:13
+#: templates/crm_core/unit_confirm_delete.html:13
+#: templates/crm_core/unit_form.html:13 templates/settings.html:6
+#: templates/settings.html.py:10 templates/settings.html:14
+#: templates/shop/category_confirm_delete.html:13
+#: templates/shop/category_form.html:13
+msgid "Settings"
+msgstr ""
+
+#: templates/base/base.html:252
+msgid "Theme based on"
+msgstr ""
+
+#: templates/base/form_with_inlines_base.html:73
+msgid "Add Position"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:30
+#: templates/blog/blog_post_list.html:88
+msgid "Posted by"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:34
+#: templates/blog/blog_post_list.html:100
+#: templates/generic/includes/comment.html:22
+#: templates/generic/includes/comment.html:59
+#, python-format
+msgid "%(sometime)s ago"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:44
+#: templates/blog/blog_post_list.html:139
+#: templates/generic/includes/comments.html:3
+msgid "Comments"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:47
+#: templates/blog/blog_post_list.html:143
+#, python-format
+msgid "%(comments_count)s comment"
+msgid_plural "%(comments_count)s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/blog/blog_post_detail.html:75
+#: templates/blog/blog_post_list.html:124
+#: templates/blog/includes/filter_panel.html:56
+msgid "Tags"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:94
+msgid "Share on Twitter"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:95
+msgid "Share on Facebook"
+msgstr ""
+
+#: templates/blog/blog_post_detail.html:120
+msgid "Related posts"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:4 templates/blog/blog_post_list.html:22
+msgid "Blog"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:31
+msgid "Tag:"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:33
+msgid "Category:"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:37
+msgid "Author:"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:51
+msgid "Viewing posts tagged"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:53
+msgid "Viewing posts for the category"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:55
+msgid "Viewing posts from"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:58
+msgid "Viewing posts by"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:94
+msgid "in"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:133
+msgid "read more"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:6
+msgid "Recent Posts"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:27
+msgid "Archive"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:43
+msgid "Categories"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:72
+msgid "Authors"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:84
+msgid "Feeds"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:86
+#: templates/blog/includes/filter_panel.html:90
+#: templates/blog/includes/filter_panel.html:94
+#: templates/blog/includes/filter_panel.html:98
+msgid "RSS"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:87
+#: templates/blog/includes/filter_panel.html:91
+#: templates/blog/includes/filter_panel.html:95
+#: templates/blog/includes/filter_panel.html:99
+msgid "Atom"
+msgstr ""
+
+#: templates/crm_core/contract_confirm_delete.html:14
+#: templates/crm_core/contract_confirm_delete.html:18
+msgid "Delete contract"
+msgstr ""
+
+#: templates/crm_core/contract_confirm_delete.html:26
+#: templates/crm_core/customer_confirm_delete.html:26
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:26
+#: templates/crm_core/customergroup_confirm_delete.html:26
+#: templates/crm_core/invoice_confirm_delete.html:26
+#: templates/crm_core/purchaseorder_confirm_delete.html:26
+#: templates/crm_core/quote_confirm_delete.html:26
+#: templates/crm_core/supplier_confirm_delete.html:26
+#: templates/crm_core/taxrate_confirm_delete.html:26
+#: templates/crm_core/unit_confirm_delete.html:26
+#: templates/shop/category_confirm_delete.html:26
+#: templates/shop/product_confirm_delete.html:26
+msgid "Are you you sure you want to delete the following item?"
+msgstr ""
+
+#: templates/crm_core/contract_confirm_delete.html:30
+#: templates/crm_core/customer_confirm_delete.html:30
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:30
+#: templates/crm_core/customergroup_confirm_delete.html:30
+#: templates/crm_core/invoice_confirm_delete.html:30
+#: templates/crm_core/purchaseorder_confirm_delete.html:30
+#: templates/crm_core/quote_confirm_delete.html:30
+#: templates/crm_core/supplier_confirm_delete.html:30
+#: templates/crm_core/taxrate_confirm_delete.html:30
+#: templates/crm_core/unit_confirm_delete.html:30
+#: templates/shop/category_confirm_delete.html:30
+#: templates/shop/product_confirm_delete.html:30
+msgid "Delete"
+msgstr ""
+
+#: templates/crm_core/contract_detail.html:18
+msgid "Contract Details"
+msgstr ""
+
+#: templates/crm_core/contract_detail.html:38
+#: templates/crm_core/customer_detail.html:36
+#: templates/crm_core/supplier_detail.html:33
+msgid "Created"
+msgstr ""
+
+#: templates/crm_core/contract_detail.html:44
+#: templates/crm_core/invoice_form.html:66
+#: templates/crm_core/purchaseorder_form.html:66
+#: templates/crm_core/quote_form.html:66
+msgid "by"
+msgstr ""
+
+#: templates/crm_core/contract_detail.html:68
+msgid "Related Documents"
+msgstr ""
+
+#: templates/crm_core/contract_detail.html:75
+#: templates/crm_core/purchaseorder_form.html:5
+#: templates/crm_core/purchaseorder_form.html:9
+msgid "Purchase Orders"
+msgstr ""
+
+#: templates/crm_core/contract_form.html:14
+#: templates/crm_core/contract_form.html:18
+msgid "Edit contract"
+msgstr ""
+
+#: templates/crm_core/contract_form.html:14
+#: templates/crm_core/contract_form.html:18
+#: templates/crm_core/contract_list.html:24
+#: templates/crm_core/includes/contract_edit_toolbar.html:5
+#: templates/crm_core/includes/customer_actions_toolbar.html:4
+#: templates/crm_core/includes/customer_row_actions_toolbar.html:5
+msgid "Create Contract"
+msgstr ""
+
+#: templates/crm_core/customer_confirm_delete.html:14
+#: templates/crm_core/customer_confirm_delete.html:18
+msgid "Delete customer"
+msgstr ""
+
+#: templates/crm_core/customer_detail.html:18
+msgid "Customer Details"
+msgstr ""
+
+#: templates/crm_core/customer_detail.html:58
+#: templates/crm_core/supplier_detail.html:55
+msgid "Contact Data"
+msgstr ""
+
+#: templates/crm_core/customer_detail.html:69
+msgid "Details"
+msgstr ""
+
+#: templates/crm_core/customer_form.html:14
+#: templates/crm_core/customer_form.html:18
+msgid "Edit customer"
+msgstr ""
+
+#: templates/crm_core/customer_form.html:14
+#: templates/crm_core/customer_form.html:18
+msgid "Create customer"
+msgstr ""
+
+#: templates/crm_core/customer_list.html:24
+#: templates/crm_core/includes/customer_edit_toolbar.html:5
+msgid "Create Customer"
+msgstr ""
+
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:5
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:9
+msgid "Customer Billing Cycle"
+msgstr ""
+
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:14
+#: templates/crm_core/customerbillingcycle_confirm_delete.html:18
+msgid "Delete billing cycle"
+msgstr ""
+
+#: templates/crm_core/customerbillingcycle_form.html:14
+#: templates/crm_core/customerbillingcycle_form.html:18
+msgid "Edit billing cycle"
+msgstr ""
+
+#: templates/crm_core/customerbillingcycle_form.html:14
+#: templates/crm_core/customerbillingcycle_form.html:18
+msgid "Create billing cycle"
+msgstr ""
+
+#: templates/crm_core/customergroup_confirm_delete.html:14
+#: templates/crm_core/customergroup_confirm_delete.html:18
+#: templates/shop/category_confirm_delete.html:14
+msgid "Delete customer group"
+msgstr ""
+
+#: templates/crm_core/customergroup_form.html:14
+#: templates/crm_core/customergroup_form.html:18
+msgid "Edit customer group"
+msgstr ""
+
+#: templates/crm_core/customergroup_form.html:14
+#: templates/crm_core/customergroup_form.html:18
+msgid "Create customer group"
+msgstr ""
+
+#: templates/crm_core/includes/billingcycle_row_edit_toolbar.html:6
+msgid "Edit Billing Cycle"
+msgstr ""
+
+#: templates/crm_core/includes/billingcycle_row_edit_toolbar.html:12
+msgid "Delete Billing Cycle"
+msgstr ""
+
+#: templates/crm_core/includes/category_row_edit_toolbar.html:6
+msgid "Edit Product Category"
+msgstr ""
+
+#: templates/crm_core/includes/category_row_edit_toolbar.html:12
+msgid "Delete Product Category"
+msgstr ""
+
+#: templates/crm_core/includes/contract_actions_toolbar.html:5
+#: templates/crm_core/includes/contract_row_actions_toolbar.html:6
+#: templates/crm_core/quote_form.html:14 templates/crm_core/quote_form.html:18
+msgid "Create Quote"
+msgstr ""
+
+#: templates/crm_core/includes/contract_actions_toolbar.html:11
+#: templates/crm_core/includes/contract_row_actions_toolbar.html:11
+#: templates/crm_core/purchaseorder_form.html:14
+#: templates/crm_core/purchaseorder_form.html:18
+msgid "Create Purchase Order"
+msgstr ""
+
+#: templates/crm_core/includes/contract_actions_toolbar.html:17
+#: templates/crm_core/includes/contract_row_actions_toolbar.html:17
+msgid "Create Invoice"
+msgstr ""
+
+#: templates/crm_core/includes/contract_edit_toolbar.html:11
+#: templates/crm_core/includes/contract_row_edit_toolbar.html:12
+msgid "Edit Contract"
+msgstr ""
+
+#: templates/crm_core/includes/contract_edit_toolbar.html:17
+#: templates/crm_core/includes/contract_row_edit_toolbar.html:18
+msgid "Delete Contract"
+msgstr ""
+
+#: templates/crm_core/includes/contract_row_edit_toolbar.html:6
+msgid "View Contract"
+msgstr ""
+
+#: templates/crm_core/includes/customer_edit_toolbar.html:11
+#: templates/crm_core/includes/customer_row_edit_toolbar.html:12
+msgid "Edit Customer"
+msgstr ""
+
+#: templates/crm_core/includes/customer_edit_toolbar.html:17
+#: templates/crm_core/includes/customer_row_edit_toolbar.html:18
+msgid "Delete Customer"
+msgstr ""
+
+#: templates/crm_core/includes/customer_row_edit_toolbar.html:6
+msgid "View Customer"
+msgstr ""
+
+#: templates/crm_core/includes/customergroup_row_edit_toolbar.html:6
+msgid "Edit Customergroup"
+msgstr ""
+
+#: templates/crm_core/includes/customergroup_row_edit_toolbar.html:12
+msgid "Delete Customergroup"
+msgstr ""
+
+#: templates/crm_core/includes/product_edit_toolbar.html:5
+#: templates/shop/product_form.html:14 templates/shop/product_form.html:18
+#: templates/shop/product_list.html:24
+msgid "Create Product"
+msgstr ""
+
+#: templates/crm_core/includes/product_edit_toolbar.html:11
+#: templates/crm_core/includes/product_row_edit_toolbar.html:12
+#: templates/shop/product_form.html:14 templates/shop/product_form.html:18
+msgid "Edit Product"
+msgstr ""
+
+#: templates/crm_core/includes/product_edit_toolbar.html:17
+#: templates/crm_core/includes/product_row_edit_toolbar.html:18
+msgid "Delete Product"
+msgstr ""
+
+#: templates/crm_core/includes/product_row_edit_toolbar.html:6
+msgid "View Product"
+msgstr ""
+
+#: templates/crm_core/includes/supplier_edit_toolbar.html:5
+#: templates/crm_core/supplier_list.html:24
+msgid "Create Supplier"
+msgstr ""
+
+#: templates/crm_core/includes/supplier_edit_toolbar.html:11
+#: templates/crm_core/includes/supplier_row_edit_toolbar.html:12
+msgid "Edit Supplier"
+msgstr ""
+
+#: templates/crm_core/includes/supplier_edit_toolbar.html:17
+#: templates/crm_core/includes/supplier_row_edit_toolbar.html:18
+msgid "Delete Supplier"
+msgstr ""
+
+#: templates/crm_core/includes/supplier_row_edit_toolbar.html:6
+msgid "View Supplier"
+msgstr ""
+
+#: templates/crm_core/includes/tax_row_edit_toolbar.html:6
+msgid "Edit Taxrate"
+msgstr ""
+
+#: templates/crm_core/includes/tax_row_edit_toolbar.html:12
+msgid "Delete Taxrate"
+msgstr ""
+
+#: templates/crm_core/includes/unit_row_edit_toolbar.html:6
+msgid "Edit Unit"
+msgstr ""
+
+#: templates/crm_core/includes/unit_row_edit_toolbar.html:12
+msgid "Delete Unit"
+msgstr ""
+
+#: templates/crm_core/invoice_confirm_delete.html:14
+#: templates/crm_core/invoice_confirm_delete.html:18
+msgid "Delete invoice"
+msgstr ""
+
+#: templates/crm_core/invoice_form.html:14
+#: templates/crm_core/invoice_form.html:18
+msgid "Edit invoice"
+msgstr ""
+
+#: templates/crm_core/invoice_form.html:14
+#: templates/crm_core/invoice_form.html:18
+msgid "Create invoice"
+msgstr ""
+
+#: templates/crm_core/invoice_form.html:53
+#: templates/crm_core/purchaseorder_form.html:53
+#: templates/crm_core/quote_form.html:53
+msgid "Last Calculated Price"
+msgstr ""
+
+#: templates/crm_core/invoice_form.html:58
+#: templates/crm_core/purchaseorder_form.html:58
+#: templates/crm_core/quote_form.html:58
+msgid "Date of Creation"
+msgstr ""
+
+#: templates/crm_core/invoice_form.html:63
+#: templates/crm_core/purchaseorder_form.html:63
+#: templates/crm_core/quote_form.html:63
+msgid "Last Modified"
+msgstr ""
+
+#: templates/crm_core/purchaseorder_confirm_delete.html:14
+#: templates/crm_core/purchaseorder_confirm_delete.html:18
+msgid "Delete purchase order"
+msgstr ""
+
+#: templates/crm_core/purchaseorder_form.html:14
+#: templates/crm_core/purchaseorder_form.html:18
+msgid "Edit purchase order"
+msgstr ""
+
+#: templates/crm_core/quote_confirm_delete.html:14
+#: templates/crm_core/quote_confirm_delete.html:18
+msgid "Delete quote"
+msgstr ""
+
+#: templates/crm_core/quote_form.html:14 templates/crm_core/quote_form.html:18
+msgid "Edit quote"
+msgstr ""
+
+#: templates/crm_core/supplier_confirm_delete.html:14
+#: templates/crm_core/supplier_confirm_delete.html:18
+msgid "Delete supplier"
+msgstr ""
+
+#: templates/crm_core/supplier_detail.html:18
+msgid "Supplier Details"
+msgstr ""
+
+#: templates/crm_core/supplier_form.html:14
+#: templates/crm_core/supplier_form.html:18
+msgid "Edit supplier"
+msgstr ""
+
+#: templates/crm_core/supplier_form.html:14
+#: templates/crm_core/supplier_form.html:18
+msgid "Create supplier"
+msgstr ""
+
+#: templates/crm_core/taxrate_confirm_delete.html:14
+#: templates/crm_core/taxrate_confirm_delete.html:18
+msgid "Delete tax rate"
+msgstr ""
+
+#: templates/crm_core/taxrate_form.html:5
+#: templates/crm_core/taxrate_form.html:9 templates/settings.html:38
+msgid "Tax Rates"
+msgstr ""
+
+#: templates/crm_core/taxrate_form.html:14
+#: templates/crm_core/taxrate_form.html:18
+msgid "Edit tax rate"
+msgstr ""
+
+#: templates/crm_core/taxrate_form.html:14
+#: templates/crm_core/taxrate_form.html:18
+msgid "Create tax rate"
+msgstr ""
+
+#: templates/crm_core/unit_confirm_delete.html:14
+#: templates/crm_core/unit_confirm_delete.html:18
+msgid "Delete unit"
+msgstr ""
+
+#: templates/crm_core/unit_form.html:14 templates/crm_core/unit_form.html:18
+msgid "Edit unit"
+msgstr ""
+
+#: templates/crm_core/unit_form.html:14 templates/crm_core/unit_form.html:18
+msgid "Create unit"
+msgstr ""
+
+#: templates/dashboard.html:4 templates/dashboard.html.py:5
+#: templates/dashboard.html:8
+msgid "Dashboard"
+msgstr ""
+
+#: templates/dashboard.html:19
+msgid "open contracts in your database."
+msgstr ""
+
+#: templates/dashboard.html:27
+msgid "open invoices in your database."
+msgstr ""
+
+#: templates/dashboard.html:34
+msgid "customers in your database."
+msgstr ""
+
+#: templates/dashboard.html:41
+msgid "suppliers in your database."
+msgstr ""
+
+#: templates/dashboard.html:48
+msgid "products in your database."
+msgstr ""
+
+#: templates/dashboard.html:57
+msgid "Open Contracts"
+msgstr ""
+
+#: templates/email/comment_notification.html:6
+msgid "A new comment has been posted on"
+msgstr ""
+
+#: templates/email/comment_notification.html:10
+#, python-format
+msgid ""
+"\n"
+"    At %(submit_date)s %(user_name)s wrote:\n"
+"    "
+msgstr ""
+
+#: templates/email/comment_notification.txt:7
+#, python-format
+msgid ""
+"\n"
+"At %(submit_date)s %(user_name)s wrote:\n"
+msgstr ""
+
+#: templates/email/order_receipt.txt:5 templates/email/receipt.html:3
+#: templates/email/receipt_rtl.html:3
+msgid "Dear"
+msgstr ""
+
+#: templates/email/order_receipt.txt:7 templates/email/receipt.html:4
+#: templates/email/receipt_rtl.html:4
+msgid "Your order has been successful, details are below."
+msgstr ""
+
+#: templates/email/order_receipt.txt:9
+#: templates/shop/includes/order_details.html:7
+#: templates/shop/includes/order_details_rtl.html:8
+msgid "Order ID:"
+msgstr ""
+
+#: templates/email/order_receipt.txt:11
+msgid "Billing Details:"
+msgstr ""
+
+#: templates/email/order_receipt.txt:16
+msgid "Shipping Details:"
+msgstr ""
+
+#: templates/email/order_receipt.txt:21
+msgid "Items Ordered:"
+msgstr ""
+
+#: templates/email/order_receipt.txt:23
+msgid "each"
+msgstr ""
+
+#: templates/errors/404.html:6 templates/errors/404.html.py:10
+#: templates/errors/404.html:15
+msgid "Page not found"
+msgstr ""
+
+#: templates/errors/404.html:16
+msgid "The page you requested does not exist."
+msgstr ""
+
+#: templates/errors/500.html:6 templates/errors/500.html.py:10
+#: templates/errors/500.html:15
+msgid "Error"
+msgstr ""
+
+#: templates/errors/500.html:16
+msgid "Sorry, an error occurred."
+msgstr ""
+
+#: templates/generic/includes/comment.html:30
+msgid "Link"
+msgstr ""
+
+#: templates/generic/includes/comment.html:33
+#: templates/generic/includes/comment.html:49
+msgid "Reply"
+msgstr ""
+
+#: templates/generic/includes/comment.html:55
+msgid "Comment deleted"
+msgstr ""
+
+#: templates/generic/includes/comment.html:57
+msgid "Comment awaiting approval"
+msgstr ""
+
+#: templates/generic/includes/comment.html:71
+msgid "There are currently no comments"
+msgstr ""
+
+#: templates/generic/includes/comments.html:17
+msgid "New Comment"
+msgstr ""
+
+#: templates/generic/includes/comments.html:25
+msgid "Comment"
+msgstr ""
+
+#: templates/generic/includes/rating.html:5
+msgid "Current rating"
+msgstr ""
+
+#: templates/generic/includes/rating.html:7
+msgid "Currently unrated"
+msgstr ""
+
+#: templates/generic/includes/rating.html:17
+msgid "Rate"
+msgstr ""
+
+#: templates/includes/editable_form.html:25
+msgid "Edit"
+msgstr ""
+
+#: templates/includes/editable_toolbar.html:8
+msgid "Admin"
+msgstr ""
+
+#: templates/includes/form_errors.html:8 templates/registration/login.html:25
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/includes/pagination.html:7
+#: templates/pdf_templates/pdf_base.html:10
+msgid "Page"
+msgstr ""
+
+#: templates/includes/pagination.html:7
+#: templates/pdf_templates/pdf_base.html:10 templates/shop/checkout.html:5
+msgid "of"
+msgstr ""
+
+#: templates/includes/search_form.html:5
+msgid "Search"
+msgstr ""
+
+#: templates/includes/search_form.html:7
+msgid "Go"
+msgstr ""
+
+#: templates/pages/category.html:46
+msgid "Sort by"
+msgstr ""
+
+#: templates/pages/category.html:75 templates/shop/cart.html:99
+#: templates/shop/product.html:98 templates/shop/product.html.py:149
+msgid "On sale:"
+msgstr ""
+
+#: templates/pages/category.html:79 templates/shop/cart.html:103
+#: templates/shop/product.html:153
+msgid "Coming soon"
+msgstr ""
+
+#: templates/pages/menus/admin.html:31
+msgid "Add"
+msgstr ""
+
+#: templates/pdf_templates/invoice.html:18
+#: templates/pdf_templates/pdf_base.html:146
+#: templates/pdf_templates/purchaseorder.html:18
+#: templates/pdf_templates/quote.html:18
+msgid "Phone"
+msgstr ""
+
+#: templates/pdf_templates/invoice.html:19
+#: templates/pdf_templates/pdf_base.html:147
+#: templates/pdf_templates/purchaseorder.html:19
+#: templates/pdf_templates/quote.html:19
+msgid "Email"
+msgstr ""
+
+#: templates/pdf_templates/invoice.html:32
+msgid "Payable until"
+msgstr ""
+
+#: templates/pdf_templates/invoice.html:35
+#: templates/pdf_templates/purchaseorder.html:27
+#: templates/pdf_templates/quote.html:29
+msgid "External reference"
+msgstr ""
+
+#: templates/pdf_templates/pdf_base.html:172
+msgid "Positions"
+msgstr ""
+
+#: templates/pdf_templates/pdf_base.html:178
+msgid "Quantity"
+msgstr ""
+
+#: templates/pdf_templates/pdf_base.html:180
+#: templates/shop/includes/order_totals.html:39
+#: templates/shop/includes/order_totals.txt:9
+msgid "Total"
+msgstr ""
+
+#: templates/registration/login.html:4 templates/registration/login.html:5
+#: templates/registration/login.html:8
+msgid "Login"
+msgstr ""
+
+#: templates/registration/login.html:25
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/registration/login.html:39
+msgid "sign in now"
+msgstr ""
+
+#: templates/registration/login.html:52
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: templates/registration/login.html:56
+msgid "Log in"
+msgstr ""
+
+#: templates/search_results.html:5 templates/search_results.html.py:6
+#: templates/search_results.html:12 templates/search_results.html.py:17
+msgid "Search Results"
+msgstr ""
+
+#: templates/search_results.html:20
+#, python-format
+msgid ""
+"\n"
+"        No results were found in %(search_type)s matching your query: "
+"%(query)s\n"
+"        "
+msgstr ""
+
+#: templates/search_results.html:24
+#, python-format
+msgid ""
+"\n"
+"        Showing %(start)s to %(end)s of %(total)s results in %(search_type)s "
+"matching your query: %(query)s\n"
+"        "
+msgstr ""
+
+#: templates/settings.html:42
+msgid "Create Taxrate"
+msgstr ""
+
+#: templates/settings.html:66
+msgid "Create Billing Cycle"
+msgstr ""
+
+#: templates/settings.html:90
+msgid "Create Unit"
+msgstr ""
+
+#: templates/settings.html:110
+msgid "Product Categories"
+msgstr ""
+
+#: templates/settings.html:114
+msgid "Create Product Category"
+msgstr ""
+
+#: templates/settings.html:138
+msgid "Create Customer Group"
+msgstr ""
+
+#: templates/shop/billing_shipping.html:17
+#, python-format
+msgid ""
+"\n"
+"If you have an existing account or would like to create one, please\n"
+"<a href=\"%(login_url)s?next=%(next)s\">log in</a> or\n"
+"<a href=\"%(signup_url)s?next=%(next)s\">sign up</a>.\n"
+msgstr ""
+
+#: templates/shop/billing_shipping.html:30 templates/shop/confirmation.html:10
+#: templates/shop/includes/order_details.html:15
+#: templates/shop/includes/order_details_rtl.html:15
+msgid "Billing Details"
+msgstr ""
+
+#: templates/shop/billing_shipping.html:37
+msgid "Delivery Details"
+msgstr ""
+
+#: templates/shop/cart.html:4 templates/shop/cart.html.py:5
+#: templates/shop/cart.html:10 templates/shop/cart.html.py:14
+msgid "Your Cart"
+msgstr ""
+
+#: templates/shop/cart.html:31 templates/shop/includes/order_details.html:39
+#: templates/shop/includes/order_details_rtl.html:45
+msgid "Item"
+msgstr ""
+
+#: templates/shop/cart.html:32 templates/shop/includes/order_details.html:40
+#: templates/shop/includes/order_details_rtl.html:44
+msgid "Unit Price"
+msgstr ""
+
+#: templates/shop/cart.html:33 templates/shop/includes/order_details.html:41
+#: templates/shop/includes/order_details_rtl.html:43
+#: templates/shop/order_history.html:20
+msgid "Qty"
+msgstr ""
+
+#: templates/shop/cart.html:35
+msgid "Remove?"
+msgstr ""
+
+#: templates/shop/cart.html:69
+msgid "Return to Checkout"
+msgstr ""
+
+#: templates/shop/cart.html:69
+msgid "Go to Checkout"
+msgstr ""
+
+#: templates/shop/cart.html:71
+msgid "Update Cart"
+msgstr ""
+
+#: templates/shop/cart.html:78
+msgid "Apply"
+msgstr ""
+
+#: templates/shop/cart.html:85
+msgid "You may also like:"
+msgstr ""
+
+#: templates/shop/cart.html:116
+msgid "Your Cart is empty."
+msgstr ""
+
+#: templates/shop/category_confirm_delete.html:5
+#: templates/shop/category_confirm_delete.html:9
+#: templates/shop/category_form.html:5 templates/shop/category_form.html:9
+msgid "Product Category"
+msgstr ""
+
+#: templates/shop/category_confirm_delete.html:18
+msgid "Delete product category"
+msgstr ""
+
+#: templates/shop/category_form.html:14 templates/shop/category_form.html:18
+msgid "Edit product category"
+msgstr ""
+
+#: templates/shop/category_form.html:14 templates/shop/category_form.html:18
+msgid "Create product category"
+msgstr ""
+
+#: templates/shop/checkout.html:4 templates/shop/checkout.html.py:5
+msgid "Checkout"
+msgstr ""
+
+#: templates/shop/checkout.html:5
+msgid "Step"
+msgstr ""
+
+#: templates/shop/checkout.html:25 templates/shop/complete.html:69
+msgid "Complete"
+msgstr ""
+
+#: templates/shop/checkout.html:44
+msgid "Next"
+msgstr ""
+
+#: templates/shop/checkout.html:46
+msgid "Back"
+msgstr ""
+
+#: templates/shop/checkout.html:50
+msgid "Your cart is empty."
+msgstr ""
+
+#: templates/shop/checkout.html:51
+msgid ""
+"This may be due to your session timing out after a period of inactivity."
+msgstr ""
+
+#: templates/shop/checkout.html:52
+msgid "We apologize for the inconvenience."
+msgstr ""
+
+#: templates/shop/checkout.html:54 templates/shop/wishlist.html:44
+msgid "Continue Shopping"
+msgstr ""
+
+#: templates/shop/checkout.html:79
+msgid "Edit Cart"
+msgstr ""
+
+#: templates/shop/complete.html:6 templates/shop/complete.html.py:63
+msgid "Order Complete"
+msgstr ""
+
+#: templates/shop/complete.html:74
+msgid "Thank you for shopping with us, your order is complete."
+msgstr ""
+
+#: templates/shop/complete.html:75
+msgid "We've sent you a receipt via email."
+msgstr ""
+
+#: templates/shop/complete.html:76
+msgid "You can also view your invoice using one of the links below."
+msgstr ""
+
+#: templates/shop/complete.html:81
+msgid "Download PDF invoice"
+msgstr ""
+
+#: templates/shop/complete.html:83
+msgid "View invoice in your browser"
+msgstr ""
+
+#: templates/shop/complete.html:84 templates/shop/order_history.html:34
+msgid "Re-send order email"
+msgstr ""
+
+#: templates/shop/confirmation.html:25
+#: templates/shop/includes/order_details.html:16
+#: templates/shop/includes/order_details_rtl.html:16
+msgid "Shipping Details"
+msgstr ""
+
+#: templates/shop/includes/order_details.html:12
+#: templates/shop/includes/order_details_rtl.html:12
+msgid "Your Details"
+msgstr ""
+
+#: templates/shop/includes/order_details.html:36
+#: templates/shop/includes/order_details_rtl.html:36
+msgid "Items Ordered"
+msgstr ""
+
+#: templates/shop/includes/order_totals.html:4
+#: templates/shop/includes/order_totals.txt:2
+msgid "Sub total"
+msgstr ""
+
+#: templates/shop/includes/order_totals.html:23
+#: templates/shop/includes/order_totals.txt:6
+msgid "Shipping"
+msgstr ""
+
+#: templates/shop/includes/payment_fields.html:3
+msgid "Payment Details"
+msgstr ""
+
+#: templates/shop/includes/payment_fields.html:8
+msgid "Card Expiry"
+msgstr ""
+
+#: templates/shop/order_history.html:4 templates/shop/order_history.html:5
+#: templates/shop/order_history.html:9
+msgid "Order History"
+msgstr ""
+
+#: templates/shop/order_history.html:19
+msgid "Date / time"
+msgstr ""
+
+#: templates/shop/order_history.html:21
+msgid "Paid"
+msgstr ""
+
+#: templates/shop/order_history.html:33
+msgid "Download PDF"
+msgstr ""
+
+#: templates/shop/order_history.html:35
+msgid "View invoice"
+msgstr ""
+
+#: templates/shop/order_history.html:44
+msgid "You have not ordered anything from us yet."
+msgstr ""
+
+#: templates/shop/product.html:104
+msgid "The selected options are currently unavailable."
+msgstr ""
+
+#: templates/shop/product.html:118 templates/shop/wishlist.html:34
+msgid "Buy"
+msgstr ""
+
+#: templates/shop/product.html:120
+msgid "Save for later"
+msgstr ""
+
+#: templates/shop/product.html:125
+msgid "This product is currently unavailable."
+msgstr ""
+
+#: templates/shop/product.html:135
+msgid "Related Products"
+msgstr ""
+
+#: templates/shop/product_confirm_delete.html:14
+#: templates/shop/product_confirm_delete.html:18
+msgid "Delete product"
+msgstr ""
+
+#: templates/shop/wishlist.html:4 templates/shop/wishlist.html.py:5
+#: templates/shop/wishlist.html:9
+msgid "Your Wishlist"
+msgstr ""
+
+#: templates/shop/wishlist.html:35
+msgid "Remove"
+msgstr ""
+
+#: templates/shop/wishlist.html:42
+msgid "Your wishlist is empty."
+msgstr ""
